@@ -1,0 +1,55 @@
+{{= data.tags.section }}
+
+{{? data.operation.operationId}}
+<a id="opId{{=data.operation.operationId}}"></a>
+{{?}}
+
+{{ data.methodUpper = data.method.verb.toUpperCase(); }}
+{{ data.url = data.utils.slashes(data.baseUrl + data.method.path); }}
+{{ data.parameters = data.operation.parameters; }}
+{{ data.enums = []; }}
+{{ data.utils.fakeProdCons(data); }}
+{{ data.utils.fakeBodyParameter(data); }}
+{{ data.utils.mergePathParameters(data); }}
+{{ data.utils.getParameters(data); }}
+
+{{? data.operation.summary && !data.options.tocSummary}}{{= data.operation.summary }}{{?}}
+
+### Request
+```text 
+{{= data.methodUpper}} {{=data.method.path}}
+```
+
+{{? data.operation.description}}{{= data.operation.description }}{{?}}
+
+{{? data.operation.requestBody}}
+{{ var bodyParameterExamples = data.utils.getBodyParameterExamples(data); }}
+{{? bodyParameterExamples !== null}}
+### Request Body
+{{? data.parameters && data.parameters.length }}
+{{~ data.parameters :p}}{{? p.name == 'body'}}{{=p.shortDesc}}<br/>{{?}}
+{{~}}
+{{?}}
+
+{{? data.bodyParameter.exampleValues.description }}
+{{= data.bodyParameter.exampleValues.description }}
+{{?}}
+
+{{= bodyParameterExamples }}
+{{?}}
+{{?}}
+
+{{? data.parameters && data.parameters.length }}
+{{#def.parameters}}
+{{?}}
+{{#def.responses}}
+
+{{#def.callbacks}}
+
+{{ data.security = data.operation['x-authorized-roles']; }}
+{{ data.strictSecurity = data.operation['x-strict-roles']; }}
+{{? data.security && data.security.length || data.strictSecurity && data.strictSecurity.length}}
+### Authorization
+{{#def.authentication}}
+{{?}}
+{{= data.tags.endSection }}
