@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients v20210305.1
+title: Identity/hybrid-clients v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -19,17 +19,17 @@ Object used for Hybrid Clients.
 
 |Name|Type|Description|
 |---|---|---|
-|RedirectUris|string[]|Gets or sets the allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
-|PostLogoutRedirectUris|string[]|Gets or sets allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 for client.|
-|ClientUri|string|Gets or sets URI to a page with information about client (used on consent screen).|
-|LogoUri|string|Gets or sets URI to client logo (used on consent screen).|
-|Id|string|Gets or sets client ID for this client. This ID should be a GUID.|
-|Name|string|Gets or sets name of Client.|
-|Enabled|boolean|Gets or sets whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|Gets or sets lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|Gets or sets for OSIsoft internal use only.|
-|AllowOfflineAccess|boolean|Gets or sets whether this client can request refresh tokens, by providing the *offline_access* scope.|
-|AllowAccessTokensViaBrowser|boolean|Gets or sets whether this HybridClient is allowed to receive access tokens via the browser. This is useful to harden flows that allow multiple response types (e.g. by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
+|RedirectUris|string[]|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|URI to client logo (used on consent screen).|
+|Id|string|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|Name of client.|
+|Enabled|boolean|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|Tags for OSIsoft internal use only.|
+|AllowOfflineAccess|boolean|Whether this client can request refresh tokens, by providing the *offline_access* scope.|
+|AllowAccessTokensViaBrowser|boolean|Whether this HybridClient is allowed to receive access tokens via the browser. This is useful to harden flows that allow multiple response types (for example, by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
 
 	
 
@@ -44,27 +44,27 @@ Object used for Hybrid Clients.
 	
 
 ---
-## Get Hybrid Clients
+## List Hybrid Clients
 
-<a id="opIdHybridClients_Get Hybrid Clients"></a>
+<a id="opIdHybridClients_List Hybrid Clients"></a>
 
-Get a list of Hybrid clients from a Tenant. Optionally, get a list of requested clients. Total number of clients in the Tenant set in the Total-Count header.
+Gets a list of hybrid clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the tenant set in the Total-Count header.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients
 ```
 
-<h3 id="hybridclients_get-hybrid-clients-parameters">Parameters</h3>
+<h3 id="hybridclients_list-hybrid-clients-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
-`[optional] array id`<br/>Unordered list of Hybrid Client Ids. Empty, whitespace or null Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only return Clients that have these tags.<br/><br/>`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. Will be ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return. Will be ignored if a list of Ids is passed.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
+`[optional] array id`<br/>Unordered list of hybrid client Ids. Empty, whitespace or null Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only return clients that have these tags.<br/><br/>`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. Will be ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return. Will be ignored if a list of Ids is passed.<br/><br/>
 
-<h3 id="hybridclients_get-hybrid-clients-responses">Responses</h3>
+<h3 id="hybridclients_list-hybrid-clients-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[HybridClient](#schemahybridclient)[]|Hybrid Clients found.|
+|200|[HybridClient](#schemahybridclient)[]|List of all hybrid clients found.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
@@ -76,43 +76,12 @@ GET /api/v1/Tenants/{tenantId}/HybridClients
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -121,7 +90,13 @@ GET /api/v1/Tenants/{tenantId}/HybridClients
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -129,7 +104,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdHybridClients_Get Hybrid Clients Header"></a>
 
-Return total number of Hybrid clients in a Tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns the total number of hybrid clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -138,17 +113,17 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients
 
 <h3 id="hybridclients_get-hybrid-clients-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
-`[optional] array id`<br/>Unordered list of Hybrid Client Ids. Empty, whitespace or null Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only count clients that have these tags.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
+`[optional] array id`<br/>Unordered list of hybrid client Ids. Empty, whitespace or null Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only count clients that have these tags.<br/><br/>
 
 <h3 id="hybridclients_get-hybrid-clients-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Hybrid Client Secrets found.|
+|200|None|Hybrid client secrets found.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Client or Tenant not found.|
+|404|None|Client or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -156,7 +131,13 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -164,7 +145,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdHybridClients_Create Hybrid Client"></a>
 
-Create a Hybrid Client. A Client Id and Client Secret will be generated to perform authentication. Make sure to store the Secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the Secret value, we suggest deleting the Secret and adding a new one for this Client. Clients have unique ids in a Tenant. Currently there is a limit of 50000 clients (of all types) per Tenant.
+Creates a hybrid client. A client unique identifier and client secret will be generated to perform authentication. Make sure to store the Secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the secret value, we suggest deleting the secret and adding a new one for this client. Clients have unique ids in a tenant. Currently there is a limit of 50000 clients (of all types) per tenant.
 
 ### Request
 ```text 
@@ -201,19 +182,19 @@ HybridClientCreate object.<br/>
 
 <h3 id="hybridclients_create-hybrid-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
 
 <h3 id="hybridclients_create-hybrid-client-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[HybridClientCreateResponse](#schemahybridclientcreateresponse)|Hybrid Client created.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or Client limit exceeded.|
+|201|[HybridClientCreateResponse](#schemahybridclientcreateresponse)|Information about created hybrid client.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Client Id already exists.|
+|409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -248,89 +229,12 @@ HybridClientCreate object.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -338,7 +242,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdHybridClients_Get Hybrid Client"></a>
 
-Get a Hybrid Client from a Tenant.
+Gets a hybrid client from a Tenant.
 
 ### Request
 ```text 
@@ -347,16 +251,16 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 
 <h3 id="hybridclients_get-hybrid-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="hybridclients_get-hybrid-client-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[HybridClient](#schemahybridclient)|Hybrid Client specified.|
+|200|[HybridClient](#schemahybridclient)|Information about specified hybrid client.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -385,56 +289,18 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -442,7 +308,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdHybridClients_Get Hybrid Client Header"></a>
 
-Validate that a Hybrid Client exists. This endpoint is identical to the GET one but it does not return any objects in the body.
+Validates that a hybrid client exists. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -451,16 +317,16 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 
 <h3 id="hybridclients_get-hybrid-client-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="hybridclients_get-hybrid-client-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for specified Hybrid Client.|
+|200|None|Header for specified hybrid client.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Client or Tenant not found.|
+|404|None|Client or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -468,7 +334,13 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -476,7 +348,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdHybridClients_Update Hybrid Client"></a>
 
-Update a Hybrid Client. It can take up to one hour for these values to manifest in the authentication process.
+Updates a hybrid client. It can take up to one hour for these values to manifest in the authentication process.
 
 ### Request
 ```text 
@@ -511,17 +383,17 @@ HybridClient object. Properties that are not set or are null will not be changed
 
 <h3 id="hybridclients_update-hybrid-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="hybridclients_update-hybrid-client-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[HybridClient](#schemahybridclient)|Hybrid Client updated.|
+|200|[HybridClient](#schemahybridclient)|Information about updated hybrid client.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -551,78 +423,12 @@ HybridClient object. Properties that are not set or are null will not be changed
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -630,7 +436,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdHybridClients_Delete Hybrid Client"></a>
 
-Delete a Hybrid Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this Client will be valid until their expiration. Refresh tokens issued to this will be valid up to one hour after deletion.
+Deletes a hybrid client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration. Refresh tokens issued to this will be valid up to one hour after deletion.
 
 ### Request
 ```text 
@@ -639,7 +445,7 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 
 <h3 id="hybridclients_delete-hybrid-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="hybridclients_delete-hybrid-client-responses">Responses</h3>
 
@@ -648,7 +454,7 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 |204|None|No content.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -658,54 +464,12 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -714,13 +478,13 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
-## Get V1 Preview Hybrid Clients
+## List V1 Preview Hybrid Clients
 
-<a id="opIdHybridClients_Get V1 Preview Hybrid Clients"></a>
+<a id="opIdHybridClients_List V1 Preview Hybrid Clients"></a>
 
 Get all Hybrid Clients.
 
@@ -729,12 +493,12 @@ Get all Hybrid Clients.
 GET /api/v1-preview/Tenants/{tenantId}/HybridClients
 ```
 
-<h3 id="hybridclients_get-v1-preview-hybrid-clients-parameters">Parameters</h3>
+<h3 id="hybridclients_list-v1-preview-hybrid-clients-parameters">Parameters</h3>
 
 `string tenantId`<br/>Id of Tenant.<br/><br/>
 `[optional] array tag`<br/>Only return Clients that have these tags.<br/><br/>`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="hybridclients_get-v1-preview-hybrid-clients-responses">Responses</h3>
+<h3 id="hybridclients_list-v1-preview-hybrid-clients-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -750,43 +514,12 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -795,7 +528,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -885,89 +618,12 @@ New HybridClientCreate object.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1022,56 +678,12 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1154,78 +766,12 @@ Updated Hybrid Client values.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -1314,17 +860,17 @@ Object used for Hybrid Clients.
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|RedirectUris|string[]|false|true|Gets or sets the allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
-|PostLogoutRedirectUris|string[]|false|true|Gets or sets allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 for client.|
-|ClientUri|string|false|true|Gets or sets URI to a page with information about client (used on consent screen).|
-|LogoUri|string|false|true|Gets or sets URI to client logo (used on consent screen).|
-|Id|string|false|true|Gets or sets client ID for this client. This ID should be a GUID.|
-|Name|string|false|true|Gets or sets name of Client.|
-|Enabled|boolean|false|true|Gets or sets whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|false|true|Gets or sets lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Gets or sets for OSIsoft internal use only.|
-|AllowOfflineAccess|boolean|false|true|Gets or sets whether this client can request refresh tokens, by providing the *offline_access* scope.|
-|AllowAccessTokensViaBrowser|boolean|false|true|Gets or sets whether this HybridClient is allowed to receive access tokens via the browser. This is useful to harden flows that allow multiple response types (e.g. by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
+|RedirectUris|string[]|false|true|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|false|true|URI to client logo (used on consent screen).|
+|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|false|true|Name of client.|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|AllowOfflineAccess|boolean|false|true|Whether this client can request refresh tokens, by providing the *offline_access* scope.|
+|AllowAccessTokensViaBrowser|boolean|false|true|Whether this HybridClient is allowed to receive access tokens via the browser. This is useful to harden flows that allow multiple response types (for example, by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -1335,10 +881,12 @@ Object used for Hybrid Clients.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```
@@ -1392,19 +940,19 @@ Object used during Hybrid Client creation.
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|AllowOfflineAccess|boolean|false|true|Gets or sets whether this client can request refresh tokens, by providing the *offline_access* scope.|
-|AllowAccessTokensViaBrowser|boolean|false|true|Gets or sets whether this HybridClient is allowed to receive access tokens via the browser. This is useful to harden flows that allow multiple response types (e.g. by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
-|RedirectUris|string[]|false|true|Gets or sets the allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
-|PostLogoutRedirectUris|string[]|false|true|Gets or sets allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 for client.|
-|ClientUri|string|false|true|Gets or sets URI to a page with information about client (used on consent screen).|
-|LogoUri|string|false|true|Gets or sets URI to client logo (used on consent screen).|
-|Id|string|false|true|Gets or sets client ID for this client. This ID should be a GUID.|
-|Name|string|false|true|Gets or sets name of Client.|
-|Enabled|boolean|false|true|Gets or sets whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|false|true|Gets or sets lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Gets or sets for OSIsoft internal use only.|
-|SecretDescription|string|false|true|Gets or sets description for the initial secret for the client.|
-|SecretExpirationDate|date-time|false|true|Gets or sets expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
+|AllowOfflineAccess|boolean|false|true|Whether this client can request refresh tokens, by providing the *offline_access* scope.|
+|AllowAccessTokensViaBrowser|boolean|false|true|Whether this HybridClient is allowed to receive access tokens via the browser. This is useful to harden flows that allow multiple response types (for example, by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
+|RedirectUris|string[]|false|true|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|false|true|URI to client logo (used on consent screen).|
+|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|false|true|Name of client.|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|SecretDescription|string|false|true|Description for the initial secret for the client.|
+|SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
 
 <h2 id="tocS_HybridClientResponse">HybridClientResponse</h2>
 

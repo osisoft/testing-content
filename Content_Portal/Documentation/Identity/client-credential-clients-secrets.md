@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-secrets v20210305.1
+title: Identity/client-credential-clients-secrets v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -26,30 +26,30 @@ generator: osisoft.widdershins v1.0.5
 	
 
 ---
-## Get Client Credential Client Secrets
+## List Client Credential Client Secrets
 
-<a id="opIdSecrets_Get Client Credential Client Secrets"></a>
+<a id="opIdSecrets_List Client Credential Client Secrets"></a>
 
-Get all secrets for a Client Credential Client. Total number of secrets in the Client set in the Total-Count header.
+Gets all secrets for a client credential client. Total number of secrets in the client set in the Total-Count header.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 ```
 
-<h3 id="secrets_get-client-credential-client-secrets-parameters">Parameters</h3>
+<h3 id="secrets_list-client-credential-client-secrets-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 `[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="secrets_get-client-credential-client-secrets-responses">Responses</h3>
+<h3 id="secrets_list-client-credential-client-secrets-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)[]|Client Credential Secret information found.|
+|200|[ClientSecret](#schemaclientsecret)[]|List of secret information corresponding to the specified client credential client.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -58,43 +58,12 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -103,7 +72,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -111,7 +80,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get Client Credential Client Secrets Header"></a>
 
-Return total number of Secrets in a Client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns the total number of secrets in a client credential client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -120,16 +89,16 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 
 <h3 id="secrets_get-client-credential-client-secrets-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="secrets_get-client-credential-client-secrets-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Client Credential Client Secret header information.|
+|200|None|Client credential client secret header information.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Client or Tenant not found.|
+|404|None|Client or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -137,7 +106,7 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -145,7 +114,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Add Client Credential Client Secret"></a>
 
-Add a new Secret to a Client Credential Client. A Client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
+Adds a new secret to a client credential client. A client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
 
 ### Request
 ```text 
@@ -166,17 +135,17 @@ ClientSecretCreateOrUpdate object.<br/>
 
 <h3 id="secrets_add-client-credential-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="secrets_add-client-credential-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse](#schemaclientsecretresponse)|Client Credential Client Secret updated information.|
+|201|[ClientSecretResponse](#schemaclientsecretresponse)|Information about created secret.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -194,78 +163,12 @@ ClientSecretCreateOrUpdate object.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -273,7 +176,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get Client Credential Client Secret"></a>
 
-Get a Client Credential Client Secret.
+Gets a client credential client secret.
 
 ### Request
 ```text 
@@ -282,16 +185,16 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secre
 
 <h3 id="secrets_get-client-credential-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_get-client-credential-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Client Credential Client Secret information specified.|
+|200|[ClientSecret](#schemaclientsecret)|Information about specified secret.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -307,56 +210,12 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secre
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -364,7 +223,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get Client Credential Client Secret Header"></a>
 
-Validate that a Secret with given Id exists in the Client. This endpoint is identical to the GET one but it does not return any objects in the body.
+Validates that a secret with a given unique identifier exists in the client. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -373,16 +232,16 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secr
 
 <h3 id="secrets_get-client-credential-client-secret-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_get-client-credential-client-secret-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for specified Client Credential Client Secret.|
+|200|None|Header for specified client secret.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Secret, Client, or Tenant not found.|
+|404|None|Secret, client, or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -390,7 +249,7 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secr
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -398,7 +257,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Update Client Credential Client Secret"></a>
 
-Update a Client Credential Client Secret. It can take up to one hour for the update to manifest in the authentication process.
+Updates a client credential client secret. It can take up to one hour for the update to manifest in the authentication process.
 
 ### Request
 ```text 
@@ -419,17 +278,17 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 
 <h3 id="secrets_update-client-credential-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_update-client-credential-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Updated Client Credential Client Secret information.|
+|200|[ClientSecret](#schemaclientsecret)|Information about updated secret.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -446,78 +305,12 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -525,7 +318,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Delete Client Credential Client Secret"></a>
 
-Delete a Secret from a Client Credential Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued using this Secret will be valid until their expiration.
+Deletes a secret from a client credential client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued using this secret will be valid until their expiration.
 
 ### Request
 ```text 
@@ -534,7 +327,7 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{se
 
 <h3 id="secrets_delete-client-credential-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_delete-client-credential-client-secret-responses">Responses</h3>
 
@@ -543,7 +336,7 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{se
 |204|None|No content.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -553,54 +346,12 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{se
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -609,34 +360,34 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{se
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
-## Get V1 Preview Client Credential Client Secrets
+## List V1 Preview Client Credential Client Secrets
 
-<a id="opIdSecrets_Get V1 Preview Client Credential Client Secrets"></a>
+<a id="opIdSecrets_List V1 Preview Client Credential Client Secrets"></a>
 
-Get all secrets for a Client Credential Client.
+Get all secrets for a client credential client.
 
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 ```
 
-<h3 id="secrets_get-v1-preview-client-credential-client-secrets-parameters">Parameters</h3>
+<h3 id="secrets_list-v1-preview-client-credential-client-secrets-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 `[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="secrets_get-v1-preview-client-credential-client-secrets-responses">Responses</h3>
+<h3 id="secrets_list-v1-preview-client-credential-client-secrets-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)[]|Client Credential Client Secrets found.|
+|200|[ClientSecret2](#schemaclientsecret2)[]|Client credential client secrets found.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -645,43 +396,12 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -690,7 +410,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -698,7 +418,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Add V1 Preview Client Credential Client Secret"></a>
 
-Add a new secret for a Client Credential Client.
+Add a new secret for a client credential client.
 
 ### Request
 ```text 
@@ -707,7 +427,7 @@ POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secre
 
 ### Request Body
 
-Client Secret to create.<br/>
+Client secret to create.<br/>
 
 ```json
 {
@@ -719,16 +439,16 @@ Client Secret to create.<br/>
 
 <h3 id="secrets_add-v1-preview-client-credential-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="secrets_add-v1-preview-client-credential-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Client Credential Client Secret created.|
+|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Client credential client secret created.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -748,67 +468,12 @@ Client Secret to create.<br/>
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -816,7 +481,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get V1 Preview Client Credential Client Secret"></a>
 
-Get a specific Client Credential Client Secret.
+Get a specific client credential client secret.
 
 ### Request
 ```text 
@@ -825,16 +490,16 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 
 <h3 id="secrets_get-v1-preview-client-credential-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>`integer secretId`<br/>Id of secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_get-v1-preview-client-credential-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Client Credential Client Secret specified.|
+|200|[ClientSecret2](#schemaclientsecret2)|Client credential client secret specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -851,56 +516,12 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -908,7 +529,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Update V1 Preview Client Credential Client Secret"></a>
 
-Update a Client Credential Client Secret Only Secret Description and Secret Expiration Date can be updated.
+Update a client credential client secret. Only secret description and secret expiration date can be updated.
 
 ### Request
 ```text 
@@ -917,7 +538,7 @@ PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 
 ### Request Body
 
-Client Secret details.<br/>
+Client secret details.<br/>
 
 ```json
 {
@@ -929,17 +550,17 @@ Client Secret details.<br/>
 
 <h3 id="secrets_update-v1-preview-client-credential-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>`integer secretId`<br/>secretId.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>secretId.<br/><br/>
 
 <h3 id="secrets_update-v1-preview-client-credential-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Updated Client Credential Client Secret.|
+|200|[ClientSecret2](#schemaclientsecret2)|Updated client credential client secret.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -957,78 +578,12 @@ Client Secret details.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -1070,10 +625,12 @@ Client Secret Object.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```

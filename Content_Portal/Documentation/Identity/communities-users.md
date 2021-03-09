@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-users v20210305.1
+title: Identity/communities-users v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -13,44 +13,43 @@ generator: osisoft.widdershins v1.0.5
 
 <h1 id="identity-communities-users-users">Users</h1>
 
-Object for retrieving a User.
+Object for retrieving a user.
 
 |Name|Type|Description|
 |---|---|---|
-|Id|guid|Gets or sets unique User ID.|
-|GivenName|string|Gets or sets given name of user.|
-|Surname|string|Gets or sets surname of user.|
-|Name|string|Gets or sets name of user.|
-|Email|string|Gets or sets email of user.|
-|ContactEmail|string|Gets or sets contact email for user. User will only be contacted through this email.|
-|ContactGivenName|string|Gets or sets preferred contact name for user.|
-|ContactSurname|string|Gets or sets preferred contact surname for user.|
-|ExternalUserId|string|Gets or sets provider id for user. This is the unique ID we get from the Identity Provider.|
-|IdentityProviderId|guid|Gets or sets Identity Provider Id used to authenticate User. Will be set once the User accepts an invitation. If not specified when sending the invitation to the User, it can be any of the Identity Provider Ids configured for this Tenant.|
-|RoleIds|string[]|Gets or sets list of strings of RoleIds.|
+|Id|guid|User unique identifier.|
+|GivenName|string|Given name of the user.|
+|Surname|string|Surname of the user.|
+|Name|string|Name of the user.|
+|Email|string|Email of the user.|
+|ContactEmail|string|Contact email for the user. User will only be contacted through this email.|
+|ContactGivenName|string|Preferred contact name for the user.|
+|ContactSurname|string|Preferred contact surname for the user.|
+|ExternalUserId|string|Provider unique identifier for the user. This is the unique identifier we get from the identity provider.|
+|IdentityProviderId|guid|Identity provider unique identifier used to authenticate the user. Will be set once the user accepts an invitation. If not specified when sending the invitation to the user, it can be any of the identity provider Ids configured for this tenant.|
+|RoleIds|string[]|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 	
 
 	
 
 ---
-## Get All Users
+## List Community Users For Tenant
 
-<a id="opIdUsers_Get All Users"></a>
+<a id="opIdUsers_List Community Users For Tenant"></a>
 
-Get a list of all users of the Tenant in this Community.
+Get a list of Users of a Tenant in a Community.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
 ```
 
-<h3 id="users_get-all-users-parameters">Parameters</h3>
+<h3 id="users_list-community-users-for-tenant-parameters">Parameters</h3>
 
 `string tenantId`<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`<br/>Id of Community.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of users to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of users to return.<br/><br/>
 
-<h3 id="users_get-all-users-responses">Responses</h3>
+<h3 id="users_list-community-users-for-tenant-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -67,54 +66,12 @@ GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -124,25 +81,26 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
 <li>Community Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
-## Get All Users Count
+## Get Community Users Count For Tenant
 
-<a id="opIdUsers_Get All Users Count"></a>
+<a id="opIdUsers_Get Community Users Count For Tenant"></a>
 
-Get a count of all users of the Tenant in this Community. This endpoint is identical to the Get All Users List except it does not return a body.
+Get the count of Users of the Tenant in this Community. This endpoint is identical to the `Guid)` endpoint except it does not return a body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
 ```
 
-<h3 id="users_get-all-users-count-parameters">Parameters</h3>
+<h3 id="users_get-community-users-count-for-tenant-parameters">Parameters</h3>
 
 `string tenantId`<br/>Id of the calling Tenant that belongs to this Community.<br/><br/>`string communityId`<br/>Id of Community.<br/><br/>
 
-<h3 id="users_get-all-users-count-responses">Responses</h3>
+<h3 id="users_get-community-users-count-for-tenant-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -159,54 +117,12 @@ HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -215,9 +131,8 @@ HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Community Administrator</li>
 <li>Community Member</li>
-<li>Community Moderator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -269,61 +184,6 @@ PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
@@ -331,6 +191,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -366,54 +227,12 @@ DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -424,6 +243,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -454,23 +274,23 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```
 
-Object for retrieving a User.
+Object for retrieving a user.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets unique User ID.|
-|GivenName|string|false|true|Gets or sets given name of user.|
-|Surname|string|false|true|Gets or sets surname of user.|
-|Name|string|false|true|Gets or sets name of user.|
-|Email|string|false|true|Gets or sets email of user.|
-|ContactEmail|string|false|true|Gets or sets contact email for user. User will only be contacted through this email.|
-|ContactGivenName|string|false|true|Gets or sets preferred contact name for user.|
-|ContactSurname|string|false|true|Gets or sets preferred contact surname for user.|
-|ExternalUserId|string|false|true|Gets or sets provider id for user. This is the unique ID we get from the Identity Provider.|
-|IdentityProviderId|guid|false|true|Gets or sets Identity Provider Id used to authenticate User. Will be set once the User accepts an invitation. If not specified when sending the invitation to the User, it can be any of the Identity Provider Ids configured for this Tenant.|
-|RoleIds|string[]|false|true|Gets or sets list of strings of RoleIds.|
+|Id|guid|false|false|User unique identifier.|
+|GivenName|string|false|true|Given name of the user.|
+|Surname|string|false|true|Surname of the user.|
+|Name|string|false|true|Name of the user.|
+|Email|string|false|true|Email of the user.|
+|ContactEmail|string|false|true|Contact email for the user. User will only be contacted through this email.|
+|ContactGivenName|string|false|true|Preferred contact name for the user.|
+|ContactSurname|string|false|true|Preferred contact surname for the user.|
+|ExternalUserId|string|false|true|Provider unique identifier for the user. This is the unique identifier we get from the identity provider.|
+|IdentityProviderId|guid|false|true|Identity provider unique identifier used to authenticate the user. Will be set once the user accepts an invitation. If not specified when sending the invitation to the user, it can be any of the identity provider Ids configured for this tenant.|
+|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -481,10 +301,12 @@ Object for retrieving a User.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```

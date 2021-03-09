@@ -1,5 +1,5 @@
 ---
-title: Identity/claim-type-names v20210305.1
+title: Identity/claim-type-names v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -20,30 +20,30 @@ generator: osisoft.widdershins v1.0.5
 	
 
 ---
-## Get Identity Provider Claim Type Names
+## List Identity Provider Claim Type Names
 
-<a id="opIdClaimTypeNames_Get Identity Provider Claim Type Names"></a>
+<a id="opIdClaimTypeNames_List Identity Provider Claim Type Names"></a>
 
-Get all Identity Provider Claim Type Names for an Identity Provider.
+Gets all identity provider claim type names for an identity provider on a tenant.
 
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 ```
 
-<h3 id="claimtypenames_get-identity-provider-claim-type-names-parameters">Parameters</h3>
+<h3 id="claimtypenames_list-identity-provider-claim-type-names-parameters">Parameters</h3>
 
-`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of Identity Providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of Identity Providers to return.<br/><br/>
+`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
+`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of identity providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of identity providers to return.<br/><br/>
 
-<h3 id="claimtypenames_get-identity-provider-claim-type-names-responses">Responses</h3>
+<h3 id="claimtypenames_list-identity-provider-claim-type-names-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderClaimTypeName](#schemaidentityproviderclaimtypename)[]|Identity Provider Type Names found.|
+|200|[IdentityProviderClaimTypeName](#schemaidentityproviderclaimtypename)[]|List of identity provider type names found.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity Provider not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -52,43 +52,12 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -97,7 +66,7 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -105,7 +74,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaimTypeNames_Get Identity Provider Claim Type Names Header"></a>
 
-Get Header for all Identity Provider Claims Type Names for an Identity Provider.
+Gets header for all identity provider claim type names for an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -114,16 +83,16 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 
 <h3 id="claimtypenames_get-identity-provider-claim-type-names-header-parameters">Parameters</h3>
 
-`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="claimtypenames_get-identity-provider-claim-type-names-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for Identity Provider Claim Type Names.|
+|200|None|Header for identity provider claim type names.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Identity Provider not found.|
+|404|None|Identity provider not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -131,7 +100,7 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -139,7 +108,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaimTypeNames_Get Identity Provider Claim Type Name"></a>
 
-Get an Identity Provider Claim Type Name from an Identity Provider.
+Gets an identity provider claim type name from an identity provider.
 
 ### Request
 ```text 
@@ -148,16 +117,16 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProvi
 
 <h3 id="claimtypenames_get-identity-provider-claim-type-name-parameters">Parameters</h3>
 
-`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>`string identityProviderClaimTypeNameId`<br/>Id of Identity Provider Claim Type Name.<br/><br/>
+`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimTypeNameId`<br/>Identity provider claim type name unique identifier.<br/><br/>
 
 <h3 id="claimtypenames_get-identity-provider-claim-type-name-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity Proivder Claim Type Name specified.|
+|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity provider claim type name specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity Provider, or Identity Provider Claim Type Name not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider, or identity provider claim type name not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -175,56 +144,12 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProvi
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -232,7 +157,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaimTypeNames_Get Identity Provider Claim Type Name Header"></a>
 
-Get an Identity Provider Claim Type Name Header from an Identity Provider.
+Gets an identity provider claim type name header from an identity provider.
 
 ### Request
 ```text 
@@ -241,16 +166,16 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProv
 
 <h3 id="claimtypenames_get-identity-provider-claim-type-name-header-parameters">Parameters</h3>
 
-`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>`string identityProviderClaimTypeNameId`<br/>Id of Identity Provider Claim Type Name.<br/><br/>
+`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimTypeNameId`<br/>Identity provider claim type name unique identifier.<br/><br/>
 
 <h3 id="claimtypenames_get-identity-provider-claim-type-name-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for Identity Provider Claim Type Name specified.|
+|200|None|Header for identity provider claim type name specified.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Identity Provider, or Identity Provider Claim Type Name not found.|
+|404|None|Identity provider, or identity provider claim type name not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -258,7 +183,7 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProv
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -298,10 +223,12 @@ Claim Type Name associated with an Identity Provider.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```
@@ -336,14 +263,14 @@ Object returned whenever there is an error.
 
 ```
 
-Object representing a claim from an Identity Provider to map to a Role.
+Object representing a claim from an identity provider to map to a role.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets the IdentityProvider Claim Id.|
-|TypeName|string|false|true|Gets or sets the Type Name for this IdentityProvider Claim.|
-|Value|string|false|true|Gets or sets the value for this IdentityProvider Claim.|
-|RoleIds|string[]|false|true|Gets or sets a list of RoleIds that this claim on this IdentityProvider will map to.|
+|Id|guid|false|false|Identity provider claim unique identifier.|
+|TypeName|string|false|true|Type name for this identity provider claim.|
+|Value|string|false|true|Value for this identity provider claim.|
+|RoleIds|string[]|false|true|List of role Ids that this claim on this identity provider will map to.|
 

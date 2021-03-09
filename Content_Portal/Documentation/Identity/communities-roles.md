@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-roles v20210305.1
+title: Identity/communities-roles v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -30,9 +30,9 @@ generator: osisoft.widdershins v1.0.5
 	
 
 ---
-## Get Instanced Community Roles
+## List Instanced Community Roles
 
-<a id="opIdRoles_Get Instanced Community Roles"></a>
+<a id="opIdRoles_List Instanced Community Roles"></a>
 
 Get instanced Community Roles for a Community.
 
@@ -41,11 +41,11 @@ Get instanced Community Roles for a Community.
 GET /api/v1/Communities/{communityId}/Roles
 ```
 
-<h3 id="roles_get-instanced-community-roles-parameters">Parameters</h3>
+<h3 id="roles_list-instanced-community-roles-parameters">Parameters</h3>
 
 `string communityId`<br/>Id of Community.<br/><br/>
 
-<h3 id="roles_get-instanced-community-roles-responses">Responses</h3>
+<h3 id="roles_list-instanced-community-roles-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -62,54 +62,12 @@ GET /api/v1/Communities/{communityId}/Roles
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -119,6 +77,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
 <li>Community Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -179,10 +138,12 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```

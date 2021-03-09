@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210305.1
+title: Identity/users-roles v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -30,31 +30,31 @@ generator: osisoft.widdershins v1.0.5
 	
 
 ---
-## Get User Roles
+## List User Roles
 
-<a id="opIdRoles_Get User Roles"></a>
+<a id="opIdRoles_List User Roles"></a>
 
-Returns a list of Roles for a given User.
+Returns a list of roles for a given user.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 ```
 
-<h3 id="roles_get-user-roles-parameters">Parameters</h3>
+<h3 id="roles_list-user-roles-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant ID.<br/><br/>`string userId`<br/>User ID.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of Roles to skip.<br/><br/>`[optional] integer count`<br/>Max number of Roles to return.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
+`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of roles to skip.<br/><br/>`[optional] integer count`<br/>Max number of roles to return.<br/><br/>
 
-<h3 id="roles_get-user-roles-responses">Responses</h3>
+<h3 id="roles_list-user-roles-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Role](#schemarole)[]|List of Roles found.|
+|200|[Role](#schemarole)[]|List of roles found.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant or User not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant or user not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -63,54 +63,12 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -119,13 +77,13 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
 <li>Self</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -133,7 +91,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdRoles_Get User Roles Header"></a>
 
-Head request to get the total number of User Roles for the specified User.
+Head request to get the total number of user roles for the specified user.
 
 ### Request
 ```text 
@@ -142,16 +100,16 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 
 <h3 id="roles_get-user-roles-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant ID.<br/><br/>`string userId`<br/>User ID.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
 
 <h3 id="roles_get-user-roles-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Headers for Roles found.|
+|200|None|Headers for roles found.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Tenant or User not found.|
+|404|None|Tenant or user not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -159,13 +117,13 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
 <li>Self</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -173,7 +131,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdRoles_Put User Roles"></a>
 
-Replace existing User Roles. If Member Role is not provided it will be added.
+Replaces existing user roles.
 
 ### Request
 ```text 
@@ -182,7 +140,7 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 
 ### Request Body
 
-Update Roles list.<br/>
+Update roles list.<br/>
 
 ```json
 [
@@ -200,7 +158,7 @@ Update Roles list.<br/>
 
 <h3 id="roles_put-user-roles-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant ID.<br/><br/>`string userId`<br/>User ID.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
 
 <h3 id="roles_put-user-roles-responses">Responses</h3>
 
@@ -210,7 +168,7 @@ Update Roles list.<br/>
 |400|[ErrorResponse](#schemaerrorresponse)|Missing preferences.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|User or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -220,65 +178,12 @@ Update Roles list.<br/>
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -287,8 +192,7 @@ Update Roles list.<br/>
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
-<li>Community Lead</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -349,10 +253,12 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```

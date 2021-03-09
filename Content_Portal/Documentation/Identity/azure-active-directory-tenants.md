@@ -1,5 +1,5 @@
 ---
-title: Identity/azure-active-directory-tenants v20210305.1
+title: Identity/azure-active-directory-tenants v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -13,13 +13,13 @@ generator: osisoft.widdershins v1.0.5
 
 <h1 id="identity-azure-active-directory-tenants-azure-active-directory-tenants">Azure Active Directory Tenants</h1>
 
-The model for an Azure Active Directory Tenant in Identity Storage.
+The model for an AAD tenant in Identity Storage.
 
 |Name|Type|Description|
 |---|---|---|
-|Id|string|Gets or sets id of an Azure Active Directory Tenant.|
-|ConsentState|[ConsentState](#schemaconsentstate)|Gets or sets Consent State of Azure Active Directory Tenant. Can be: NotConsented (0), Consented (1).|
-|Domain|string|Gets or sets Domain of Azure Active Directory Tenant.|
+|Id|string|AAD tenant unique identifier.|
+|ConsentState|[ConsentState](#schemaconsentstate)|Consent state of AAD tenant. Can be: NotConsented (0), Consented (1).|
+|Domain|string|AAD tenant domain name.|
 
 	
 
@@ -30,9 +30,9 @@ The model for an Azure Active Directory Tenant in Identity Storage.
 	
 
 ---
-## Get Aad Tenants For Tenant
+## List Aad Tenants For Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_Get Aad Tenants For Tenant"></a>
+<a id="opIdAzureActiveDirectoryTenants_List Aad Tenants For Tenant"></a>
 
 Get all Azure Active Directory Tenants from an OSIsoft Cloud Services Tenant.
 
@@ -41,12 +41,12 @@ Get all Azure Active Directory Tenants from an OSIsoft Cloud Services Tenant.
 GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 ```
 
-<h3 id="azureactivedirectorytenants_get-aad-tenants-for-tenant-parameters">Parameters</h3>
+<h3 id="azureactivedirectorytenants_list-aad-tenants-for-tenant-parameters">Parameters</h3>
 
 `string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
 `[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of Azure Active Directory tenants to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of Azure Active Directory tenants to return.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_get-aad-tenants-for-tenant-responses">Responses</h3>
+<h3 id="azureactivedirectorytenants_list-aad-tenants-for-tenant-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -61,32 +61,12 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -95,7 +75,7 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -130,7 +110,7 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -172,67 +152,12 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -267,7 +192,7 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -311,89 +236,12 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -425,7 +273,7 @@ DELETE /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -475,54 +323,12 @@ ConsentInformation object.<br/>
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -531,7 +337,7 @@ ConsentInformation object.<br/>
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -552,15 +358,15 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```
 
-The model for an Azure Active Directory Tenant in Identity Storage.
+The model for an AAD tenant in Identity Storage.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|Gets or sets id of an Azure Active Directory Tenant.|
-|ConsentState|[ConsentState](#schemaconsentstate)|false|false|Gets or sets Consent State of Azure Active Directory Tenant. Can be: NotConsented (0), Consented (1).|
-|Domain|string|false|true|Gets or sets Domain of Azure Active Directory Tenant.|
+|Id|string|false|true|AAD tenant unique identifier.|
+|ConsentState|[ConsentState](#schemaconsentstate)|false|false|Consent state of AAD tenant. Can be: NotConsented (0), Consented (1).|
+|Domain|string|false|true|AAD tenant domain name.|
 
 <h2 id="tocS_ConsentState">ConsentState</h2>
 
@@ -587,10 +393,12 @@ AAD Tenant Consent State.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```
@@ -630,9 +438,9 @@ Information about the recipient of the Azure Active Directory consent email.
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|AzureActiveDirectoryConsentEmail|email|false|true|Gets or sets address to email consent.|
-|AzureActiveDirectoryConsentGivenName|string|false|true|Gets or sets preferred name to use in the consent email.|
-|AzureActiveDirectoryConsentSurname|string|false|true|Gets or sets preferred surname to use in the consent email.|
-|AzureActiveDirectoryTenant|string|false|true|Gets or sets Azure Active Directory Domain Name (e.g. mydomain.onmicrosoft.com).|
-|AzureActiveDirectoryConsentTypes|string|false|true|Gets or sets Azure Active Directory Consent Types. Valid Consent Type combinations include "SignIn" and "SignIn;ReadAllUsersGroups".|
+|AzureActiveDirectoryConsentEmail|email|false|true|Email address to send consent.|
+|AzureActiveDirectoryConsentGivenName|string|false|true|Preferred name to use in the consent email.|
+|AzureActiveDirectoryConsentSurname|string|false|true|Preferred surname to use in the consent email.|
+|AzureActiveDirectoryTenant|string|false|true|AAD tenant domain name (for example, mydomain.onmicrosoft.com).|
+|AzureActiveDirectoryConsentTypes|string|false|true|Semicolon delimited AAD consent types. Can be "SignIn" or "SignIn;ReadAllUsersGroups".|
 

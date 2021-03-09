@@ -1,5 +1,5 @@
 ---
-title: Identity/claims v20210305.1
+title: Identity/claims v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -22,31 +22,31 @@ generator: osisoft.widdershins v1.0.5
 	
 
 ---
-## Get Identity Provider Claims
+## List Identity Provider Claims
 
-<a id="opIdClaims_Get Identity Provider Claims"></a>
+<a id="opIdClaims_List Identity Provider Claims"></a>
 
-Get all Identity Provider Claims for an Identity Provider on a Tenant.
+Gets all identity provider claims for an identity provider on a tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 ```
 
-<h3 id="claims_get-identity-provider-claims-parameters">Parameters</h3>
+<h3 id="claims_list-identity-provider-claims-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of Identity Providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of Identity Providers to return.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
+`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of identity providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of identity providers to return.<br/><br/>
 
-<h3 id="claims_get-identity-provider-claims-responses">Responses</h3>
+<h3 id="claims_list-identity-provider-claims-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderClaim](#schemaidentityproviderclaim)[]|List of Identity Provider Claims found.|
+|200|[IdentityProviderClaim](#schemaidentityproviderclaim)[]|List of identity provider claims found.|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant or Identity Provider not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant or identity provider not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -55,54 +55,12 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -111,7 +69,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -119,7 +77,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaims_Get Identity Provider Claims Header"></a>
 
-Get Header for all Identity Provider Claims for an Identity Provider on a Tenant.
+Gets header for all identity provider claims for an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -128,16 +86,16 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 
 <h3 id="claims_get-identity-provider-claims-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="claims_get-identity-provider-claims-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Identity Provider Claim Header information.|
+|200|None|Identity provider claim header information.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Tenant or Identity Provider not found.|
+|404|None|Tenant or identity provider not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -145,7 +103,7 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -153,7 +111,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaims_Post Identity Provider Claim"></a>
 
-Create a new Identity Provider Claim for an Identity Provider on a Tenant.
+Creates a new identity provider claim for an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -162,7 +120,7 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 
 ### Request Body
 
-Identity Provider Claim to create.<br/>
+Identity provider claim to create.<br/>
 
 ```json
 {
@@ -176,20 +134,20 @@ Identity Provider Claim to create.<br/>
 
 <h3 id="claims_post-identity-provider-claim-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="claims_post-identity-provider-claim-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity Provider Claim created.|
+|201|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity provider claim created.|
 |302|None|Found.|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant, Identity Provider, or Roles not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, or roles not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Identity Provider Claim configuration already exists.|
+|409|[ErrorResponse](#schemaerrorresponse)|Identity provider claim configuration already exists.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -207,89 +165,12 @@ Identity Provider Claim to create.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -297,7 +178,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaims_Get Identity Provider Claim"></a>
 
-Get an Identity Provider Claim from an Identity Provider on a Tenant.
+Gets an identity provider claim from an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -306,16 +187,16 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{id
 
 <h3 id="claims_get-identity-provider-claim-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>`string identityProviderClaimId`<br/>Id of Identity Provider Claim.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`<br/>Identity provider claim unique identifier.<br/><br/>
 
 <h3 id="claims_get-identity-provider-claim-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity Provider Claim specified.|
+|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity provider claim specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant, Identity Provider, or Identity Provider Claim not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, or identity provider claim not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -333,56 +214,12 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{id
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -390,7 +227,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaims_Get Identity Provider Claim Header"></a>
 
-Get an Identity Provider Claim Header from an Identity Provider on a Tenant.
+Gets an identity provider claim header from an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -399,16 +236,16 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{i
 
 <h3 id="claims_get-identity-provider-claim-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>`string identityProviderClaimId`<br/>Id of Identity Provider Claim.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`<br/>Identity provider claim unique identifier.<br/><br/>
 
 <h3 id="claims_get-identity-provider-claim-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Identity Provider Claim specified header.|
+|200|None|Identity provider claim specified header.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Tenant, Identity Provider, or Identity Provider Claim not found.|
+|404|None|Tenant, identity provider, or identity provider claim not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -416,7 +253,7 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{i
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -424,7 +261,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaims_Put Identity Provider Claim"></a>
 
-Create a new Identity Provider Claim for an Identity Provider on a Tenant.
+Creates a new identity provider claim for an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -433,7 +270,7 @@ PUT /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{id
 
 ### Request Body
 
-Updated Identity Provider Claim values.<br/>
+Updated identity provider claim values.<br/>
 
 ```json
 {
@@ -446,19 +283,19 @@ Updated Identity Provider Claim values.<br/>
 
 <h3 id="claims_put-identity-provider-claim-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>`string identityProviderClaimId`<br/>Id of Identity Provider Claim.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`<br/>Identity provider claim unique identifier.<br/><br/>
 
 <h3 id="claims_put-identity-provider-claim-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Updated Identity Provider Claim.|
+|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Updated identity provider claim.|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant, Identity Provider, Identity Provider Claim, or Roles not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, identity provider claim, or roles not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Identity Provider Claim configuration already exists.|
+|409|[ErrorResponse](#schemaerrorresponse)|Identity provider claim configuration already exists.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -476,89 +313,12 @@ Updated Identity Provider Claim values.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -566,7 +326,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdClaims_Delete Identity Provider Claim"></a>
 
-Delete an Identity Provider Claim for an Identity Provider on a Tenant.
+Deletes an identity provider claim for an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -575,7 +335,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/
 
 <h3 id="claims_delete-identity-provider-claim-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>`string identityProviderClaimId`<br/>Id of Identity Provider Claim.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`<br/>Identity provider claim unique identifier.<br/><br/>
 
 <h3 id="claims_delete-identity-provider-claim-responses">Responses</h3>
 
@@ -584,7 +344,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/
 |204|None|No content.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant, Identity Provider, or Identity Provider Claim not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, or identity provider claim not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -594,54 +354,12 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -650,7 +368,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -674,16 +392,16 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```
 
-Object representing a claim from an Identity Provider to map to a Role.
+Object representing a claim from an identity provider to map to a role.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets the IdentityProvider Claim Id.|
-|TypeName|string|false|true|Gets or sets the Type Name for this IdentityProvider Claim.|
-|Value|string|false|true|Gets or sets the value for this IdentityProvider Claim.|
-|RoleIds|string[]|false|true|Gets or sets a list of RoleIds that this claim on this IdentityProvider will map to.|
+|Id|guid|false|false|Identity provider claim unique identifier.|
+|TypeName|string|false|true|Type name for this identity provider claim.|
+|Value|string|false|true|Value for this identity provider claim.|
+|RoleIds|string[]|false|true|List of role Ids that this claim on this identity provider will map to.|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -694,10 +412,12 @@ Object representing a claim from an Identity Provider to map to a Role.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```
@@ -731,15 +451,15 @@ Object returned whenever there is an error.
 
 ```
 
-IdentityProvider Claim to Create.
+Identity provider claim to create.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Value|string|false|true|Gets or sets the value for this IdentityProvider Claim.|
-|IdentityProviderClaimTypeNameId|guid|false|false|Gets or sets the Identity Provider Claim Type Name Id for this IdentityProvider Claim.|
-|RoleIds|string[]|false|true|Gets or sets the list of Role Ids associated with this IdentityProviderClaim.|
+|Value|string|false|true|Value for this identity provider claim.|
+|IdentityProviderClaimTypeNameId|guid|false|false|Identity provider claim type name unique identifier for this identity provider claim.|
+|RoleIds|string[]|false|true|List of role Ids associated with this identity provider claim.|
 
 <h2 id="tocS_IdentityProviderClaimUpdate">IdentityProviderClaimUpdate</h2>
 
@@ -758,12 +478,12 @@ IdentityProvider Claim to Create.
 
 ```
 
-Update information for an IdentityProvider Claim.
+Update information for an identity provider claim.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Value|string|false|true|Gets or sets the value for this IdentityProvider Claim.|
-|RoleIds|string[]|false|true|Gets or sets the list of Role Ids associated with this IdentityProviderClaim.|
+|Value|string|false|true|Value for this identity provider claim.|
+|RoleIds|string[]|false|true|List of role Ids associated with this identity provider claim.|
 

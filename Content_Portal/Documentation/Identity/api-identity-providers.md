@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210305.1
+title: Identity/api-identity-providers v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -17,13 +17,13 @@ The model for an Identity Provider in Identity Storage.
 
 |Name|Type|Description|
 |---|---|---|
-|Id|guid|Gets or sets id of an identity provider.|
-|DisplayName|string|Gets or sets identity provider display name to use.|
-|Scheme|string|Gets or sets the name of the cookie handler that will temporarily store the outcome of the external authentication.|
-|UserIdClaimType|string|Gets or sets type of claim.|
-|ClientId|string|Gets or sets the ClientId of the identity provider.|
-|IsConfigured|boolean|Gets or sets a value indicating whether the identity provider has been configured.|
-|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|Gets or sets the Capabilities of the identity provider.|
+|Id|guid|Identity provider unique identifier.|
+|DisplayName|string|Identity provider display name to use.|
+|Scheme|string|Name of the cookie handler that will temporarily store the outcome of the external authentication.|
+|UserIdClaimType|string|Type of claim.|
+|ClientId|string|Client Id of the identity provider.|
+|IsConfigured|boolean|Whether the identity provider has been configured.|
+|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|Capabilities of the identity provider.|
 
 	
 
@@ -36,26 +36,26 @@ The model for an Identity Provider in Identity Storage.
 	
 
 ---
-## Get Identity Providers
+## List Identity Providers
 
-<a id="opIdIdentityProviders_Get Identity Providers"></a>
+<a id="opIdIdentityProviders_List Identity Providers"></a>
 
-Returns a list of IdentityProvider objects.
+Returns a list of identity provider objects.
 
 ### Request
 ```text 
 GET /api/v1/IdentityProviders
 ```
 
-<h3 id="identityproviders_get-identity-providers-parameters">Parameters</h3>
+<h3 id="identityproviders_list-identity-providers-parameters">Parameters</h3>
 
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of providers to return.<br/><br/>
+`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of identity providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of identity providers to return.<br/><br/>
 
-<h3 id="identityproviders_get-identity-providers-responses">Responses</h3>
+<h3 id="identityproviders_list-identity-providers-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProvider](#schemaidentityprovider)[]|Identity Providers found.|
+|200|[IdentityProvider](#schemaidentityprovider)[]|Identity providers found.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
@@ -67,43 +67,12 @@ GET /api/v1/IdentityProviders
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -112,7 +81,7 @@ GET /api/v1/IdentityProviders
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -120,7 +89,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Providers Header"></a>
 
-Get header for Identity Providers to get the total number of Identity Providers.
+Get the total number of identity providers.
 
 ### Request
 ```text 
@@ -131,7 +100,7 @@ HEAD /api/v1/IdentityProviders
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Headers for Identity Providers found.|
+|200|None|Headers for identity providers found.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
 |404|None|Tenant not found.|
@@ -142,7 +111,7 @@ HEAD /api/v1/IdentityProviders
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -159,16 +128,16 @@ GET /api/v1/IdentityProviders/{identityProviderId}
 
 <h3 id="identityproviders_get-identity-provider-parameters">Parameters</h3>
 
-`string identityProviderId`<br/>Id of provider.<br/><br/>
+`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProvider](#schemaidentityprovider)|Identity Provider specified.|
+|200|[IdentityProvider](#schemaidentityprovider)|Identity provider specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity Provider not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -197,56 +166,12 @@ GET /api/v1/IdentityProviders/{identityProviderId}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -254,7 +179,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider Header"></a>
 
-Get header for an identity provider to check if the identity provider exists.
+Validates that a identity provider exists
 
 ### Request
 ```text 
@@ -263,16 +188,16 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}
 
 <h3 id="identityproviders_get-identity-provider-header-parameters">Parameters</h3>
 
-`string identityProviderId`<br/>Id of provider.<br/><br/>
+`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Identity Provider found.|
+|200|None|Identity provider found.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|IdentityProvider or Tenant not found.|
+|404|None|Identity provider or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -280,7 +205,7 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -288,7 +213,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider By Scheme"></a>
 
-Returns a list of IdentityProvider objects that follow a scheme.
+Returns a list of identity provider objects that follow a scheme.
 
 ### Request
 ```text 
@@ -297,16 +222,16 @@ GET /api/v1/IdentityProviders/schemes/{scheme}
 
 <h3 id="identityproviders_get-identity-provider-by-scheme-parameters">Parameters</h3>
 
-`string scheme`<br/>Scheme name.<br/><br/>
+`string scheme`<br/>Scheme name (for example, AAD or Google).<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-by-scheme-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProvider](#schemaidentityprovider)|Identity Provider specified.|
+|200|[IdentityProvider](#schemaidentityprovider)|Identity provider specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity Provider not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -335,56 +260,12 @@ GET /api/v1/IdentityProviders/schemes/{scheme}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -392,7 +273,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider Scheme Header"></a>
 
-Get header for a scheme to check its validity.
+Validates that a scheme exists
 
 ### Request
 ```text 
@@ -401,16 +282,16 @@ HEAD /api/v1/IdentityProviders/schemes/{scheme}
 
 <h3 id="identityproviders_get-identity-provider-scheme-header-parameters">Parameters</h3>
 
-`string scheme`<br/>Scheme name.<br/><br/>
+`string scheme`<br/>Scheme name (for example, AAD or Google).<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-scheme-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Identity Provider found.|
+|200|None|Identity provider found.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Identity Provider not found.|
+|404|None|Identity provider not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -418,7 +299,7 @@ HEAD /api/v1/IdentityProviders/schemes/{scheme}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -459,13 +340,13 @@ The model for an Identity Provider in Identity Storage.
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets id of an identity provider.|
-|DisplayName|string|false|true|Gets or sets identity provider display name to use.|
-|Scheme|string|false|true|Gets or sets the name of the cookie handler that will temporarily store the outcome of the external authentication.|
-|UserIdClaimType|string|false|true|Gets or sets type of claim.|
-|ClientId|string|false|true|Gets or sets the ClientId of the identity provider.|
-|IsConfigured|boolean|false|false|Gets or sets a value indicating whether the identity provider has been configured.|
-|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|false|true|Gets or sets the Capabilities of the identity provider.|
+|Id|guid|false|false|Identity provider unique identifier.|
+|DisplayName|string|false|true|Identity provider display name to use.|
+|Scheme|string|false|true|Name of the cookie handler that will temporarily store the outcome of the external authentication.|
+|UserIdClaimType|string|false|true|Type of claim.|
+|ClientId|string|false|true|Client Id of the identity provider.|
+|IsConfigured|boolean|false|false|Whether the identity provider has been configured.|
+|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|false|true|Capabilities of the identity provider.|
 
 <h2 id="tocS_IdentityProviderCapabilities">IdentityProviderCapabilities</h2>
 
@@ -557,10 +438,12 @@ The model for the group level capabilities of an Identity Provider in Identity S
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```

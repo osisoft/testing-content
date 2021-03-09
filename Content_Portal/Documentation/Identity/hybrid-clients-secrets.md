@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients-secrets v20210305.1
+title: Identity/hybrid-clients-secrets v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -26,30 +26,30 @@ generator: osisoft.widdershins v1.0.5
 	
 
 ---
-## Get Hybrid Client Secrets
+## List Hybrid Client Secrets
 
-<a id="opIdSecrets_Get Hybrid Client Secrets"></a>
+<a id="opIdSecrets_List Hybrid Client Secrets"></a>
 
-Get all secrets for a Hybrid Client. Total number of secrets in the Client set in the Total-Count header.
+Gets all secrets for a hybrid client. Total number of secrets in the client set in the Total-Count header.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 ```
 
-<h3 id="secrets_get-hybrid-client-secrets-parameters">Parameters</h3>
+<h3 id="secrets_list-hybrid-client-secrets-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 `[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="secrets_get-hybrid-client-secrets-responses">Responses</h3>
+<h3 id="secrets_list-hybrid-client-secrets-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)[]|Hybrid Client Secret information found.|
+|200|[ClientSecret](#schemaclientsecret)[]|List of hybrid client secret information corresponding to the specified client credential client.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -58,43 +58,12 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -103,7 +72,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -111,7 +80,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get Hybrid Client Secrets Header"></a>
 
-Return total number of Secrets in a Hybrid Client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns total number of secrets in a hybrid client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -120,16 +89,16 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 
 <h3 id="secrets_get-hybrid-client-secrets-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="secrets_get-hybrid-client-secrets-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Hybrid Client Secret headers.|
+|200|None|Headers for hybrid client secret.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Client or Tenant not found.|
+|404|None|Client or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -137,7 +106,7 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -145,7 +114,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Add Hybrid Client Secret"></a>
 
-Add a new secret to a Client Credential Client. A client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
+Adds a new secret to a hybrid client. A client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
 
 ### Request
 ```text 
@@ -166,16 +135,16 @@ ClientSecretCreateOrUpdate object.<br/>
 
 <h3 id="secrets_add-hybrid-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="secrets_add-hybrid-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse](#schemaclientsecretresponse)|Hybrid Client Secret created.|
+|201|[ClientSecretResponse](#schemaclientsecretresponse)|Information about created hybrid client secret.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -193,67 +162,12 @@ ClientSecretCreateOrUpdate object.<br/>
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -261,7 +175,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get Hybrid Client Secret"></a>
 
-Get a Hybrid Client Secret.
+Gets a hybrid client secret.
 
 ### Request
 ```text 
@@ -270,16 +184,16 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 
 <h3 id="secrets_get-hybrid-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_get-hybrid-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Hybrid Client Secret specified.|
+|200|[ClientSecret](#schemaclientsecret)|Information about specified hybrid client secret.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -295,56 +209,12 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -352,7 +222,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get Hybrid Client Secret Header"></a>
 
-Validate that a Secret with given Id exists in the Client. This endpoint is identical to the GET one but it does not return any objects in the body.
+Validates that a secret unique identifier exists in the client. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -361,16 +231,16 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 
 <h3 id="secrets_get-hybrid-client-secret-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_get-hybrid-client-secret-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for Hybrid Client Secret.|
+|200|None|Header for hybrid client secret.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Secret, Client, or Tenant not found.|
+|404|None|Secret, client, or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -378,7 +248,7 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -386,7 +256,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Update Hybrid Client Secret"></a>
 
-Update a Hybrid Client Secret. It can take up to one hour for the update to manifest in the authentication process.
+Updates a hybrid client secret. It can take up to one hour for the update to manifest in the authentication process.
 
 ### Request
 ```text 
@@ -407,17 +277,17 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 
 <h3 id="secrets_update-hybrid-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_update-hybrid-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Hybrid Client Secret updated.|
+|200|[ClientSecret](#schemaclientsecret)|Information about updated hybrid client secret.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -434,78 +304,12 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -513,7 +317,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Delete Hybrid Client Secret"></a>
 
-Delete a Secret from a Hybrid Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued using this Secret will be valid until their expiration.
+Deletes a secret from a hybrid client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued using this secret will be valid until their expiration.
 
 ### Request
 ```text 
@@ -522,7 +326,7 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 
 <h3 id="secrets_delete-hybrid-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>`integer secretId`<br/>Id of Secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_delete-hybrid-client-secret-responses">Responses</h3>
 
@@ -531,7 +335,7 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 |204|None|No content.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -541,54 +345,12 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -597,34 +359,34 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
-## Get V1 Preview Hybrid Client Secrets
+## List V1 Preview Hybrid Client Secrets
 
-<a id="opIdSecrets_Get V1 Preview Hybrid Client Secrets"></a>
+<a id="opIdSecrets_List V1 Preview Hybrid Client Secrets"></a>
 
-Get all secrets for a Hybrid Client.
+Get all secrets for a hybrid client.
 
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 ```
 
-<h3 id="secrets_get-v1-preview-hybrid-client-secrets-parameters">Parameters</h3>
+<h3 id="secrets_list-v1-preview-hybrid-client-secrets-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 `[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="secrets_get-v1-preview-hybrid-client-secrets-responses">Responses</h3>
+<h3 id="secrets_list-v1-preview-hybrid-client-secrets-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)[]|Hybrid Client Secrets found.|
+|200|[ClientSecret2](#schemaclientsecret2)[]|Hybrid client secrets found.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -633,43 +395,12 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -678,7 +409,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -686,7 +417,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Add V1 Preview Hybrid Client Secret"></a>
 
-Add a new secret for a Hybrid Client.
+Add a new secret for a hybrid client.
 
 ### Request
 ```text 
@@ -695,7 +426,7 @@ POST /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 
 ### Request Body
 
-Client Secret to create.<br/>
+Client secret to create.<br/>
 
 ```json
 {
@@ -707,16 +438,16 @@ Client Secret to create.<br/>
 
 <h3 id="secrets_add-v1-preview-hybrid-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="secrets_add-v1-preview-hybrid-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Hybrid Client Secret created.|
+|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Hybrid client secret created.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -736,67 +467,12 @@ Client Secret to create.<br/>
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -804,7 +480,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Get V1 Preview Hybrid Client Secret"></a>
 
-Get a specific Hybrid Client Secret.
+Get a specific hybrid client secret.
 
 ### Request
 ```text 
@@ -813,16 +489,16 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretI
 
 <h3 id="secrets_get-v1-preview-hybrid-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>`integer secretId`<br/>Id of secret.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
 
 <h3 id="secrets_get-v1-preview-hybrid-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Hybrid Client Secret specified.|
+|200|[ClientSecret2](#schemaclientsecret2)|Hybrid client secret specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -839,56 +515,12 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretI
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -896,7 +528,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdSecrets_Update V1 Preview Hybrid Client Secret"></a>
 
-Update a Hybrid Client Secret Only Secret Description and Secret Expiration Date can be updated.
+Update a hybrid client secret. Only secret description and secret expiration date can be updated.
 
 ### Request
 ```text 
@@ -905,7 +537,7 @@ PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretI
 
 ### Request Body
 
-Client Secret details.<br/>
+Client secret details.<br/>
 
 ```json
 {
@@ -917,17 +549,17 @@ Client Secret details.<br/>
 
 <h3 id="secrets_update-v1-preview-hybrid-client-secret-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>`integer secretId`<br/>secretId.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>secretId.<br/><br/>
 
 <h3 id="secrets_update-v1-preview-hybrid-client-secret-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Updated Hybrid Client Secret.|
+|200|[ClientSecret2](#schemaclientsecret2)|Updated hybrid client secret.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, Client, or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -945,78 +577,12 @@ Client Secret details.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -1058,10 +624,12 @@ Client Secret Object.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-identity-providers v20210305.1
+title: Identity/tenants-identity-providers v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -17,13 +17,13 @@ The model for an Identity Provider in Identity Storage.
 
 |Name|Type|Description|
 |---|---|---|
-|Id|guid|Gets or sets id of an identity provider.|
-|DisplayName|string|Gets or sets identity provider display name to use.|
-|Scheme|string|Gets or sets the name of the cookie handler that will temporarily store the outcome of the external authentication.|
-|UserIdClaimType|string|Gets or sets type of claim.|
-|ClientId|string|Gets or sets the ClientId of the identity provider.|
-|IsConfigured|boolean|Gets or sets a value indicating whether the identity provider has been configured.|
-|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|Gets or sets the Capabilities of the identity provider.|
+|Id|guid|Identity provider unique identifier.|
+|DisplayName|string|Identity provider display name to use.|
+|Scheme|string|Name of the cookie handler that will temporarily store the outcome of the external authentication.|
+|UserIdClaimType|string|Type of claim.|
+|ClientId|string|Client Id of the identity provider.|
+|IsConfigured|boolean|Whether the identity provider has been configured.|
+|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|Capabilities of the identity provider.|
 
 	
 
@@ -50,27 +50,27 @@ The model for an Identity Provider in Identity Storage.
 	
 
 ---
-## Get Tenant Identity Providers
+## List Tenant Identity Providers
 
-<a id="opIdIdentityProviders_Get Tenant Identity Providers"></a>
+<a id="opIdIdentityProviders_List Tenant Identity Providers"></a>
 
-Get all Identity Providers from a Tenant.
+Gets all identity providers from a tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders
 ```
 
-<h3 id="identityproviders_get-tenant-identity-providers-parameters">Parameters</h3>
+<h3 id="identityproviders_list-tenant-identity-providers-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of Identity Providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of Identity Providers to return.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
+`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of identity providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of identity providers to return.<br/><br/>
 
-<h3 id="identityproviders_get-tenant-identity-providers-responses">Responses</h3>
+<h3 id="identityproviders_list-tenant-identity-providers-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProvider](#schemaidentityprovider)[]|Identity Providers found.|
+|200|[IdentityProvider](#schemaidentityprovider)[]|Identity providers found.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
@@ -82,43 +82,12 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -127,12 +96,12 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -140,7 +109,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Tenant Identity Providers Header"></a>
 
-Return total number of Identity Providers in a Tenant. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns the total number of identity providers in a tenant. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -149,13 +118,13 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders
 
 <h3 id="identityproviders_get-tenant-identity-providers-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
 
 <h3 id="identityproviders_get-tenant-identity-providers-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Identity Provider headers for Tenant.|
+|200|None|Identity provider headers for tenant.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
 |404|None|Tenant not found.|
@@ -166,12 +135,12 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -179,7 +148,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Add Tenant Identity Provider"></a>
 
-Add an existing Identity Provider to a Tenant. This Identity Provider will be available in the Home Realm Discovery Page for users to sign-in or sign-up.
+Adds an existing identity provider to a tenant. This identity provider will be available in the Home Realm Discovery Page for users to log in or sign up.
 
 ### Request
 ```text 
@@ -204,20 +173,20 @@ IdentityProviderAdd object.<br/>
 
 <h3 id="identityproviders_add-tenant-identity-provider-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
 
 <h3 id="identityproviders_add-tenant-identity-provider-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[IdentityProvider](#schemaidentityprovider)|Identity Provider created.|
+|201|[IdentityProvider](#schemaidentityprovider)|Identity provider created.|
 |302|None|Found.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Identity Provider already exists in Tenant.|
+|409|[ErrorResponse](#schemaerrorresponse)|Identity provider already exists in tenant.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -246,89 +215,12 @@ IdentityProviderAdd object.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -336,7 +228,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Tenant Identity Provider"></a>
 
-Get an Identity Provider from a Tenant.
+Gets an identity provider from a tenant.
 
 ### Request
 ```text 
@@ -345,16 +237,16 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 
 <h3 id="identityproviders_get-tenant-identity-provider-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="identityproviders_get-tenant-identity-provider-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProvider](#schemaidentityprovider)|Identity Provider specified.|
+|200|[IdentityProvider](#schemaidentityprovider)|Identity provider specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|IdentityProvider or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -383,61 +275,17 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -445,7 +293,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Tenant Identity Provider Header"></a>
 
-Validate that a Identity Provider exists in the Tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
+Validates that a identity provider exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -454,16 +302,16 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 
 <h3 id="identityproviders_get-tenant-identity-provider-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="identityproviders_get-tenant-identity-provider-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for Identity Provider.|
+|200|None|Header for identity provider.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|IdentityProvider or Tenant not found.|
+|404|None|Identity provider or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -471,12 +319,12 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -484,7 +332,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Remove Tenant Identity Provider"></a>
 
-Remove an Identity Provider from a Tenant. Users provisioned with this Identity Provider will remain in the Tenant, but will not be able to authenticate. An administrator cannot remove the Identity Provider they are signed in with.
+Removes an identity provider from a tenant. Users provisioned with this identity provider will remain in the tenant, but will not be able to authenticate. An administrator cannot remove the identity provider they are signed in with.
 
 ### Request
 ```text 
@@ -493,7 +341,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 
 <h3 id="identityproviders_remove-tenant-identity-provider-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="identityproviders_remove-tenant-identity-provider-responses">Responses</h3>
 
@@ -502,7 +350,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 |204|None|No content.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|IdentityProvider or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -512,54 +360,12 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -568,7 +374,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -576,7 +382,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Tenant Identity Provider Consent"></a>
 
-Get an Identity Provider Consent from a Tenant.
+Gets the consent information for an identity provider for a tenant. The ConsentState property, if returned, determines whether an identity provider consents to sharing access to its directory with the OCS tenant. For example, the expected ConsentState's for AAD include (Pending_)SignIn and (Pending_)ReadAllUsersGroups.
 
 ### Request
 ```text 
@@ -585,16 +391,16 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 
 <h3 id="identityproviders_get-tenant-identity-provider-consent-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier to check for consent.<br/><br/>
 
 <h3 id="identityproviders_get-tenant-identity-provider-consent-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderConsent](#schemaidentityproviderconsent)|Identity Provider Consent.|
+|200|[IdentityProviderConsent](#schemaidentityproviderconsent)|Identity provider consent.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|IdentityProvider or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -609,61 +415,17 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -671,7 +433,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Tenant Identity Provider Consent Header"></a>
 
-Get header for an Identity Provider to check if any additional consent data exists.
+Validates that a identity provider consent exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -680,16 +442,16 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 
 <h3 id="identityproviders_get-tenant-identity-provider-consent-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier to check for consent.<br/><br/>
 
 <h3 id="identityproviders_get-tenant-identity-provider-consent-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Ok if the Identity Provider Consent exists.|
+|200|None|Ok if the identity provider consent exists.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|IdentityProvider or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -698,43 +460,12 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -743,12 +474,12 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Member</li>
+<li>Tenant Member</li>
 </ul>
 
 <b>Strict Roles</b>
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -756,7 +487,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Update Tenant Identity Provider Consent"></a>
 
-Update an Identity Provider consent related to Deeper Integration.
+Updates the identity provider consent of a tenant. Currently only supports AAD. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
 
 ### Request
 ```text 
@@ -765,7 +496,7 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 
 ### Request Body
 
-Identity Provider Consent.<br/>
+Identity provider consent.<br/>
 
 ```json
 {
@@ -777,13 +508,13 @@ Identity Provider Consent.<br/>
 
 <h3 id="identityproviders_update-tenant-identity-provider-consent-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string identityProviderId`<br/>Id of Identity Provider.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier to activate consent.<br/><br/>
 
 <h3 id="identityproviders_update-tenant-identity-provider-consent-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderConsent](#schemaidentityproviderconsent)|Identity Provider Consent.|
+|200|[IdentityProviderConsent](#schemaidentityproviderconsent)|Identity provider consent.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
@@ -803,78 +534,12 @@ Identity Provider Consent.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -882,7 +547,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider Groups"></a>
 
-Get the groups based on the query parameters. Currently, Azure Active Directory provider is the only provider that supports this endpoint.
+Gets a list of groups that matches the query string on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
 
 ### Request
 ```text 
@@ -891,8 +556,8 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups
 
 <h3 id="identityproviders_get-identity-provider-groups-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant Id.<br/><br/>`string identityProviderId`<br/>Identity Provider Id.<br/><br/>`string query`<br/>Start of user name or Email to search for.<br/><br/>
-`[optional] integer count`<br/>Sets the page size of results.<br/><br/>`[optional] string skipToken`<br/>Retrieves the next page of results from result sets that span multiple pages.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string query`<br/>Start of user name or email to search for.<br/><br/>
+`[optional] integer count`<br/>Maximum number of groups to return.<br/><br/>`[optional] string skipToken`<br/>An encoded string that identifies the set of groups that was not returned. For example, if you specify a count of the first 5 groups matching your query, the skipToken identifies the 6th group.<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-groups-responses">Responses</h3>
 
@@ -902,7 +567,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -916,76 +581,11 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups
     {
       "Id": "string",
       "Name": "string",
-      "Email": "user@example.com"
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
     }
   ],
   "SkipToken": "string"
-}
-```
-
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
 }
 ```
 
@@ -994,7 +594,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1002,7 +602,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider Groups By Ids"></a>
 
-Get the groups based on the Ids. Currently, Azure Active Directory provider is the only provider that supports this endpoint.
+Gets the groups based on the Ids. Currently, AAD provider is the only provider that supports this endpoint.
 
 ### Request
 ```text 
@@ -1011,7 +611,7 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Groups
 
 ### Request Body
 
-Group Id list.<br/>
+Group unique identifier list.<br/>
 
 ```json
 [
@@ -1021,7 +621,7 @@ Group Id list.<br/>
 
 <h3 id="identityproviders_get-identity-provider-groups-by-ids-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant Id.<br/><br/>`string identityProviderId`<br/>Identity Provider Id.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-groups-by-ids-responses">Responses</h3>
 
@@ -1045,76 +645,11 @@ Group Id list.<br/>
     {
       "Id": "string",
       "Name": "string",
-      "Email": "user@example.com"
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
     }
   ],
   "SkipToken": "string"
-}
-```
-
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
 }
 ```
 
@@ -1123,7 +658,7 @@ Group Id list.<br/>
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1131,7 +666,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider Members In A Group"></a>
 
-Get the members in a group. Currently, Azure Active Directory provider is the only provider that supports this endpoint.
+Gets a list of all users belonging to a specific group on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
 ### Request
 ```text 
@@ -1140,8 +675,8 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
 
 <h3 id="identityproviders_get-identity-provider-members-in-a-group-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant Id.<br/><br/>`string identityProviderId`<br/>Identity Provider Id.<br/><br/>`string groupId`<br/>External Id of the group.<br/><br/>
-`[optional] integer count`<br/>Sets the page size of results.<br/><br/>`[optional] string skipToken`<br/>Retrieves the next page of results from result sets that span multiple pages.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string groupId`<br/>Group unique identifier.<br/><br/>
+`[optional] integer count`<br/>Maximum number of users to return.<br/><br/>`[optional] string skipToken`<br/>An encoded string that identifies the set of users that was not returned. For example, if you request a count of the first 50 users matching your query, the skipToken identifies the 51st user.<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-members-in-a-group-responses">Responses</h3>
 
@@ -1151,7 +686,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -1174,76 +709,11 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
     {
       "Id": "string",
       "Name": "string",
-      "Email": "user@example.com"
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
     }
   ],
   "SkipToken": "string"
-}
-```
-
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
 }
 ```
 
@@ -1252,7 +722,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1260,7 +730,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider Users"></a>
 
-Get the users based on the query parameters. Currently, Azure Active Directory provider is the only provider that supports this endpoint.
+Gets a list of users that matches the query string on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
 ### Request
 ```text 
@@ -1269,8 +739,8 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users
 
 <h3 id="identityproviders_get-identity-provider-users-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant Id.<br/><br/>`string identityProviderId`<br/>Identity Provider Id.<br/><br/>`string query`<br/>Start of user name or Email to search for.<br/><br/>
-`[optional] integer count`<br/>Sets the page size of results.<br/><br/>`[optional] string skipToken`<br/>Retrieves the next page of results from result sets that span multiple pages.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string query`<br/>Start of user name or email to search for.<br/><br/>
+`[optional] integer count`<br/>Maximum number of users to returns.<br/><br/>`[optional] string skipToken`<br/>An encoded string that identifies the set of users that was not returned. For example, if you specify a count of the first 50 users matching your query, the skipToken identifies the 51st user.<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-users-responses">Responses</h3>
 
@@ -1280,7 +750,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -1303,78 +773,12 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1382,7 +786,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdIdentityProviders_Get Identity Provider Groups For User"></a>
 
-Get the groups a user is a member of. Currently, Azure Active Directory provider is the only provider that supports this endpoint.
+Gets a list of all groups that the specified user belongs to on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
 
 ### Request
 ```text 
@@ -1391,8 +795,8 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{use
 
 <h3 id="identityproviders_get-identity-provider-groups-for-user-parameters">Parameters</h3>
 
-`string tenantId`<br/>Tenant Id.<br/><br/>`string identityProviderId`<br/>Identity Provider Id.<br/><br/>`string userId`<br/>Id of the user.<br/><br/>
-`[optional] integer skip`<br/>Indexes into a result set.<br/><br/>`[optional] integer count`<br/>Sets the page size of results.<br/><br/>`[optional] integer timeout`<br/>The maximum time to allow for searching groups before returning the groups.<br/><br/>`[optional] string skipToken`<br/>Retrieves the next page of results from result sets that span multiple pages.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
+`[optional] integer skip`<br/>Indexes into a result set.<br/><br/>`[optional] integer count`<br/>Maximum number of groups to return.<br/><br/>`[optional] integer timeout`<br/>The maximum time to allow for searching groups before returning the groups.<br/><br/>`[optional] string skipToken`<br/>An encoded string that identifies the set of groups that was not returned. For example, if you request a count of the first 3 groups matching your query, the skipToken identifies the 4th user.<br/><br/>
 
 <h3 id="identityproviders_get-identity-provider-groups-for-user-responses">Responses</h3>
 
@@ -1402,7 +806,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{use
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -1416,76 +820,11 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{use
     {
       "Id": "string",
       "Name": "string",
-      "Email": "user@example.com"
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
     }
   ],
   "SkipToken": "string"
-}
-```
-
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
 }
 ```
 
@@ -1494,7 +833,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{use
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -1535,13 +874,13 @@ The model for an Identity Provider in Identity Storage.
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets id of an identity provider.|
-|DisplayName|string|false|true|Gets or sets identity provider display name to use.|
-|Scheme|string|false|true|Gets or sets the name of the cookie handler that will temporarily store the outcome of the external authentication.|
-|UserIdClaimType|string|false|true|Gets or sets type of claim.|
-|ClientId|string|false|true|Gets or sets the ClientId of the identity provider.|
-|IsConfigured|boolean|false|false|Gets or sets a value indicating whether the identity provider has been configured.|
-|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|false|true|Gets or sets the Capabilities of the identity provider.|
+|Id|guid|false|false|Identity provider unique identifier.|
+|DisplayName|string|false|true|Identity provider display name to use.|
+|Scheme|string|false|true|Name of the cookie handler that will temporarily store the outcome of the external authentication.|
+|UserIdClaimType|string|false|true|Type of claim.|
+|ClientId|string|false|true|Client Id of the identity provider.|
+|IsConfigured|boolean|false|false|Whether the identity provider has been configured.|
+|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|false|true|Capabilities of the identity provider.|
 
 <h2 id="tocS_IdentityProviderCapabilities">IdentityProviderCapabilities</h2>
 
@@ -1633,10 +972,12 @@ The model for the group level capabilities of an Identity Provider in Identity S
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```
@@ -1668,13 +1009,13 @@ Object returned whenever there is an error.
 
 ```
 
-The model for an Identity Provider Consent in Identity Storage.
+The model for an identity provider consent in identity storage.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Scheme|string|false|true|Gets or sets the scheme of the Identity Provider.|
+|Scheme|string|false|true|Scheme of the identity provider.|
 
 <h2 id="tocS_IdentityProviderAdd">IdentityProviderAdd</h2>
 
@@ -1696,19 +1037,19 @@ The model for an Identity Provider Consent in Identity Storage.
 
 ```
 
-Object for adding an Identity Provider.
+Object for adding an identity provider.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|AzureActiveDirectoryConsentEmail|email|false|true|Gets or sets address to email consent.|
-|AzureActiveDirectoryConsentGivenName|string|false|true|Gets or sets preferred name to use in the consent email.|
-|AzureActiveDirectoryConsentSurname|string|false|true|Gets or sets preferred surname to use in the consent email.|
-|AzureActiveDirectoryTenant|string|false|true|Gets or sets Azure Active Directory Domain Name (e.g. mydomain.onmicrosoft.com).|
-|AzureActiveDirectoryConsentTypes|string|false|true|Gets or sets Azure Active Directory Consent Types. Valid Consent Type combinations include "SignIn" and "SignIn;ReadAllUsersGroups".|
-|IdentityProviderId|guid|false|false|Gets or sets Identity Provider Id to Add.|
-|AzureActiveDirectorySendConsent|boolean|false|false|Gets or sets a value indicating whether send consent email for Azure Active Directory.|
+|AzureActiveDirectoryConsentEmail|email|false|true|Email address to send consent.|
+|AzureActiveDirectoryConsentGivenName|string|false|true|Preferred name to use in the consent email.|
+|AzureActiveDirectoryConsentSurname|string|false|true|Preferred surname to use in the consent email.|
+|AzureActiveDirectoryTenant|string|false|true|AAD tenant domain name (for example, mydomain.onmicrosoft.com).|
+|AzureActiveDirectoryConsentTypes|string|false|true|Semicolon delimited AAD consent types. Can be "SignIn" or "SignIn;ReadAllUsersGroups".|
+|IdentityProviderId|guid|false|false|Identity provider unique identifier.|
+|AzureActiveDirectorySendConsent|boolean|false|false|Whether to send consent email for AAD.|
 
 <h2 id="tocS_IdentityProviderResultsOfIdentityProviderUser">IdentityProviderResultsOfIdentityProviderUser</h2>
 
@@ -1785,7 +1126,8 @@ Base class for Identity provider access user.
     {
       "Id": "string",
       "Name": "string",
-      "Email": "user@example.com"
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
     }
   ],
   "SkipToken": "string"
@@ -1813,7 +1155,8 @@ Result object for Identity Provider access users/groups.
 {
   "Id": "string",
   "Name": "string",
-  "Email": "user@example.com"
+  "Email": "user@example.com",
+  "IsClusterManagementAllowed": true
 }
 
 ```
@@ -1827,6 +1170,7 @@ Base class for Identity Provider access group.
 |Id|string|false|false|Gets or sets the Object Id of IdentityProviderGroup.|
 |Name|string|false|true|Gets or sets group name of IdentityProviderGroup.|
 |Email|email|false|true|Gets or sets the email address of the IdentityProviderGroup.|
+|IsClusterManagementAllowed|boolean|false|true|Gets or sets whether group can manage cluster roles.|
 
 <h2 id="tocS_IdentityProviderMembers">IdentityProviderMembers</h2>
 
@@ -1850,7 +1194,8 @@ Base class for Identity Provider access group.
     {
       "Id": "string",
       "Name": "string",
-      "Email": "user@example.com"
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
     }
   ],
   "SkipToken": "string"

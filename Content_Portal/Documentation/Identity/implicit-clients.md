@@ -1,5 +1,5 @@
 ---
-title: Identity/implicit-clients v20210305.1
+title: Identity/implicit-clients v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -13,20 +13,20 @@ generator: osisoft.widdershins v1.0.5
 
 <h1 id="identity-implicit-clients-implicit-clients">Implicit Clients</h1>
 
-Object used during Implicit Client creation.
+Object used during implicit client creation.
 
 |Name|Type|Description|
 |---|---|---|
-|RedirectUris|string[]|Gets or sets the allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
-|PostLogoutRedirectUris|string[]|Gets or sets allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 for client.|
-|ClientUri|string|Gets or sets URI to a page with information about client (used on consent screen).|
-|LogoUri|string|Gets or sets URI to client logo (used on consent screen).|
-|Id|string|Gets or sets client ID for this client. This ID should be a GUID.|
-|Name|string|Gets or sets name of Client.|
-|Enabled|boolean|Gets or sets whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|Gets or sets lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|Gets or sets for OSIsoft internal use only.|
-|AllowedCorsOrigins|string[]|Gets or sets the values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients. Maximum 10 for client.|
+|RedirectUris|string[]|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|URI to client logo (used on consent screen).|
+|Id|string|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|Name of client.|
+|Enabled|boolean|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|Tags for OSIsoft internal use only.|
+|AllowedCorsOrigins|string[]|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients. Maximum 10 per client.|
 
 	
 
@@ -35,27 +35,27 @@ Object used during Implicit Client creation.
 	
 
 ---
-## Get Implicit Clients
+## List Implicit Clients
 
-<a id="opIdImplicitClients_Get Implicit Clients"></a>
+<a id="opIdImplicitClients_List Implicit Clients"></a>
 
-Get all Implicit clients from a Tenant. Optionally, get a list of requested clients. Total number of clients in the Tenant set in the Total-Count header.
+Gets all implicit clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the tenant set in the Total-Count header.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/ImplicitClients
 ```
 
-<h3 id="implicitclients_get-implicit-clients-parameters">Parameters</h3>
+<h3 id="implicitclients_list-implicit-clients-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
-`[optional] array id`<br/>Unordered list of ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only return Clients that have these tags.<br/><br/>`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. Will be ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return. Will be ignored if a list of Ids is passed.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
+`[optional] array id`<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only return clients that have these tags.<br/><br/>`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. Will be ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return. Will be ignored if a list of Ids is passed.<br/><br/>
 
-<h3 id="implicitclients_get-implicit-clients-responses">Responses</h3>
+<h3 id="implicitclients_list-implicit-clients-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ImplicitClient](#schemaimplicitclient)[]|Implicit Clients found.|
+|200|[ImplicitClient](#schemaimplicitclient)[]|Implicit clients found.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
@@ -67,43 +67,12 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -112,7 +81,13 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -120,7 +95,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdImplicitClients_Get Implicit Clients Header"></a>
 
-Return total number of Implicit clients in a Tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns the total number of implicit clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -129,17 +104,17 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients
 
 <h3 id="implicitclients_get-implicit-clients-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
-`[optional] array id`<br/>Unordered list of ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only count Clients that have these tags.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
+`[optional] array id`<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only count clients that have these tags.<br/><br/>
 
 <h3 id="implicitclients_get-implicit-clients-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Implicit Client headers found on Tenant.|
+|200|None|Implicit client headers found on tenant.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Client or Tenant not found.|
+|404|None|Client or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -147,7 +122,13 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -155,7 +136,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdImplicitClients_Create Implicit Client"></a>
 
-Create an Implicit Client in a Tenant. No Secret will be generated for this Client.
+Creates an implicit client in a tenant. No secret will be generated for this client.
 
 ### Request
 ```text 
@@ -191,19 +172,19 @@ New ImplicitClient object.<br/>
 
 <h3 id="implicitclients_create-implicit-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>
 
 <h3 id="implicitclients_create-implicit-client-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ImplicitClient](#schemaimplicitclient)|Implicit Client created.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or Client limit exceeded.|
+|201|[ImplicitClient](#schemaimplicitclient)|Implicit client created.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Client Id already exists.|
+|409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -233,89 +214,12 @@ New ImplicitClient object.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -323,7 +227,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdImplicitClients_Get Implicit Client"></a>
 
-Get an Implicit Client from a Tenant.
+Gets an implicit client from a tenant.
 
 ### Request
 ```text 
@@ -332,16 +236,16 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 
 <h3 id="implicitclients_get-implicit-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="implicitclients_get-implicit-client-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ImplicitClient](#schemaimplicitclient)|Implicit Client specified.|
+|200|[ImplicitClient](#schemaimplicitclient)|Implicit client specified.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Example response body
@@ -371,56 +275,18 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -428,7 +294,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdImplicitClients_Get Implicit Client Header"></a>
 
-Validate that an Implicit Client exists.
+Validates that an implicit client exists.
 
 ### Request
 ```text 
@@ -437,16 +303,16 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 
 <h3 id="implicitclients_get-implicit-client-header-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of tenant.<br/><br/>`string clientId`<br/>Id of client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="implicitclients_get-implicit-client-header-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for Implicit Client.|
+|200|None|Header for implicit client.|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|Client or Tenant not found.|
+|404|None|Client or tenant not found.|
 |500|None|Internal server error.|
 
 ### Authorization
@@ -454,7 +320,13 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Self</li>
+<li>Tenant Member</li>
+</ul>
+
+<b>Strict Roles</b>
+<ul>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -462,7 +334,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdImplicitClients_Update Implicit Client"></a>
 
-Update an Implicit Client. It can take up to one hour for update to manifest in the authentication process.
+Updates an implicit client. It can take up to one hour for update to manifest in the authentication process.
 
 ### Request
 ```text 
@@ -471,7 +343,7 @@ PUT /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 
 ### Request Body
 
-Updated Implicit Client values. Properties that are not set or are null will not be changed.<br/>
+Updated implicit client values. Properties that are not set or are null will not be changed.<br/>
 
 ```json
 {
@@ -498,17 +370,17 @@ Updated Implicit Client values. Properties that are not set or are null will not
 
 <h3 id="implicitclients_update-implicit-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="implicitclients_update-implicit-client-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ImplicitClient](#schemaimplicitclient)|Implicit Client updated.|
+|200|[ImplicitClient](#schemaimplicitclient)|Implicit client updated.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -539,78 +411,12 @@ Updated Implicit Client values. Properties that are not set or are null will not
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -618,7 +424,7 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 <a id="opIdImplicitClients_Delete Implicit Client"></a>
 
-Delete an Implicit Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
+Deletes an implicit client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
 
 ### Request
 ```text 
@@ -627,7 +433,7 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 
 <h3 id="implicitclients_delete-implicit-client-parameters">Parameters</h3>
 
-`string tenantId`<br/>Id of Tenant.<br/><br/>`string clientId`<br/>Id of Client.<br/><br/>
+`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
 
 <h3 id="implicitclients_delete-implicit-client-responses">Responses</h3>
 
@@ -636,7 +442,7 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 |204|None|No content.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -646,54 +452,12 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -702,13 +466,13 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
-## Get V1 Preview Implicit Clients
+## List V1 Preview Implicit Clients
 
-<a id="opIdImplicitClients_Get V1 Preview Implicit Clients"></a>
+<a id="opIdImplicitClients_List V1 Preview Implicit Clients"></a>
 
 Get all Implicit Clients.
 
@@ -717,12 +481,12 @@ Get all Implicit Clients.
 GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 ```
 
-<h3 id="implicitclients_get-v1-preview-implicit-clients-parameters">Parameters</h3>
+<h3 id="implicitclients_list-v1-preview-implicit-clients-parameters">Parameters</h3>
 
 `string tenantId`<br/>Id of Tenant.<br/><br/>
 `[optional] array tag`<br/>Only return Clients that have these tags.<br/><br/>`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="implicitclients_get-v1-preview-implicit-clients-responses">Responses</h3>
+<h3 id="implicitclients_list-v1-preview-implicit-clients-responses">Responses</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -738,43 +502,12 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -783,7 +516,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -869,89 +602,12 @@ New ImplicitClient object.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 409 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1007,56 +663,12 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
 }
 ```
 
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -1141,78 +753,12 @@ Updated Implicit Client values.<br/>
 }
 ```
 
-> 400 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 401 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 404 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 408 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
-> 500 Response
-
-```json
-{
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
-}
-```
-
 ### Authorization
 
 To perform this operation, you must have one of the following roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
-<li>Account Administrator</li>
+<li>Tenant Administrator</li>
 </ul>
 
 # Definitions
@@ -1248,22 +794,22 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```
 
-Object used during Implicit Client creation.
+Object used during implicit client creation.
 
 ### Properties
 
 |Name|Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|RedirectUris|string[]|false|true|Gets or sets the allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
-|PostLogoutRedirectUris|string[]|false|true|Gets or sets allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 for client.|
-|ClientUri|string|false|true|Gets or sets URI to a page with information about client (used on consent screen).|
-|LogoUri|string|false|true|Gets or sets URI to client logo (used on consent screen).|
-|Id|string|false|true|Gets or sets client ID for this client. This ID should be a GUID.|
-|Name|string|false|true|Gets or sets name of Client.|
-|Enabled|boolean|false|true|Gets or sets whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|false|true|Gets or sets lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Gets or sets for OSIsoft internal use only.|
-|AllowedCorsOrigins|string[]|false|true|Gets or sets the values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients. Maximum 10 for client.|
+|RedirectUris|string[]|false|true|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|false|true|URI to client logo (used on consent screen).|
+|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|false|true|Name of client.|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|AllowedCorsOrigins|string[]|false|true|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients. Maximum 10 per client.|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -1274,10 +820,12 @@ Object used during Implicit Client creation.
 
 ```json
 {
-  "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
-  "Error": "Error message.",
-  "Reason": "Reason that caused error.",
-  "Resolution": "Possible solution for the error."
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```
