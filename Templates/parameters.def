@@ -1,14 +1,10 @@
 {{= data.tags.section }}
-<h3 id="{{=data.operationUniqueSlug}}-parameters">Parameters</h3>
+### Parameters
 
-{{~ data.parameters :p}}{{? p.name !== 'body'}}{{? p.required }}`{{? p.originalType}}{{=p.originalType}}{{??}}{{=p.safeType}}{{?}} {{=p.name}}`{{? p.shortDesc}}<br/>{{=p.shortDesc}}{{?}}<br/><br/>{{?}}{{?}}{{~}}
-{{~ data.parameters :p}}{{? p.name !== 'body'}}{{? !p.required }}`[optional] {{? p.originalType}}{{=p.originalType}}{{??}}{{=p.safeType}}{{?}} {{=p.name}}`{{? p.shortDesc}}<br/>{{=p.shortDesc}}{{?}}<br/><br/>{{?}}{{?}}{{~}}
-
-{{? data.longDescs }}
-#### Detailed descriptions
-{{~ data.parameters :p}}{{? p.shortDesc !== p.description}}
-**{{=p.name}}**: {{=p.description}}{{?}}
-{{~}}{{?}}
+{{~ data.parameters :p}}{{? p.name !== 'body'}}{{? p.required }}`{{? p.originalType}}{{=p.originalType}}{{??}}{{=p.safeType}}{{?}} {{=p.name}}`
+{{? p.description}}<br/>{{=p.description}}{{?}}<br/><br/>{{?}}{{?}}{{~}}
+{{~ data.parameters :p}}{{? p.name !== 'body'}}{{? !p.required }}`[optional] {{? p.originalType}}{{=p.originalType}}{{??}}{{=p.safeType}}{{?}} {{=p.name}}`
+{{? p.description}}<br/>{{=p.description}}{{?}}<br/><br/>{{?}}{{?}}{{~}}
 
 {{~ data.parameters :p}}
 

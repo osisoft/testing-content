@@ -14,10 +14,10 @@
 {{ data.utils.getParameters(data); }}
 
 {{? data.operation.summary && !data.options.tocSummary}}{{= data.operation.summary }}{{?}}
-
+{{ var pathUrl = data.utils.getPathUrlWithParameters(data.method.path, data.parameters); }}
 ### Request
 ```text 
-{{= data.methodUpper}} {{=data.method.path}}
+{{= data.methodUpper}} {{=pathUrl}}
 ```
 
 {{? data.operation.description}}{{= data.operation.description }}{{?}}
