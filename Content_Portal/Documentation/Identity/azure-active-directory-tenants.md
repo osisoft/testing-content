@@ -1,5 +1,5 @@
 ---
-title: Identity/azure-active-directory-tenants v20210308.1
+title: Identity/azure-active-directory-tenants v20210311.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,29 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-azure-active-directory-tenants-azure-active-directory-tenants">Azure Active Directory Tenants</h1>
+[[_TOC_]]
 
-The model for an AAD tenant in Identity Storage.
+# Azure Active Directory Tenants
+An Azure Active Directory (AAD) Tenant is used to map an existing [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Tenant from Azure to OSIsoft Cloud Services. We only allow one Azure Active Directory Tenant per OSIsoft Cloud Services Tenant.
 
-|Name|Type|Description|
-|---|---|---|
-|Id|string|AAD tenant unique identifier.|
-|ConsentState|[ConsentState](#schemaconsentstate)|Consent state of AAD tenant. Can be: NotConsented (0), Consented (1).|
-|Domain|string|AAD tenant domain name.|
-
-	
-
-	
-
-	
-
-	
-
----
 ## List Aad Tenants For Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_List Aad Tenants For Tenant"></a>
@@ -39,14 +25,19 @@ Get all Azure Active Directory Tenants from an OSIsoft Cloud Services Tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
+?query={query}&skip={skip}&count={count}
 ```
 
-<h3 id="azureactivedirectorytenants_list-aad-tenants-for-tenant-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of Azure Active Directory tenants to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of Azure Active Directory tenants to return.<br/><br/>
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of Azure Active Directory tenants to skip.<br/><br/>`[optional] integer count`
+<br/>Maximum number of Azure Active Directory tenants to return.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_list-aad-tenants-for-tenant-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -55,30 +46,28 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 |403|[ErrorResponse](#schemaerrorresponse)|or|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
-> 401 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Id": "string",
+    "ConsentState": 0,
+    "Domain": "string"
+  }
+]
 ```
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Aad Tenants Header For Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_Get Aad Tenants Header For Tenant"></a>
@@ -88,13 +77,15 @@ Return total number of Azure Active Directory tenants in a OSIsoft Cloud Service
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
+
 ```
 
-<h3 id="azureactivedirectorytenants_get-aad-tenants-header-for-tenant-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_get-aad-tenants-header-for-tenant-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -107,13 +98,13 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Aad Tenant For Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_Get Aad Tenant For Tenant"></a>
@@ -123,13 +114,16 @@ Get Azure Active Directory Tenant from an OSIsoft Cloud Services Tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
+
 ```
 
-<h3 id="azureactivedirectorytenants_get-aad-tenant-for-tenant-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`<br/>Id of Azure Active Directory Tenant.<br/><br/>
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
+<br/>Id of Azure Active Directory Tenant.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_get-aad-tenant-for-tenant-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -140,8 +134,7 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -154,13 +147,13 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Aad Tenant Header For Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_Get Aad Tenant Header For Tenant"></a>
@@ -170,13 +163,16 @@ Validate that Azure Active Directory Tenant exists in this OSIsoft Cloud Service
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
+
 ```
 
-<h3 id="azureactivedirectorytenants_get-aad-tenant-header-for-tenant-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`<br/>Id of Azure Active Directory Tenant.<br/><br/>
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
+<br/>Id of Azure Active Directory Tenant.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_get-aad-tenant-header-for-tenant-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -189,13 +185,13 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Add Aad Tenant To Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_Add Aad Tenant To Tenant"></a>
@@ -205,13 +201,16 @@ Add an Azure Active Directory Tenant to the OSIsoft Cloud Services Tenant.
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
+
 ```
 
-<h3 id="azureactivedirectorytenants_add-aad-tenant-to-tenant-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`<br/>Id or Domain Name of Azure Active Directory Tenant.<br/><br/>
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
+<br/>Id or Domain Name of Azure Active Directory Tenant.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_add-aad-tenant-to-tenant-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -224,8 +223,7 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |409|[ErrorResponse](#schemaerrorresponse)|Id of Azure Active Directory Tenant. is already in use on the specified Tenant.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
+#### Example response body
 > 201 Response
 
 ```json
@@ -238,13 +236,13 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Remove Aad Tenant From Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_Remove Aad Tenant From Tenant"></a>
@@ -254,29 +252,30 @@ Removal of Azure Active Directory Tenant from an OSIsoft Cloud Services Tenant i
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
+
 ```
 
-<h3 id="azureactivedirectorytenants_remove-aad-tenant-from-tenant-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`<br/>Id of Azure Active Directory Tenant to remove.<br/><br/>
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
+<br/>Id of Azure Active Directory Tenant to remove.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_remove-aad-tenant-from-tenant-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|NotSupportedException.|
 
-### Example response body
-
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Send Aad Tenant Consent Request
 
 <a id="opIdAzureActiveDirectoryTenants_Send Aad Tenant Consent Request"></a>
@@ -286,6 +285,7 @@ Send consent for an Azure Active Directory Tenant. OSIsoft Cloud Services needs 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}/SendConsent
+
 ```
 
 ### Request Body
@@ -302,11 +302,13 @@ ConsentInformation object.<br/>
 }
 ```
 
-<h3 id="azureactivedirectorytenants_send-aad-tenant-consent-request-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`<br/>Id of Azure Active Directory Tenant.<br/><br/>
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
+<br/>Id of Azure Active Directory Tenant.<br/><br/>
 
-<h3 id="azureactivedirectorytenants_send-aad-tenant-consent-request-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -317,8 +319,7 @@ ConsentInformation object.<br/>
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
+#### Example response body
 > 400 Response
 
 ```json
@@ -334,20 +335,30 @@ ConsentInformation object.<br/>
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_AzureActiveDirectoryTenant">AzureActiveDirectoryTenant</h2>
+## AzureActiveDirectoryTenant
 
 <a id="schemaazureactivedirectorytenant"></a>
 <a id="schema_AzureActiveDirectoryTenant"></a>
 <a id="tocSazureactivedirectorytenant"></a>
 <a id="tocsazureactivedirectorytenant"></a>
+
+The model for an AAD tenant in Identity Storage.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|AAD tenant unique identifier.|
+|ConsentState|[ConsentState](#schemaconsentstate)|false|false|Consent state of AAD tenant. Can be: NotConsented (0), Consented (1).|
+|Domain|string|false|true|AAD tenant domain name.|
 
 ```json
 {
@@ -358,17 +369,9 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```
 
-The model for an AAD tenant in Identity Storage.
+---
 
-### Properties
-
-|Name|Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|AAD tenant unique identifier.|
-|ConsentState|[ConsentState](#schemaconsentstate)|false|false|Consent state of AAD tenant. Can be: NotConsented (0), Consented (1).|
-|Domain|string|false|true|AAD tenant domain name.|
-
-<h2 id="tocS_ConsentState">ConsentState</h2>
+## ConsentState
 
 <a id="schemaconsentstate"></a>
 <a id="schema_ConsentState"></a>
@@ -384,12 +387,25 @@ AAD Tenant Consent State.
 |NotConsented|0|
 |Consented|1|
 
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+---
+
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
+
+Object returned whenever there is an error.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
 
 ```json
 {
@@ -403,23 +419,26 @@ AAD Tenant Consent State.
 
 ```
 
-Object returned whenever there is an error.
+---
 
-### Properties
-
-|Name|Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
-
-<h2 id="tocS_ConsentInformation">ConsentInformation</h2>
+## ConsentInformation
 
 <a id="schemaconsentinformation"></a>
 <a id="schema_ConsentInformation"></a>
 <a id="tocSconsentinformation"></a>
 <a id="tocsconsentinformation"></a>
+
+Information about the recipient of the Azure Active Directory consent email.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|AzureActiveDirectoryConsentEmail|email|false|true|Email address to send consent.|
+|AzureActiveDirectoryConsentGivenName|string|false|true|Preferred name to use in the consent email.|
+|AzureActiveDirectoryConsentSurname|string|false|true|Preferred surname to use in the consent email.|
+|AzureActiveDirectoryTenant|string|false|true|AAD tenant domain name (for example, mydomain.onmicrosoft.com).|
+|AzureActiveDirectoryConsentTypes|string|false|true|Semicolon delimited AAD consent types. Can be "SignIn" or "SignIn;ReadAllUsersGroups".|
 
 ```json
 {
@@ -432,15 +451,5 @@ Object returned whenever there is an error.
 
 ```
 
-Information about the recipient of the Azure Active Directory consent email.
-
-### Properties
-
-|Name|Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|AzureActiveDirectoryConsentEmail|email|false|true|Email address to send consent.|
-|AzureActiveDirectoryConsentGivenName|string|false|true|Preferred name to use in the consent email.|
-|AzureActiveDirectoryConsentSurname|string|false|true|Preferred surname to use in the consent email.|
-|AzureActiveDirectoryTenant|string|false|true|AAD tenant domain name (for example, mydomain.onmicrosoft.com).|
-|AzureActiveDirectoryConsentTypes|string|false|true|Semicolon delimited AAD consent types. Can be "SignIn" or "SignIn;ReadAllUsersGroups".|
+---
 

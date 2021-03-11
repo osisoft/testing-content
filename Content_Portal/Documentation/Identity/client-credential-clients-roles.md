@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-roles v20210308.1
+title: Identity/client-credential-clients-roles v20210311.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,29 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-client-credential-clients-roles-roles">Roles</h1>
+[[_TOC_]]
 
-|Name|Type|Description|
-|---|---|---|
-|Id|guid|None|
-|Name|string|None|
-|Description|string|None|
-|RoleScope|[RoleScope](#schemarolescope)|None|
-|TenantId|guid|None|
-|CommunityId|guid|None|
-|RoleTypeId|guid|None|
+# Roles
+APIs for getting, updating, and deleting client credential client roles.
 
-	
-
-	
-
-	
-
----
 ## List Client Credential Client Roles All
 
 <a id="opIdRoles_List Client Credential Client Roles All"></a>
@@ -39,14 +25,20 @@ Returns a list of roles for the specified client credential client.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
+?query={query}&skip={skip}&count={count}
 ```
 
-<h3 id="roles_list-client-credential-client-roles-all-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client credential client unique identifier.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of roles to skip.<br/><br/>`[optional] integer count`<br/>Max number of roles to return.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of roles to skip.<br/><br/>`[optional] integer count`
+<br/>Max number of roles to return.<br/><br/>
 
-<h3 id="roles_list-client-credential-client-roles-all-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -58,31 +50,33 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 |408|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
-> 400 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "RoleScope": 1,
+    "TenantId": "string",
+    "CommunityId": "string",
+    "RoleTypeId": "string"
+  }
+]
 ```
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Client Credential Client Roles Header
 
 <a id="opIdRoles_Get Client Credential Client Roles Header"></a>
@@ -92,13 +86,16 @@ Head request to get the total number of client credential client roles for the s
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
+
 ```
 
-<h3 id="roles_get-client-credential-client-roles-header-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client credential client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
 
-<h3 id="roles_get-client-credential-client-roles-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -110,14 +107,14 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Put Client Credential Client Roles All
 
 <a id="opIdRoles_Put Client Credential Client Roles All"></a>
@@ -127,6 +124,7 @@ Replaces existing client credential client roles.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
+
 ```
 
 ### Request Body
@@ -147,11 +145,13 @@ Update roles list.<br/>
 ]
 ```
 
-<h3 id="roles_put-client-credential-client-roles-all-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client credential client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
 
-<h3 id="roles_put-client-credential-client-roles-all-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -163,30 +163,32 @@ Update roles list.<br/>
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
-> 400 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "RoleScope": 1,
+    "TenantId": "string",
+    "CommunityId": "string",
+    "RoleTypeId": "string"
+  }
+]
 ```
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## List Client Credential Client Roles
 
 <a id="opIdRoles_List Client Credential Client Roles"></a>
@@ -196,14 +198,20 @@ Returns a list of roles for the specified client credential client.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
+?query={query}&skip={skip}&count={count}
 ```
 
-<h3 id="roles_list-client-credential-client-roles-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client credential client unique identifier.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of roles to skip.<br/><br/>`[optional] integer count`<br/>Max number of roles to return.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of roles to skip.<br/><br/>`[optional] integer count`
+<br/>Max number of roles to return.<br/><br/>
 
-<h3 id="roles_list-client-credential-client-roles-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -215,31 +223,33 @@ GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 |408|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
-> 400 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "RoleScope": 1,
+    "TenantId": "string",
+    "CommunityId": "string",
+    "RoleTypeId": "string"
+  }
+]
 ```
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Client Credential Client Roles Header2
 
 <a id="opIdRoles_Get Client Credential Client Roles Header2"></a>
@@ -249,13 +259,16 @@ Head request to get the total number of client credential client roles for the s
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
+
 ```
 
-<h3 id="roles_get-client-credential-client-roles-header2-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client credential client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
 
-<h3 id="roles_get-client-credential-client-roles-header2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -267,14 +280,14 @@ HEAD /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Put Client Credential Client Roles
 
 <a id="opIdRoles_Put Client Credential Client Roles"></a>
@@ -284,6 +297,7 @@ Replaces existing client credential client roles.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
+
 ```
 
 ### Request Body
@@ -304,11 +318,13 @@ Update roles list.<br/>
 ]
 ```
 
-<h3 id="roles_put-client-credential-client-roles-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client credential client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
 
-<h3 id="roles_put-client-credential-client-roles-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -320,37 +336,51 @@ Update roles list.<br/>
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-
-> 400 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "RoleScope": 1,
+    "TenantId": "string",
+    "CommunityId": "string",
+    "RoleTypeId": "string"
+  }
+]
 ```
 
 ### Authorization
 
-To perform this operation, you must have one of the following roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_Role">Role</h2>
+## Role
 
 <a id="schemarole"></a>
 <a id="schema_Role"></a>
 <a id="tocSrole"></a>
 <a id="tocsrole"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|guid|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|RoleScope|[RoleScope](#schemarolescope)|false|true|None|
+|TenantId|guid|false|true|None|
+|CommunityId|guid|false|true|None|
+|RoleTypeId|guid|false|true|None|
 
 ```json
 {
@@ -365,19 +395,9 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```
 
-### Properties
+---
 
-|Name|Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|guid|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|RoleScope|[RoleScope](#schemarolescope)|false|true|None|
-|TenantId|guid|false|true|None|
-|CommunityId|guid|false|true|None|
-|RoleTypeId|guid|false|true|None|
-
-<h2 id="tocS_RoleScope">RoleScope</h2>
+## RoleScope
 
 <a id="schemarolescope"></a>
 <a id="schema_RoleScope"></a>
@@ -392,12 +412,25 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 |Community|2|
 |Cluster|3|
 
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+---
+
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
+
+Object returned whenever there is an error.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
 
 ```json
 {
@@ -411,14 +444,5 @@ To perform this operation, you must have one of the following roles: <br/><br/>
 
 ```
 
-Object returned whenever there is an error.
-
-### Properties
-
-|Name|Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+---
 
