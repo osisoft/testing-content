@@ -22,6 +22,10 @@
 
 {{? data.operation.description}}{{= data.operation.description }}{{?}}
 
+{{? data.parameters && data.parameters.length }}
+{{#def.parameters}}
+{{?}}
+
 {{? data.operation.requestBody}}
 {{ var bodyParameterExamples = data.utils.getBodyParameterExamples(data); }}
 {{? bodyParameterExamples !== null}}
@@ -39,9 +43,7 @@
 {{?}}
 {{?}}
 
-{{? data.parameters && data.parameters.length }}
-{{#def.parameters}}
-{{?}}
+
 {{#def.responses}}
 
 {{#def.callbacks}}
