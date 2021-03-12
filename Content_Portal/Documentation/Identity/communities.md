@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210312.1
+title: Identity/communities v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -92,6 +92,11 @@ POST /api/v1/tenants/{tenantId}/Communities
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>
+
 ### Request Body
 
 The community information to create.<br/>
@@ -102,11 +107,6 @@ The community information to create.<br/>
   "Description": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>
 
 ### Response
 
@@ -230,6 +230,12 @@ PUT /api/v1/tenants/{tenantId}/Communities/{communityId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>
+
 ### Request Body
 
 The community object that contains the attributes to use for the update.<br/>
@@ -240,12 +246,6 @@ The community object that contains the attributes to use for the update.<br/>
   "Description": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community.<br/><br/>
 
 ### Response
 

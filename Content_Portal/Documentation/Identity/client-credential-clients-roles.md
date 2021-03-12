@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-roles v20210312.1
+title: Identity/client-credential-clients-roles v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -127,6 +127,12 @@ PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
+
 ### Request Body
 
 Update roles list.<br/>
@@ -144,12 +150,6 @@ Update roles list.<br/>
   }
 ]
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client credential client unique identifier.<br/><br/>
 
 ### Response
 
@@ -300,6 +300,12 @@ PUT /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
+
 ### Request Body
 
 Update roles list.<br/>
@@ -317,12 +323,6 @@ Update roles list.<br/>
   }
 ]
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client credential client unique identifier.<br/><br/>
 
 ### Response
 

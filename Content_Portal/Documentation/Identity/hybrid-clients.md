@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients v20210312.1
+title: Identity/hybrid-clients v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -138,6 +138,11 @@ POST /api/v1/Tenants/{tenantId}/HybridClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 HybridClientCreate object.<br/>
@@ -165,11 +170,6 @@ HybridClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -337,6 +337,12 @@ PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 HybridClient object. Properties that are not set or are null will not be changed.<br/>
@@ -362,12 +368,6 @@ HybridClient object. Properties that are not set or are null will not be changed
   "AllowAccessTokensViaBrowser": true
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -547,6 +547,11 @@ POST /api/v1-preview/Tenants/{tenantId}/HybridClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>
+
 ### Request Body
 
 New HybridClientCreate object.<br/>
@@ -574,11 +579,6 @@ New HybridClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>
 
 ### Response
 
@@ -705,6 +705,12 @@ PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Id of client.<br/><br/>
+
 ### Request Body
 
 Updated Hybrid Client values.<br/>
@@ -730,12 +736,6 @@ Updated Hybrid Client values.<br/>
   "AllowAccessTokensViaBrowser": true
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
-<br/>Id of client.<br/><br/>
 
 ### Response
 

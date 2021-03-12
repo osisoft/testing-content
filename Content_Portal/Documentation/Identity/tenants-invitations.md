@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-invitations v20210312.1
+title: Identity/tenants-invitations v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -215,6 +215,12 @@ PUT /api/v1/Tenants/{tenantId}/Invitations/{invitationId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string invitationId`
+<br/>Invitation unique identifier.<br/><br/>
+
 ### Request Body
 
 New InvitationCreateOrUpdate object. Properties that are not set or are null will not be changed.<br/>
@@ -227,12 +233,6 @@ New InvitationCreateOrUpdate object. Properties that are not set or are null wil
   "IdentityProviderId": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string invitationId`
-<br/>Invitation unique identifier.<br/><br/>
 
 ### Response
 

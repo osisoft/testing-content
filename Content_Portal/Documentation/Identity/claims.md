@@ -1,5 +1,5 @@
 ---
-title: Identity/claims v20210312.1
+title: Identity/claims v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -123,6 +123,12 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>
+
 ### Request Body
 
 Identity provider claim to create.<br/>
@@ -136,12 +142,6 @@ Identity provider claim to create.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>
 
 ### Response
 
@@ -282,6 +282,13 @@ PUT /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{id
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`
+<br/>Identity provider claim unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated identity provider claim values.<br/>
@@ -294,13 +301,6 @@ Updated identity provider claim values.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`
-<br/>Identity provider claim unique identifier.<br/><br/>
 
 ### Response
 

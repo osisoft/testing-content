@@ -1,5 +1,5 @@
 ---
-title: Identity/invitation v20210312.1
+title: Identity/invitation v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -120,6 +120,12 @@ POST /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 InvitationCreateOrUpdate object.<br/>
@@ -132,12 +138,6 @@ InvitationCreateOrUpdate object.<br/>
   "IdentityProviderId": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 
@@ -189,6 +189,12 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 InvitationCreateOrUpdate object.<br/>
@@ -201,12 +207,6 @@ InvitationCreateOrUpdate object.<br/>
   "IdentityProviderId": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 

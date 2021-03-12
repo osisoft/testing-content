@@ -1,5 +1,5 @@
 ---
-title: Identity/device-code-clients v20210312.1
+title: Identity/device-code-clients v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -131,6 +131,11 @@ POST /api/v1/Tenants/{tenantId}/DeviceCodeClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>
+
 ### Request Body
 
 New DeviceCodeClient object.<br/>
@@ -149,11 +154,6 @@ New DeviceCodeClient object.<br/>
   "LogoUri": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>
 
 ### Response
 
@@ -319,6 +319,12 @@ PUT /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Id of Client.<br/><br/>
+
 ### Request Body
 
 Updated Device Code Client values. Properties that are not set or are null will not be changed.<br/>
@@ -337,12 +343,6 @@ Updated Device Code Client values. Properties that are not set or are null will 
   "LogoUri": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
-<br/>Id of Client.<br/><br/>
 
 ### Response
 

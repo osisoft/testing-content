@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210312.1
+title: Identity/tenants-users v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -132,6 +132,11 @@ POST /api/v1/Tenants/{tenantId}/Users
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 UserCreateOrUpdate object.<br/>
@@ -150,11 +155,6 @@ UserCreateOrUpdate object.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -307,6 +307,12 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 UserCreateOrUpdate object. Properties that are not set or are null will not be changed.<br/>
@@ -325,12 +331,6 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 
@@ -715,6 +715,11 @@ POST /api/v1-preview/Tenants/{tenantId}/Users
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 User values to use during creating.<br/>
@@ -730,11 +735,6 @@ User values to use during creating.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -790,6 +790,12 @@ PUT /api/v1-preview/Tenants/{tenantId}/Users/{userId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 A UserStatus object.<br/>
@@ -805,12 +811,6 @@ A UserStatus object.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 

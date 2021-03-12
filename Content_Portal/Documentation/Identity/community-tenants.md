@@ -1,5 +1,5 @@
 ---
-title: Identity/community-tenants v20210312.1
+title: Identity/community-tenants v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -28,6 +28,13 @@ PUT /api/v1/tenants/{tenantId}/communities/{communityId}/communitytenants/{commu
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>`string communityTenantId`
+<br/>The target community tenant in the the community to update.<br/><br/>
+
 ### Request Body
 
 The community tenant object that contains the attributes to use for the update.<br/>
@@ -37,13 +44,6 @@ The community tenant object that contains the attributes to use for the update.<
   "Status": "Undefined"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community.<br/><br/>`string communityTenantId`
-<br/>The target community tenant in the the community to update.<br/><br/>
 
 ### Response
 
@@ -93,6 +93,13 @@ PUT /api/v1/tenants/{tenantId}/communities/{communityId}/membertenants/{communit
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>`string communityTenantId`
+<br/>The target community tenant in the the community to update.<br/><br/>
+
 ### Request Body
 
 The community tenant object that contains the attributes to use for the update.<br/>
@@ -102,13 +109,6 @@ The community tenant object that contains the attributes to use for the update.<
   "Status": "Undefined"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community.<br/><br/>`string communityTenantId`
-<br/>The target community tenant in the the community to update.<br/><br/>
 
 ### Response
 

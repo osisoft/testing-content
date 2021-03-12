@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-client-credential-clients v20210312.1
+title: Identity/tenants-client-credential-clients v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -130,6 +130,11 @@ POST /api/v1/Tenants/{tenantId}/ClientCredentialClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientCredentialClientCreate object.<br/>
@@ -150,11 +155,6 @@ ClientCredentialClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -308,6 +308,12 @@ PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientCredentialClient object. Properties that are not set or are null will not be changed.<br/>
@@ -326,12 +332,6 @@ ClientCredentialClient object. Properties that are not set or are null will not 
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -498,6 +498,11 @@ POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 New ClientCredentialClientCreate object.<br/>
@@ -518,11 +523,6 @@ New ClientCredentialClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -634,6 +634,12 @@ PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated client credential client values.<br/>
@@ -652,12 +658,6 @@ Updated client credential client values.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 

@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210312.1
+title: Identity/users-roles v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -126,6 +126,12 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 Update roles list.<br/>
@@ -143,12 +149,6 @@ Update roles list.<br/>
   }
 ]
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 

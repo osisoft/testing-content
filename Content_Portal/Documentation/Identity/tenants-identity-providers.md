@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-identity-providers v20210312.1
+title: Identity/tenants-identity-providers v20210312.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -124,6 +124,11 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 IdentityProviderAdd object.<br/>
@@ -139,11 +144,6 @@ IdentityProviderAdd object.<br/>
   "AzureActiveDirectorySendConsent": true
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -455,6 +455,12 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier to activate consent.<br/><br/>
+
 ### Request Body
 
 Identity provider consent.<br/>
@@ -466,12 +472,6 @@ Identity provider consent.<br/>
   "property2": null
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier to activate consent.<br/><br/>
 
 ### Response
 
@@ -577,6 +577,12 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Groups
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>
+
 ### Request Body
 
 Group unique identifier list.<br/>
@@ -586,12 +592,6 @@ Group unique identifier list.<br/>
   "string"
 ]
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>
 
 ### Response
 
