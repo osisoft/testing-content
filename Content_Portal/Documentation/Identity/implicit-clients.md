@@ -1,5 +1,5 @@
 ---
-title: Identity/implicit-clients v20210311.2
+title: Identity/implicit-clients v20210312.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -139,6 +139,11 @@ POST /api/v1/Tenants/{tenantId}/ImplicitClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 New ImplicitClient object.<br/>
@@ -165,11 +170,6 @@ New ImplicitClient object.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -333,6 +333,12 @@ PUT /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated implicit client values. Properties that are not set or are null will not be changed.<br/>
@@ -359,12 +365,6 @@ Updated implicit client values. Properties that are not set or are null will not
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -546,6 +546,11 @@ POST /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>
+
 ### Request Body
 
 New ImplicitClient object.<br/>
@@ -572,11 +577,6 @@ New ImplicitClient object.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>
 
 ### Response
 
@@ -701,6 +701,12 @@ PUT /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Id of client.<br/><br/>
+
 ### Request Body
 
 Updated Implicit Client values.<br/>
@@ -727,12 +733,6 @@ Updated Implicit Client values.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
-<br/>Id of client.<br/><br/>
 
 ### Response
 

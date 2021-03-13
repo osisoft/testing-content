@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-roles v20210311.2
+title: Identity/tenants-roles v20210312.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -121,6 +121,11 @@ POST /api/v1/Tenants/{tenantId}/Roles
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 Role to create.<br/>
@@ -136,11 +141,6 @@ Role to create.<br/>
   "RoleTypeId": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -281,6 +281,12 @@ PUT /api/v1/Tenants/{tenantId}/Roles/{roleId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string roleId`
+<br/>Role unique identifier.<br/><br/>
+
 ### Request Body
 
 Role to update.<br/>
@@ -296,12 +302,6 @@ Role to update.<br/>
   "RoleTypeId": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
 
 ### Response
 
@@ -629,7 +629,7 @@ Allowed for these roles:
 
 |Property|Value|
 |---|---|
-|Account|1|
+|Tenant|1|
 |Community|2|
 |Cluster|3|
 

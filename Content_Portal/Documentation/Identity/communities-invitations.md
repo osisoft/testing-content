@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-invitations v20210311.2
+title: Identity/communities-invitations v20210312.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -31,6 +31,11 @@ PUT /api/v1/community/invitations/{invitationId}
 Tenant Administrator is Authorized for this API along with Community Administrator because a Tenant Administrator is allowed to Accept or Decline an Invitation.
 Community Administrator is allowed to resend Invitations.
 
+### Parameters
+
+`string invitationId`
+<br/>The id of the invitation.<br/><br/>
+
 ### Request Body
 
 The invitation action.<br/>
@@ -40,11 +45,6 @@ The invitation action.<br/>
   "Action": "Accept"
 }
 ```
-
-### Parameters
-
-`string invitationId`
-<br/>The id of the invitation.<br/><br/>
 
 ### Response
 
@@ -153,6 +153,11 @@ PUT /api/v1/communityinvitations/{invitationId}
 Tenant Administrator is Authorized for this API along with Community Administrator because a Tenant Administrator is allowed to Accept or Decline an Invitation.
 Community Administrator is allowed to resend Invitations.
 
+### Parameters
+
+`string invitationId`
+<br/>The id of the invitation.<br/><br/>
+
 ### Request Body
 
 The invitation action.<br/>
@@ -162,11 +167,6 @@ The invitation action.<br/>
   "Action": "Accept"
 }
 ```
-
-### Parameters
-
-`string invitationId`
-<br/>The id of the invitation.<br/><br/>
 
 ### Response
 
@@ -339,6 +339,12 @@ POST /api/v1/tenants/{tenantId}/communities/{communityId}/invitations
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>
+
 ### Request Body
 
 The invitation to create.<br/>
@@ -351,12 +357,6 @@ The invitation to create.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community.<br/><br/>
 
 ### Response
 

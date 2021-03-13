@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210311.2
+title: Identity/users-roles v20210312.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -126,6 +126,12 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 Update roles list.<br/>
@@ -143,12 +149,6 @@ Update roles list.<br/>
   }
 ]
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 
@@ -234,7 +234,7 @@ Allowed for these roles:
 
 |Property|Value|
 |---|---|
-|Account|1|
+|Tenant|1|
 |Community|2|
 |Cluster|3|
 

@@ -1,5 +1,5 @@
 ---
-title: Identity/azure-active-directory-tenants v20210311.2
+title: Identity/azure-active-directory-tenants v20210312.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -288,6 +288,12 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}/SendCo
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
+<br/>Id of Azure Active Directory Tenant.<br/><br/>
+
 ### Request Body
 
 ConsentInformation object.<br/>
@@ -301,12 +307,6 @@ ConsentInformation object.<br/>
   "AzureActiveDirectoryConsentTypes": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
-<br/>Id of Azure Active Directory Tenant.<br/><br/>
 
 ### Response
 

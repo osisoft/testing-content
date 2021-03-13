@@ -1,5 +1,5 @@
 ---
-title: Identity/authorization-code-clients v20210311.2
+title: Identity/authorization-code-clients v20210312.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -139,6 +139,11 @@ POST /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 New AuthorizationCodeClient object.<br/>
@@ -165,11 +170,6 @@ New AuthorizationCodeClient object.<br/>
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -351,6 +351,12 @@ PUT /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated authorization code client values. Properties that are not set or are null will not be changed.<br/>
@@ -377,12 +383,6 @@ Updated authorization code client values. Properties that are not set or are nul
   ]
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 

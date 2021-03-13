@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-secrets v20210311.2
+title: Identity/client-credential-clients-secrets v20210312.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -120,6 +120,12 @@ POST /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientSecretCreateOrUpdate object.<br/>
@@ -131,12 +137,6 @@ ClientSecretCreateOrUpdate object.<br/>
   "Description": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -272,6 +272,13 @@ PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secre
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>Secret unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientSecretCreateOrUpdate object. Properties that are not set or are null will not be changed.<br/>
@@ -283,13 +290,6 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
   "Description": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
 
 ### Response
 
@@ -445,6 +445,12 @@ POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secre
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Client secret to create.<br/>
@@ -456,12 +462,6 @@ Client secret to create.<br/>
   "Description": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -561,6 +561,13 @@ PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 
 ```
 
+### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>secretId.<br/><br/>
+
 ### Request Body
 
 Client secret details.<br/>
@@ -572,13 +579,6 @@ Client secret details.<br/>
   "Description": "string"
 }
 ```
-
-### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>secretId.<br/><br/>
 
 ### Response
 
