@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-invitations v20210313.5
+title: Identity/communities-invitations v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -27,9 +27,6 @@ Processes an action against a particular community invitation. The available act
 PUT /api/v1/community/invitations/{invitationId}
 
 ```
-
-Tenant Administrator is Authorized for this API along with Community Administrator because a Tenant Administrator is allowed to Accept or Decline an Invitation.
-Community Administrator is allowed to resend Invitations.
 
 ### Parameters
 
@@ -95,11 +92,6 @@ GET /api/v1/community/invitations/{invitationId}/details
 
 ```
 
-This API has no Community permissions as this API will be used by the UI during the Invitation Acceptance process.
-This API will be used to present relevant information to the caller (Community Name, Id, etc.) so the caller can 
-make an informed choice about what invitation they are accepting. 
-Only Tenant Administrators can accept a Community Invitation, so this API allows Tenant Administrators.
-
 ### Parameters
 
 `string invitationId`
@@ -149,9 +141,6 @@ Processes an action against a particular community invitation. The available act
 PUT /api/v1/communityinvitations/{invitationId}
 
 ```
-
-Tenant Administrator is Authorized for this API along with Community Administrator because a Tenant Administrator is allowed to Accept or Decline an Invitation.
-Community Administrator is allowed to resend Invitations.
 
 ### Parameters
 
@@ -216,11 +205,6 @@ Gets details for a community invitation.
 GET /api/v1/communityinvitations/{invitationId}/details
 
 ```
-
-This API has no Community permissions as this API will be used by the UI during the Invitation Acceptance process.
-This API will be used to present relevant information to the caller (Community Name, Id, etc.) so the caller can 
-make an informed choice about what invitation they are accepting. 
-Only Tenant Administrators can accept a Community Invitation, so this API allows Tenant Administrators.
 
 ### Parameters
 

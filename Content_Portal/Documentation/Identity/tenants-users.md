@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210313.5
+title: Identity/tenants-users v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -20,7 +20,7 @@ Users consume resources in a tenant. They are invited by the administrator of th
 
 <a id="opIdUsers_List Users"></a>
 
-Returns a list of users from a tenant. 
+Several lines of text, <br/>with some "quotes" of various 'types', <br/>and also a blank line: <br/>
 
 ### Request
 ```text 
@@ -638,7 +638,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_List Users Status"></a>
 
-Gets invitation statuses for multiple users. Optionally restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+|Status Code|Body Type|Description|<br/>|---|---|---|<br/>|200|List of [User](#schemauser)s|List of Users found.|<br/>|207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of Users found.|<br/>|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|<br/>|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|<br/>|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|<br/>|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|<br/>|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|<br/>
 
 ### Request
 ```text 
