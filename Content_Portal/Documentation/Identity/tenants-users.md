@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210317.1
+title: Identity/tenants-users v20210317.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -20,7 +20,7 @@ Users consume resources in a tenant. They are invited by the administrator of th
 
 <a id="opIdUsers_List Users"></a>
 
-Several lines of text, <br/>with some "quotes" of various 'types', <br/>and also a blank line: <br/>
+Several lines of text, <br/>with some "quotes" of various 'types', <br/>and also a blank line: <br/>[here] (https://pisquare.osisoft.com/docs/DOC-3986-msa-consent-for-azure-active-directory).<br/>
 
 ### Request
 ```text 
@@ -202,7 +202,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Get User Model"></a>
 
-Gets a user from tenant.
+{<br/>  "val": 29,<br/>  "abc": "asd"<br/>}  <br/>
 
 ### Request
 ```text 
