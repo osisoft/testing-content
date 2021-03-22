@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-users v20210318.1
+title: Identity/communities-users v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Users
 APIs for getting, updating, and deleting Users from Communities.
@@ -25,10 +23,9 @@ Get a list of Users of a Tenant in a Community.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
@@ -87,10 +84,9 @@ Get the count of Users of the Tenant in this Community. This endpoint is identic
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the calling Tenant that belongs to this Community.<br/><br/>`string communityId`
@@ -140,10 +136,9 @@ Add a user to a Community.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
@@ -202,10 +197,9 @@ Remove a User from a Community.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`

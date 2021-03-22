@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-invitations v20210318.1
+title: Identity/communities-invitations v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Invitations
 Defines the public API endpoints that are used to manage community invitations. Using this API you can, for example, create, retrieve, update and process invitations. You can also resend an invitation email.
@@ -25,10 +23,9 @@ Processes an action against a particular community invitation. The available act
 ### Request
 ```text 
 PUT /api/v1/community/invitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string invitationId`
 <br/>The id of the invitation.<br/><br/>
@@ -89,10 +86,9 @@ Gets details for a community invitation.
 ### Request
 ```text 
 GET /api/v1/community/invitations/{invitationId}/details
-
 ```
 
-### Parameters
+#### Parameters
 
 `string invitationId`
 <br/>The id of the invitation.<br/><br/>
@@ -139,10 +135,9 @@ Processes an action against a particular community invitation. The available act
 ### Request
 ```text 
 PUT /api/v1/communityinvitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string invitationId`
 <br/>The id of the invitation.<br/><br/>
@@ -203,10 +198,9 @@ Gets details for a community invitation.
 ### Request
 ```text 
 GET /api/v1/communityinvitations/{invitationId}/details
-
 ```
 
-### Parameters
+#### Parameters
 
 `string invitationId`
 <br/>The id of the invitation.<br/><br/>
@@ -253,10 +247,9 @@ Gets all invitations associated with a specific community.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/communities/{communityId}/invitations
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -316,10 +309,9 @@ Creates a community invitation for a specific community.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/communities/{communityId}/invitations
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -391,10 +383,9 @@ Gets a community invitation by id.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/communities/{communityId}/invitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The tenant id.<br/><br/>`string communityId`
@@ -453,10 +444,9 @@ Deletes a community invitation by invitation id.
 ### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/communities/{communityId}/invitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The tenant id.<br/><br/>`string communityId`
@@ -508,10 +498,9 @@ Gets the community invitations for a specific invited tenant. Only invitations i
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/communityinvitations
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the invited tenant.<br/><br/>

@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210318.1
+title: Identity/tenants-users v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Users
 Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in the user cannot change the identity provider it signed up with. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
@@ -20,7 +18,7 @@ Users consume resources in a tenant. They are invited by the administrator of th
 
 <a id="opIdUsers_List Users"></a>
 
-Several lines of text, <br/>with some "quotes" of various 'types', <br/>and also a blank line: <br/>[here] (https://pisquare.osisoft.com/docs/DOC-3986-msa-consent-for-azure-active-directory).<br/>
+Several lines of text,<br/>with some "quotes" of various 'types',<br/>and also a blank line:<br/>[here](https://pisquare.osisoft.com/docs/DOC-3986-msa-consent-for-azure-active-directory).<br/>
 
 ### Request
 ```text 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/Users
 ?id={id}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -94,7 +92,7 @@ HEAD /api/v1/Tenants/{tenantId}/Users
 ?id={id}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -129,10 +127,9 @@ Creates a user in the tenant. This endpoint does not create an invitation for th
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/Users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -202,15 +199,19 @@ Allowed for these roles:
 
 <a id="opIdUsers_Get User Model"></a>
 
-{<br/>  "val": 29,<br/>  "abc": "asd"<br/>}  <br/>
+```json
+{
+  "val": 29,
+  "abc": "asd"
+} 
+```
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -266,10 +267,9 @@ Validates that a user exists. This endpoint is identical to the GET one, but it 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -304,10 +304,9 @@ Updates a user in a tenant. The user unique identifier cannot be changed.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -386,7 +385,7 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
 ?force={force}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -438,10 +437,9 @@ Gets preferences from a user. User preferences can be any valid JSON object. A c
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -490,10 +488,9 @@ Validates that there are preferences for a user. This endpoint is identical to t
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -528,10 +525,9 @@ Updates preferences for a user.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -581,10 +577,9 @@ Gets invitation status for a user. It can be: InvitationAccepted (0), NoInvitati
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}/Status
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -646,7 +641,7 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
 ?id={id}&query={query}&skip={skip}&count={count}&status={status}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -712,10 +707,9 @@ Creates a `User`.
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/Users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -787,10 +781,9 @@ Create or Update a user.
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -866,7 +859,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Ids
 ?userId={userId}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -932,7 +925,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Status/Ids
 ?userId={userId}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>

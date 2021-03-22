@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210318.1
+title: Identity/communities v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Communities
 A Community is an organizational entity that facilitates data sharing across multiple Tenants.
@@ -25,10 +23,9 @@ Gets all communities a tenant is joined to.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/Communities
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>
@@ -89,10 +86,9 @@ Creates a new community within a specific tenant. The tenant sending this reques
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/Communities
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>
@@ -163,10 +159,9 @@ Gets a community and related information by id.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/Communities/{communityId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -227,10 +222,9 @@ Updates attributes of a community such as name and description.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/Communities/{communityId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -291,10 +285,9 @@ Deletes a community by id.
 ### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`

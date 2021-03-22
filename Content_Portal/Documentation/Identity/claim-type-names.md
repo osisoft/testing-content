@@ -1,5 +1,5 @@
 ---
-title: Identity/claim-type-names v20210318.1
+title: Identity/claim-type-names v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Claim Type Names
 An identity provider claim type name is the attribute needed when creating an identity provider claim.
@@ -28,7 +26,7 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>
@@ -78,10 +76,9 @@ Gets header for all identity provider claim type names for an identity provider 
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
-
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>
@@ -114,10 +111,9 @@ Gets an identity provider claim type name from an identity provider.
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProviderClaimTypeNameId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimTypeNameId`
@@ -165,10 +161,9 @@ Gets an identity provider claim type name header from an identity provider.
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProviderClaimTypeNameId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimTypeNameId`

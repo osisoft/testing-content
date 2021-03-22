@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-roles v20210318.1
+title: Identity/client-credential-clients-roles v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Roles
 APIs for getting, updating, and deleting client credential client roles.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -86,10 +84,9 @@ Head request to get the total number of client credential client roles for the s
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -124,10 +121,9 @@ Replaces existing client credential client roles.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -201,7 +197,7 @@ GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -259,10 +255,9 @@ Head request to get the total number of client credential client roles for the s
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -297,10 +292,9 @@ Replaces existing client credential client roles.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`

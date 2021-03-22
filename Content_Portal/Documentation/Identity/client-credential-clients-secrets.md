@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-secrets v20210318.1
+title: Identity/client-credential-clients-secrets v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Secrets
 Secrets are used to authenticate client credential clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires it can no longer be used to authenticate the client. Any access token issued while a secret is still valid will be active until the token itself expires. Safe storage of secrets is your responsibility. OCS does not store secret values, so once lost there is no way to retrieve the value of a secret.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -80,10 +78,9 @@ Returns the total number of secrets in a client credential client. The value wil
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -117,10 +114,9 @@ Adds a new secret to a client credential client. A client can have a maximum of 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -181,10 +177,9 @@ Gets a client credential client secret.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -231,10 +226,9 @@ Validates that a secret with a given unique identifier exists in the client. Thi
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -269,10 +263,9 @@ Updates a client credential client secret. It can take up to one hour for the up
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -333,10 +326,9 @@ Deletes a secret from a client credential client. It can take up to one hour for
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -389,7 +381,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -442,10 +434,9 @@ Add a new secret for a client credential client.
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -507,10 +498,9 @@ Get a specific client credential client secret.
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -558,10 +548,9 @@ Update a client credential client secret. Only secret description and secret exp
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`

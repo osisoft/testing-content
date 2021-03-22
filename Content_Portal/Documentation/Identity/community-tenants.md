@@ -1,5 +1,5 @@
 ---
-title: Identity/community-tenants v20210318.1
+title: Identity/community-tenants v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Community Tenants
 APIs for getting Member Tenants info in a Community.
@@ -25,10 +23,9 @@ Updates the state of a Community Tenant. It can be activated, paused, or removed
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/communities/{communityId}/communitytenants/{communityTenantId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -90,10 +87,9 @@ Updates the state of a Community Tenant. It can be activated, paused, or removed
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/communities/{communityId}/membertenants/{communityTenantId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`

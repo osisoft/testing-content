@@ -1,5 +1,5 @@
 ---
-title: Identity/invitation v20210318.1
+title: Identity/invitation v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Invitation
 Invitations are issued after the creation of a user object in OCS, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
@@ -25,10 +23,9 @@ Get invitation for a user.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -80,7 +77,7 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 ?includeExpiredInvitations={includeExpiredInvitations}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -117,10 +114,9 @@ Create an invitation for a user. Should use when no other invitation exists for 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -186,10 +182,9 @@ Create or update an invitation for a user.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -255,10 +250,9 @@ Delete an invitation for a user.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`

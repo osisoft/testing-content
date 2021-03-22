@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-roles v20210318.1
+title: Identity/tenants-roles v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Roles
 APIs for creating, getting, updating, and deleting roles on a tenant.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/Roles
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -82,10 +80,9 @@ Gets header for roles to get the total number of roles for a given tenant includ
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -118,10 +115,9 @@ Creates a new tenant `Role`.
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -189,10 +185,9 @@ Returns the specified role.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -241,10 +236,9 @@ Gets header for a role on given tenant.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -278,10 +272,9 @@ Updates a `Role` for a tenant.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -348,10 +341,9 @@ Deletes any tenant-scoped, non built-in `Role` by its role unique identifier.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -401,10 +393,9 @@ Gets all the clients for a given role.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -458,10 +449,9 @@ Gets the total number of clients for a given role.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -495,10 +485,9 @@ Gets all the users for a given role.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -555,10 +544,9 @@ Gets the total number of users for a given role.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`

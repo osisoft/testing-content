@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-roles v20210318.1
+title: Identity/communities-roles v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Roles
 Cluster APIs for getting Community Roles.
@@ -25,10 +23,9 @@ Get instanced Community Roles for a Community.
 ### Request
 ```text 
 GET /api/v1/Communities/{communityId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string communityId`
 <br/>Id of Community.<br/><br/>

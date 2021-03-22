@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-client-credential-clients v20210318.1
+title: Identity/tenants-client-credential-clients v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Client Credential Clients
 Client credential clients are used for machine-to-machine communication without the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Because they access resources on OCS and are not associated to users, these clients can be assigned any of the roles in the tenant. We suggest following a least privilege strategy when assigning roles to these clients, as they are more likely to operate in remote machines with a wider attack surface.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -91,7 +89,7 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -127,10 +125,9 @@ Creates a client credential client. A client unique identifier and client Secret
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/ClientCredentialClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -211,10 +208,9 @@ Gets a client credential client.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -267,10 +263,9 @@ Validates that a client credential client exists. This endpoint is identical to 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -305,10 +300,9 @@ Updates a client credential client. It can take up to one hour for these values 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -381,10 +375,9 @@ Deletes a client credential client. It can take up to one hour for deletion to m
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -436,7 +429,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
 ?tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -495,10 +488,9 @@ Create a client credential flow client.
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -576,10 +568,9 @@ Get a client credential client.
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -631,10 +622,9 @@ Update a client credential client.
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`

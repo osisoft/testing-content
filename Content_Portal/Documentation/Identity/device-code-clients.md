@@ -1,5 +1,5 @@
 ---
-title: Identity/device-code-clients v20210318.1
+title: Identity/device-code-clients v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Device Code Clients
 Device Code clients are used in browserless or input constrained devices. These clients are issued an ID. Device Code clients are not issued secrets.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/DeviceCodeClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -91,7 +89,7 @@ HEAD /api/v1/Tenants/{tenantId}/DeviceCodeClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -128,10 +126,9 @@ Create an Device Code flow Client. No Secret will be generated for this Client.
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/DeviceCodeClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -204,10 +201,9 @@ Get an Device Code Client from Tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -260,10 +256,9 @@ Validate that an Device Code Client exists in Tenant.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -316,10 +311,9 @@ Update an Device Code Client. It can take up to one hour for update to manifest 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -392,10 +386,9 @@ Delete a Device Code Client. It can take up to one hour for deletion to manifest
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`

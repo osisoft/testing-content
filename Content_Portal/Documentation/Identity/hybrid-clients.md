@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients v20210318.1
+title: Identity/hybrid-clients v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Hybrid Clients
 Hybrid clients are used in typical, thick MVC clients with the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have a longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to log in. It is highly suggested that both the client secret and the refresh token be stored in a secure location.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -98,7 +96,7 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -135,10 +133,9 @@ Creates a hybrid client. A client unique identifier and client secret will be ge
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/HybridClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -233,10 +230,9 @@ Gets a hybrid client from a Tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -296,10 +292,9 @@ Validates that a hybrid client exists. This endpoint is identical to the GET one
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -334,10 +329,9 @@ Updates a hybrid client. It can take up to one hour for these values to manifest
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -424,10 +418,9 @@ Deletes a hybrid client. It can take up to one hour for deletion to manifest in 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -479,7 +472,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients
 ?tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -544,10 +537,9 @@ Create a Hybrid flow Client.
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/HybridClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -640,10 +632,9 @@ Get a Hybrid Client.
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -702,10 +693,9 @@ Update a Hybrid Client.
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`

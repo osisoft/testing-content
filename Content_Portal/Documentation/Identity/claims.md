@@ -1,5 +1,5 @@
 ---
-title: Identity/claims v20210318.1
+title: Identity/claims v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Claims
 An identity provider claim provides a mechanism to map a claim from an identity provider to one or more roles.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -83,10 +81,9 @@ Gets header for all identity provider claims for an identity provider on a tenan
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -120,10 +117,9 @@ Creates a new identity provider claim for an identity provider on a tenant.
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -189,10 +185,9 @@ Gets an identity provider claim from an identity provider on a tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -241,10 +236,9 @@ Gets an identity provider claim header from an identity provider on a tenant.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -279,10 +273,9 @@ Creates a new identity provider claim for an identity provider on a tenant.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -347,10 +340,9 @@ Deletes an identity provider claim for an identity provider on a tenant.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`

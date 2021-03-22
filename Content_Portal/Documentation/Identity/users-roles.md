@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210318.1
+title: Identity/users-roles v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Roles
 APIs for getting, updating, and deleting users roles.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -85,10 +83,9 @@ Head request to get the total number of user roles for the specified user.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -123,10 +120,9 @@ Replaces existing user roles.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`

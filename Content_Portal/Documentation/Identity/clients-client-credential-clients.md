@@ -1,5 +1,5 @@
 ---
-title: Identity/clients-client-credential-clients v20210318.1
+title: Identity/clients-client-credential-clients v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Client Credential Clients
 APIs for getting, adding, or removing Client Credential clients from Communities.
@@ -25,10 +23,9 @@ Get Client Credential clients for a Community.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
@@ -84,10 +81,9 @@ Get Client Credential Client Count for a Community.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
@@ -137,10 +133,9 @@ Add a Client Credential Client to a Community.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
@@ -196,10 +191,9 @@ Remove a Client Credential Client from a Community.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`

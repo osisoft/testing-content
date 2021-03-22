@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-invitations v20210318.1
+title: Identity/tenants-invitations v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Invitations
 Invitations are issued after the creation of a user object in OCS, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/Invitations
 ?query={query}&skip={skip}&count={count}&includeExpiredInvitations={includeExpiredInvitations}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -87,7 +85,7 @@ HEAD /api/v1/Tenants/{tenantId}/Invitations
 ?includeExpiredInvitations={includeExpiredInvitations}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -123,10 +121,9 @@ Gets an invitation from tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Invitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string invitationId`
@@ -175,10 +172,9 @@ Validates that an invitation exists. This endpoint is identical to the GET one, 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Invitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string invitationId`
@@ -212,10 +208,9 @@ Updates an invitation. Expired invitations will not be extended. automatically u
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Invitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string invitationId`
@@ -279,10 +274,9 @@ Deletes an invitation. Users who already have an invitation email will not be ab
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Invitations/{invitationId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string invitationId`

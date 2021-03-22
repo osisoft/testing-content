@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210318.1
+title: Identity/api-identity-providers v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Identity Providers
 APIs for getting a list of all supported identity providers.
@@ -28,7 +26,7 @@ GET /api/v1/IdentityProviders
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `[optional] string query`
 <br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
@@ -83,7 +81,6 @@ Get the total number of identity providers.
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders
-
 ```
 
 ### Response
@@ -114,10 +111,9 @@ Returns an IdentityProvider object.
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>
@@ -175,10 +171,9 @@ Validates that a identity provider exists
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>
@@ -211,10 +206,9 @@ Returns a list of identity provider objects that follow a scheme.
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/schemes/{scheme}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string scheme`
 <br/>Scheme name (for example, AAD or Google).<br/><br/>
@@ -272,10 +266,9 @@ Validates that a scheme exists
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/schemes/{scheme}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string scheme`
 <br/>Scheme name (for example, AAD or Google).<br/><br/>

@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-identity-providers v20210318.1
+title: Identity/tenants-identity-providers v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Identity Providers
 An identity provider provides authentication services and maintains credentials for users that have been provisioned in OCS. Each tenant can have one or more identity providers. Each user is either assigned one of the available identity providers in the tenant or chooses one in the Home Realm Discovery page when accepting the invitation. A user can only log in with the same identity provider they signed up with.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -85,10 +83,9 @@ Returns the total number of identity providers in a tenant. The value will be se
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -121,10 +118,9 @@ Adds an existing identity provider to a tenant. This identity provider will be a
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -202,10 +198,9 @@ Gets an identity provider from a tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -264,10 +259,9 @@ Validates that a identity provider exists in the tenant. This endpoint is identi
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -301,10 +295,9 @@ Removes an identity provider from a tenant. Users provisioned with this identity
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -353,10 +346,9 @@ Gets the consent information for an identity provider for a tenant. The ConsentS
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -401,10 +393,9 @@ Validates that a identity provider consent exists in the tenant. This endpoint i
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -452,10 +443,9 @@ Updates the identity provider consent of a tenant. Currently only supports AAD. 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -517,7 +507,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups
 ?query={query}&count={count}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -574,10 +564,9 @@ Gets the groups based on the Ids. Currently, AAD provider is the only provider t
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Groups
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -643,7 +632,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
 ?count={count}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -712,7 +701,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users
 ?query={query}&count={count}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -773,7 +762,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{use
 ?skip={skip}&count={count}&timeout={timeout}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`

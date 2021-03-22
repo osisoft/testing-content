@@ -1,5 +1,5 @@
 ---
-title: Identity/implicit-clients v20210318.1
+title: Identity/implicit-clients v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Implicit Clients
 Implicit client has been deprecated. We suggest using an authorization code client instead of an implicit client. Implicit clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are not issued secrets or refresh tokens.
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -99,7 +97,7 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -136,10 +134,9 @@ Creates an implicit client in a tenant. No secret will be generated for this cli
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/ImplicitClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -228,10 +225,9 @@ Gets an implicit client from a tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -292,10 +288,9 @@ Validates that an implicit client exists.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -330,10 +325,9 @@ Updates an implicit client. It can take up to one hour for update to manifest in
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -422,10 +416,9 @@ Deletes an implicit client. It can take up to one hour for deletion to manifest 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -477,7 +470,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 ?tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -543,10 +536,9 @@ Create an Implicit flow Clients.
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/ImplicitClients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -635,10 +627,9 @@ Get an Implicit Client.
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -698,10 +689,9 @@ Update an Implicit Client.
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
