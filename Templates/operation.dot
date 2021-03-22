@@ -13,7 +13,11 @@
 {{ data.utils.mergePathParameters(data); }}
 {{ data.utils.getParameters(data); }}
 
-{{? data.operation.summary && !data.options.tocSummary}}{{= data.operation.summary }}{{?}}
+{{? data.operation.summary && !data.options.tocSummary}}
+{{ var summ = data.utils.getSummary(data.operation); }}
+{{= summ }}
+{{?}}
+
 {{ var pathUrl = data.utils.getPathUrlWithParameters(data.method.path, data.parameters); }}
 ### Request
 ```text 

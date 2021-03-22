@@ -1,4 +1,3 @@
-[[_TOC_]]
 {{= data.tags.section }}
 {{ for (var r in data.resources) { }}
 {{ data.resource = data.resources[r]; }}
