@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-roles v20210322.1
+title: Identity/tenants-roles v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Roles
 APIs for creating, getting, updating, and deleting roles on a tenant.
 
-## List Tenant Roles
+## List Roles
 
-<a id="opIdRoles_List Tenant Roles"></a>
+<a id="opIdRoles_List Roles"></a>
 
 Gets all roles for a tenant including roles for any communities that the tenant belongs to.
 
@@ -71,9 +71,9 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Roles Header
+## Get header for Roles
 
-<a id="opIdRoles_Get Tenant Roles Header"></a>
+<a id="opIdRoles_Get header for Roles"></a>
 
 Gets header for roles to get the total number of roles for a given tenant including community roles for any community the tenant is joined to.
 
@@ -106,9 +106,9 @@ Allowed for these roles:
 
 ---
 
-## Post Tenant Role
+## Create Role on Tenant
 
-<a id="opIdRoles_Post Tenant Role"></a>
+<a id="opIdRoles_Create Role on Tenant"></a>
 
 Creates a new tenant `Role`.
 
@@ -176,9 +176,9 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Role
+## Get Role
 
-<a id="opIdRoles_Get Tenant Role"></a>
+<a id="opIdRoles_Get Role"></a>
 
 Returns the specified role.
 
@@ -227,9 +227,9 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Role Header
+## Get header for Role
 
-<a id="opIdRoles_Get Tenant Role Header"></a>
+<a id="opIdRoles_Get header for Role"></a>
 
 Gets header for a role on given tenant.
 
@@ -263,9 +263,9 @@ Allowed for these roles:
 
 ---
 
-## Put Tenant Role
+## Update Role on Tenant
 
-<a id="opIdRoles_Put Tenant Role"></a>
+<a id="opIdRoles_Update Role on Tenant"></a>
 
 Updates a `Role` for a tenant.
 
@@ -384,9 +384,9 @@ Allowed for these roles:
 
 ---
 
-## List Client Credential Clients For A Role
+## List all the clients for a given role
 
-<a id="opIdRoles_List Client Credential Clients For A Role"></a>
+<a id="opIdRoles_List all the clients for a given role"></a>
 
 Gets all the clients for a given role.
 
@@ -440,9 +440,9 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Clients Count For A Role
+## Get header for the total number of clients for a given role
 
-<a id="opIdRoles_Get Client Credential Clients Count For A Role"></a>
+<a id="opIdRoles_Get header for the total number of clients for a given role"></a>
 
 Gets the total number of clients for a given role.
 
@@ -476,9 +476,9 @@ Allowed for these roles:
 
 ---
 
-## List Users For A Role
+## List users for a Role
 
-<a id="opIdRoles_List Users For A Role"></a>
+<a id="opIdRoles_List users for a Role"></a>
 
 Gets all the users for a given role.
 
@@ -535,9 +535,9 @@ Allowed for these roles:
 
 ---
 
-## Get Users Count For A Role
+## Get header for the total users for a given role
 
-<a id="opIdRoles_Get Users Count For A Role"></a>
+<a id="opIdRoles_Get header for the total users for a given role"></a>
 
 Gets the total number of users for a given role.
 

@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210322.1
+title: Identity/communities v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Communities
 A Community is an organizational entity that facilitates data sharing across multiple Tenants.
 
-## List Joined Communities
+## List Communities a Tenant is joined to
 
-<a id="opIdCommunities_List Joined Communities"></a>
+<a id="opIdCommunities_List Communities a Tenant is joined to"></a>
 
 Gets all communities a tenant is joined to.
 
@@ -77,9 +77,9 @@ Allowed for these roles:
 
 ---
 
-## Create Community
+## Create a new Community
 
-<a id="opIdCommunities_Create Community"></a>
+<a id="opIdCommunities_Create a new Community"></a>
 
 Creates a new community within a specific tenant. The tenant sending this request will be assigned ownership of the community. The calling user or client will be granted community administrator and member roles for the community.
 
@@ -150,9 +150,9 @@ Allowed for these roles:
 
 ---
 
-## Get Community By Id
+## Get a Community by Id
 
-<a id="opIdCommunities_Get Community By Id"></a>
+<a id="opIdCommunities_Get a Community by Id"></a>
 
 Gets a community and related information by id.
 
@@ -213,9 +213,9 @@ Allowed for these roles:
 
 ---
 
-## Update Community By Id
+## Update Community Info
 
-<a id="opIdCommunities_Update Community By Id"></a>
+<a id="opIdCommunities_Update Community Info"></a>
 
 Updates attributes of a community such as name and description.
 
@@ -276,9 +276,9 @@ Allowed for these roles:
 
 ---
 
-## Delete Community
+## Delete a Community
 
-<a id="opIdCommunities_Delete Community"></a>
+<a id="opIdCommunities_Delete a Community"></a>
 
 Deletes a community by id.
 

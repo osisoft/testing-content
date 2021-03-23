@@ -1,5 +1,5 @@
 ---
-title: Identity/community-tenants v20210322.1
+title: Identity/community-tenants v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Community Tenants
 APIs for getting Member Tenants info in a Community.
 
-## Update Community Tenant By Id
+## Update a Community Tenant state (`communitytenants` path)
 
-<a id="opIdCommunityTenants_Update Community Tenant By Id"></a>
+<a id="opIdCommunityTenants_Update a Community Tenant state (`communitytenants` path)"></a>
 
 Updates the state of a Community Tenant. It can be activated, paused, or removed.
 
@@ -78,9 +78,9 @@ Allowed for these roles:
 
 ---
 
-## Update Community Tenant By Id2
+## Update a Community Tenant state (`membertenants` path)
 
-<a id="opIdCommunityTenants_Update Community Tenant By Id2"></a>
+<a id="opIdCommunityTenants_Update a Community Tenant state (`membertenants` path)"></a>
 
 Updates the state of a Community Tenant. It can be activated, paused, or removed.
 

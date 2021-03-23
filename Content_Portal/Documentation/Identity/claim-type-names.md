@@ -1,5 +1,5 @@
 ---
-title: Identity/claim-type-names v20210322.1
+title: Identity/claim-type-names v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Claim Type Names
 An identity provider claim type name is the attribute needed when creating an identity provider claim.
 
-## List Identity Provider Claim Type Names
+## List All Identity Provider Claim Type Names
 
-<a id="opIdClaimTypeNames_List Identity Provider Claim Type Names"></a>
+<a id="opIdClaimTypeNames_List All Identity Provider Claim Type Names"></a>
 
 Gets all identity provider claim type names for an identity provider on a tenant.
 
@@ -67,9 +67,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Claim Type Names Header
+## Get All Identity Provider Claim Type Names Header
 
-<a id="opIdClaimTypeNames_Get Identity Provider Claim Type Names Header"></a>
+<a id="opIdClaimTypeNames_Get All Identity Provider Claim Type Names Header"></a>
 
 Gets header for all identity provider claim type names for an identity provider on a tenant.
 

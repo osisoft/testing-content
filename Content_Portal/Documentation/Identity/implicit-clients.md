@@ -1,5 +1,5 @@
 ---
-title: Identity/implicit-clients v20210322.1
+title: Identity/implicit-clients v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Implicit Clients
 Implicit client has been deprecated. We suggest using an authorization code client instead of an implicit client. Implicit clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are not issued secrets or refresh tokens.
 
-## List Implicit Clients
+## List all implicit clients from tenant (deprecated)
 
-<a id="opIdImplicitClients_List Implicit Clients"></a>
+<a id="opIdImplicitClients_List all implicit clients from tenant (deprecated)"></a>
 
 Gets all implicit clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the tenant set in the Total-Count header.
 
@@ -85,9 +85,9 @@ Allowed for these roles:
 
 ---
 
-## Get Implicit Clients Header
+## Get total count of implicit clients (deprecated)
 
-<a id="opIdImplicitClients_Get Implicit Clients Header"></a>
+<a id="opIdImplicitClients_Get total count of implicit clients (deprecated)"></a>
 
 Returns the total number of implicit clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -125,9 +125,9 @@ Allowed for these roles:
 
 ---
 
-## Create Implicit Client
+## Create an implicit client (deprecated)
 
-<a id="opIdImplicitClients_Create Implicit Client"></a>
+<a id="opIdImplicitClients_Create an implicit client (deprecated)"></a>
 
 Creates an implicit client in a tenant. No secret will be generated for this client.
 
@@ -216,9 +216,9 @@ Allowed for these roles:
 
 ---
 
-## Get Implicit Client
+## Get an implicit client (deprecated)
 
-<a id="opIdImplicitClients_Get Implicit Client"></a>
+<a id="opIdImplicitClients_Get an implicit client (deprecated)"></a>
 
 Gets an implicit client from a tenant.
 
@@ -279,9 +279,9 @@ Allowed for these roles:
 
 ---
 
-## Get Implicit Client Header
+## Get header for implicit client (deprecated)
 
-<a id="opIdImplicitClients_Get Implicit Client Header"></a>
+<a id="opIdImplicitClients_Get header for implicit client (deprecated)"></a>
 
 Validates that an implicit client exists.
 
@@ -316,9 +316,9 @@ Allowed for these roles:
 
 ---
 
-## Update Implicit Client
+## Update an implicit client (deprecated)
 
-<a id="opIdImplicitClients_Update Implicit Client"></a>
+<a id="opIdImplicitClients_Update an implicit client (deprecated)"></a>
 
 Updates an implicit client. It can take up to one hour for update to manifest in the authentication process.
 
@@ -407,9 +407,9 @@ Allowed for these roles:
 
 ---
 
-## Delete Implicit Client
+## Delete an implicit client (deprecated)
 
-<a id="opIdImplicitClients_Delete Implicit Client"></a>
+<a id="opIdImplicitClients_Delete an implicit client (deprecated)"></a>
 
 Deletes an implicit client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
 
@@ -458,9 +458,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Implicit Clients
+## List All Implicit Clients ( Obsolete)
 
-<a id="opIdImplicitClients_List V1 Preview Implicit Clients"></a>
+<a id="opIdImplicitClients_List All Implicit Clients ( Obsolete)"></a>
 
 Get all Implicit Clients.
 
@@ -527,9 +527,9 @@ Allowed for these roles:
 
 ---
 
-## Create V1 Preview Implicit Client
+## Create Implicit Client ( Obsolete)
 
-<a id="opIdImplicitClients_Create V1 Preview Implicit Client"></a>
+<a id="opIdImplicitClients_Create Implicit Client ( Obsolete)"></a>
 
 Create an Implicit flow Clients.
 
@@ -618,9 +618,9 @@ Allowed for these roles:
 
 ---
 
-## Get V1 Preview Implicit Client
+## Get Implicit Client ( Obsolete)
 
-<a id="opIdImplicitClients_Get V1 Preview Implicit Client"></a>
+<a id="opIdImplicitClients_Get Implicit Client ( Obsolete)"></a>
 
 Get an Implicit Client.
 
@@ -680,9 +680,9 @@ Allowed for these roles:
 
 ---
 
-## Update V1 Preview Implicit Client
+## Update Implicit Client ( Obsolete)
 
-<a id="opIdImplicitClients_Update V1 Preview Implicit Client"></a>
+<a id="opIdImplicitClients_Update Implicit Client ( Obsolete)"></a>
 
 Update an Implicit Client.
 

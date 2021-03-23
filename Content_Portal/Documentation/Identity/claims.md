@@ -1,5 +1,5 @@
 ---
-title: Identity/claims v20210322.1
+title: Identity/claims v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Claims
 An identity provider claim provides a mechanism to map a claim from an identity provider to one or more roles.
 
-## List Identity Provider Claims
+## List all Identity Provider Claims
 
-<a id="opIdClaims_List Identity Provider Claims"></a>
+<a id="opIdClaims_List all Identity Provider Claims"></a>
 
 Gets all identity provider claims for an identity provider on a tenant.
 
@@ -72,9 +72,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Claims Header
+## Get all Identity Provider Claims Header
 
-<a id="opIdClaims_Get Identity Provider Claims Header"></a>
+<a id="opIdClaims_Get all Identity Provider Claims Header"></a>
 
 Gets header for all identity provider claims for an identity provider on a tenant.
 
@@ -108,9 +108,9 @@ Allowed for these roles:
 
 ---
 
-## Post Identity Provider Claim
+## Create New Identity Provider Claim
 
-<a id="opIdClaims_Post Identity Provider Claim"></a>
+<a id="opIdClaims_Create New Identity Provider Claim"></a>
 
 Creates a new identity provider claim for an identity provider on a tenant.
 
@@ -264,9 +264,9 @@ Allowed for these roles:
 
 ---
 
-## Put Identity Provider Claim
+## Update an Existing Identity Provider Claim
 
-<a id="opIdClaims_Put Identity Provider Claim"></a>
+<a id="opIdClaims_Update an Existing Identity Provider Claim"></a>
 
 Creates a new identity provider claim for an identity provider on a tenant.
 
@@ -331,9 +331,9 @@ Allowed for these roles:
 
 ---
 
-## Delete Identity Provider Claim
+## Delete an Existing Identity Provider Claim
 
-<a id="opIdClaims_Delete Identity Provider Claim"></a>
+<a id="opIdClaims_Delete an Existing Identity Provider Claim"></a>
 
 Deletes an identity provider claim for an identity provider on a tenant.
 

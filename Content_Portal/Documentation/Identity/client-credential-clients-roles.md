@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-roles v20210322.1
+title: Identity/client-credential-clients-roles v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Roles
 APIs for getting, updating, and deleting client credential client roles.
 
-## List Client Credential Client Roles All
+## List Roles for Client Credential Client All
 
-<a id="opIdRoles_List Client Credential Client Roles All"></a>
+<a id="opIdRoles_List Roles for Client Credential Client All"></a>
 
 Returns a list of roles for the specified client credential client.
 
@@ -75,9 +75,9 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Roles Header
+## Get Roles for Client Credential Client Header (` Client Credential Clients` path)
 
-<a id="opIdRoles_Get Client Credential Client Roles Header"></a>
+<a id="opIdRoles_Get Roles for Client Credential Client Header (` Client Credential Clients` path)"></a>
 
 Head request to get the total number of client credential client roles for the specified client credential client.
 
@@ -112,9 +112,9 @@ Allowed for these roles:
 
 ---
 
-## Put Client Credential Client Roles All
+## Replace Client Credential Client's Roles All
 
-<a id="opIdRoles_Put Client Credential Client Roles All"></a>
+<a id="opIdRoles_Replace Client Credential Client's Roles All"></a>
 
 Replaces existing client credential client roles.
 
@@ -185,9 +185,9 @@ Allowed for these roles:
 
 ---
 
-## List Client Credential Client Roles
+## List Roles for Client Credential Client
 
-<a id="opIdRoles_List Client Credential Client Roles"></a>
+<a id="opIdRoles_List Roles for Client Credential Client"></a>
 
 Returns a list of roles for the specified client credential client.
 
@@ -246,9 +246,9 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Roles Header2
+## Get Roles for Client Credential Client Header (` Clients` path)
 
-<a id="opIdRoles_Get Client Credential Client Roles Header2"></a>
+<a id="opIdRoles_Get Roles for Client Credential Client Header (` Clients` path)"></a>
 
 Head request to get the total number of client credential client roles for the specified client credential client.
 
@@ -283,9 +283,9 @@ Allowed for these roles:
 
 ---
 
-## Put Client Credential Client Roles
+## Replace Client Credential Client's Roles
 
-<a id="opIdRoles_Put Client Credential Client Roles"></a>
+<a id="opIdRoles_Replace Client Credential Client's Roles"></a>
 
 Replaces existing client credential client roles.
 

@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210322.1
+title: Identity/api-identity-providers v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -72,9 +72,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Providers Header
+## Get Header for Identity Providers
 
-<a id="opIdIdentityProviders_Get Identity Providers Header"></a>
+<a id="opIdIdentityProviders_Get Header for Identity Providers"></a>
 
 Get the total number of identity providers.
 
@@ -162,9 +162,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Header
+## Get Identity Provider based on Id
 
-<a id="opIdIdentityProviders_Get Identity Provider Header"></a>
+<a id="opIdIdentityProviders_Get Identity Provider based on Id"></a>
 
 Validates that a identity provider exists
 
@@ -197,9 +197,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider By Scheme
+## Get Identity Provider by Scheme
 
-<a id="opIdIdentityProviders_Get Identity Provider By Scheme"></a>
+<a id="opIdIdentityProviders_Get Identity Provider by Scheme"></a>
 
 Returns a list of identity provider objects that follow a scheme.
 
@@ -257,9 +257,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Scheme Header
+## Get Identity Provider Based on Scheme
 
-<a id="opIdIdentityProviders_Get Identity Provider Scheme Header"></a>
+<a id="opIdIdentityProviders_Get Identity Provider Based on Scheme"></a>
 
 Validates that a scheme exists
 

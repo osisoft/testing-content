@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-invitations v20210322.1
+title: Identity/tenants-invitations v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -73,9 +73,9 @@ Allowed for these roles:
 
 ---
 
-## Get Invitations Header
+## Get Header for Invitations
 
-<a id="opIdInvitations_Get Invitations Header"></a>
+<a id="opIdInvitations_Get Header for Invitations"></a>
 
 Returns the total number of non-expired invitations in a tenant. Optionally include expired invitations. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -163,9 +163,9 @@ Allowed for these roles:
 
 ---
 
-## Get Invitation Header
+## Get header for an Invitation
 
-<a id="opIdInvitations_Get Invitation Header"></a>
+<a id="opIdInvitations_Get header for an Invitation"></a>
 
 Validates that an invitation exists. This endpoint is identical to the GET one, but it does not return an object in the body.
 

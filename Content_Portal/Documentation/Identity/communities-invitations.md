@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-invitations v20210322.1
+title: Identity/communities-invitations v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Invitations
 Defines the public API endpoints that are used to manage community invitations. Using this API you can, for example, create, retrieve, update and process invitations. You can also resend an invitation email.
 
-## Process Invitation2
+## Process a Community Invitation based on the requested action. (`community` path)
 
-<a id="opIdInvitations_Process Invitation2"></a>
+<a id="opIdInvitations_Process a Community Invitation based on the requested action. (`community` path)"></a>
 
 Processes an action against a particular community invitation. The available actions include accept, decline and resend.
 
@@ -77,9 +77,9 @@ Allowed for these roles:
 
 ---
 
-## Get Invitation Details2
+## Get details of an Invitation (`community` path)
 
-<a id="opIdInvitations_Get Invitation Details2"></a>
+<a id="opIdInvitations_Get details of an Invitation (`community` path)"></a>
 
 Gets details for a community invitation.
 
@@ -126,9 +126,9 @@ Allowed for these roles:
 
 ---
 
-## Process Invitation
+## Process a Community Invitation based on the requested action. (`communityinvitations` path)
 
-<a id="opIdInvitations_Process Invitation"></a>
+<a id="opIdInvitations_Process a Community Invitation based on the requested action. (`communityinvitations` path)"></a>
 
 Processes an action against a particular community invitation. The available actions include accept, decline and resend.
 
@@ -189,9 +189,9 @@ Allowed for these roles:
 
 ---
 
-## Get Invitation Details
+## Get details of an Invitation (`communityinvitations` path)
 
-<a id="opIdInvitations_Get Invitation Details"></a>
+<a id="opIdInvitations_Get details of an Invitation (`communityinvitations` path)"></a>
 
 Gets details for a community invitation.
 
@@ -238,9 +238,9 @@ Allowed for these roles:
 
 ---
 
-## List Community Invitations
+## List a Community Invitation by Tenant and Community
 
-<a id="opIdInvitations_List Community Invitations"></a>
+<a id="opIdInvitations_List a Community Invitation by Tenant and Community"></a>
 
 Gets all invitations associated with a specific community.
 
@@ -300,9 +300,9 @@ Allowed for these roles:
 
 ---
 
-## Create Community Invitation
+## Create a Community Invitation
 
-<a id="opIdInvitations_Create Community Invitation"></a>
+<a id="opIdInvitations_Create a Community Invitation"></a>
 
 Creates a community invitation for a specific community.
 
@@ -374,9 +374,9 @@ Allowed for these roles:
 
 ---
 
-## Get Community Invitation By Id
+## Get a Community Invitation by Tenant, Community, and Id
 
-<a id="opIdInvitations_Get Community Invitation By Id"></a>
+<a id="opIdInvitations_Get a Community Invitation by Tenant, Community, and Id"></a>
 
 Gets a community invitation by id.
 
@@ -435,9 +435,9 @@ Allowed for these roles:
 
 ---
 
-## Delete Community Invitation
+## Delete a Community Invitation.
 
-<a id="opIdInvitations_Delete Community Invitation"></a>
+<a id="opIdInvitations_Delete a Community Invitation."></a>
 
 Deletes a community invitation by invitation id.
 
@@ -489,9 +489,9 @@ Allowed for these roles:
 
 ---
 
-## List Community Invitations By Tenant
+## List Accepted Community Invitations by Tenant
 
-<a id="opIdInvitations_List Community Invitations By Tenant"></a>
+<a id="opIdInvitations_List Accepted Community Invitations by Tenant"></a>
 
 Gets the community invitations for a specific invited tenant. Only invitations in the Accepted state are returned. By using this call you can then determine the communities to which a tenant has been invited via the the returned CommunityInvitation.CommunityId attribute.
 

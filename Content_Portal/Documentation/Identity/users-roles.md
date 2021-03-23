@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210322.1
+title: Identity/users-roles v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Roles
 APIs for getting, updating, and deleting users roles.
 
-## List User Roles
+## List Roles for User
 
-<a id="opIdRoles_List User Roles"></a>
+<a id="opIdRoles_List Roles for User"></a>
 
 Returns a list of roles for a given user.
 
@@ -74,9 +74,9 @@ Allowed for these roles:
 
 ---
 
-## Get User Roles Header
+## Get Roles for User Header
 
-<a id="opIdRoles_Get User Roles Header"></a>
+<a id="opIdRoles_Get Roles for User Header"></a>
 
 Head request to get the total number of user roles for the specified user.
 
@@ -111,9 +111,9 @@ Allowed for these roles:
 
 ---
 
-## Put User Roles
+## Replace User's Roles
 
-<a id="opIdRoles_Put User Roles"></a>
+<a id="opIdRoles_Replace User's Roles"></a>
 
 Replaces existing user roles.
 

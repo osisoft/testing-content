@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-users v20210322.1
+title: Identity/communities-users v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Users
 APIs for getting, updating, and deleting Users from Communities.
 
-## List Community Users For Tenant
+## List Users of a Tenant in a Community
 
-<a id="opIdUsers_List Community Users For Tenant"></a>
+<a id="opIdUsers_List Users of a Tenant in a Community"></a>
 
 Get a list of Users of a Tenant in a Community.
 
@@ -75,9 +75,9 @@ Allowed for these roles:
 
 ---
 
-## Get Community Users Count For Tenant
+## Get count of Users of a Tenant in a Community
 
-<a id="opIdUsers_Get Community Users Count For Tenant"></a>
+<a id="opIdUsers_Get count of Users of a Tenant in a Community"></a>
 
 Get the count of Users of the Tenant in this Community. This endpoint is identical to the `Guid)` endpoint except it does not return a body.
 
@@ -127,9 +127,9 @@ Allowed for these roles:
 
 ---
 
-## Add User To Community
+## Add User to a Community
 
-<a id="opIdUsers_Add User To Community"></a>
+<a id="opIdUsers_Add User to a Community"></a>
 
 Add a user to a Community.
 
@@ -188,9 +188,9 @@ Allowed for these roles:
 
 ---
 
-## Remove User From Community
+## Remove User from a Community
 
-<a id="opIdUsers_Remove User From Community"></a>
+<a id="opIdUsers_Remove User from a Community"></a>
 
 Remove a User from a Community.
 

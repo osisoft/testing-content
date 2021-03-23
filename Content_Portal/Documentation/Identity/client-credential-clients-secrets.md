@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-secrets v20210322.1
+title: Identity/client-credential-clients-secrets v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Secrets
 Secrets are used to authenticate client credential clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires it can no longer be used to authenticate the client. Any access token issued while a secret is still valid will be active until the token itself expires. Safe storage of secrets is your responsibility. OCS does not store secret values, so once lost there is no way to retrieve the value of a secret.
 
-## List Client Credential Client Secrets
+## List Client Credential Client Secrets All
 
-<a id="opIdSecrets_List Client Credential Client Secrets"></a>
+<a id="opIdSecrets_List Client Credential Client Secrets All"></a>
 
 Gets all secrets for a client credential client. Total number of secrets in the client set in the Total-Count header.
 
@@ -69,9 +69,9 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Secrets Header
+## Get Total Count of Client Credential Client Secrets
 
-<a id="opIdSecrets_Get Client Credential Client Secrets Header"></a>
+<a id="opIdSecrets_Get Total Count of Client Credential Client Secrets"></a>
 
 Returns the total number of secrets in a client credential client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -105,9 +105,9 @@ Allowed for these roles:
 
 ---
 
-## Add Client Credential Client Secret
+## Add Client Credential Client Secret (`v1` path)
 
-<a id="opIdSecrets_Add Client Credential Client Secret"></a>
+<a id="opIdSecrets_Add Client Credential Client Secret (`v1` path)"></a>
 
 Adds a new secret to a client credential client. A client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
 
@@ -168,9 +168,9 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Secret
+## Get Client Credential Client Secret (`v1` path)
 
-<a id="opIdSecrets_Get Client Credential Client Secret"></a>
+<a id="opIdSecrets_Get Client Credential Client Secret (`v1` path)"></a>
 
 Gets a client credential client secret.
 
@@ -217,9 +217,9 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Secret Header
+## Get Header for Client Credential Client Secret
 
-<a id="opIdSecrets_Get Client Credential Client Secret Header"></a>
+<a id="opIdSecrets_Get Header for Client Credential Client Secret"></a>
 
 Validates that a secret with a given unique identifier exists in the client. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -254,9 +254,9 @@ Allowed for these roles:
 
 ---
 
-## Update Client Credential Client Secret
+## Update Client Credential Client Secret (`v1` path)
 
-<a id="opIdSecrets_Update Client Credential Client Secret"></a>
+<a id="opIdSecrets_Update Client Credential Client Secret (`v1` path)"></a>
 
 Updates a client credential client secret. It can take up to one hour for the update to manifest in the authentication process.
 
@@ -369,9 +369,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Client Credential Client Secrets
+## List Client Credential Client Secrets
 
-<a id="opIdSecrets_List V1 Preview Client Credential Client Secrets"></a>
+<a id="opIdSecrets_List Client Credential Client Secrets"></a>
 
 Get all secrets for a client credential client.
 
@@ -425,9 +425,9 @@ Allowed for these roles:
 
 ---
 
-## Add V1 Preview Client Credential Client Secret
+## Add Client Credential Client Secret (`v1-preview` path)
 
-<a id="opIdSecrets_Add V1 Preview Client Credential Client Secret"></a>
+<a id="opIdSecrets_Add Client Credential Client Secret (`v1-preview` path)"></a>
 
 Add a new secret for a client credential client.
 
@@ -489,9 +489,9 @@ Allowed for these roles:
 
 ---
 
-## Get V1 Preview Client Credential Client Secret
+## Get Client Credential Client Secret (`v1-preview` path)
 
-<a id="opIdSecrets_Get V1 Preview Client Credential Client Secret"></a>
+<a id="opIdSecrets_Get Client Credential Client Secret (`v1-preview` path)"></a>
 
 Get a specific client credential client secret.
 
@@ -539,9 +539,9 @@ Allowed for these roles:
 
 ---
 
-## Update V1 Preview Client Credential Client Secret
+## Update Client Credential Client Secret (`v1-preview` path)
 
-<a id="opIdSecrets_Update V1 Preview Client Credential Client Secret"></a>
+<a id="opIdSecrets_Update Client Credential Client Secret (`v1-preview` path)"></a>
 
 Update a client credential client secret. Only secret description and secret expiration date can be updated.
 

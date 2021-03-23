@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210322.1
+title: Identity/tenants-users v20210323.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,11 +14,14 @@ generator: osisoft.widdershins v1.0.7
 # Users
 Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in the user cannot change the identity provider it signed up with. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
 
-## List Users
+## List Users from a Tenant
 
-<a id="opIdUsers_List Users"></a>
+<a id="opIdUsers_List Users from a Tenant"></a>
 
-Several lines of text,<br/>with some "quotes" of various 'types',<br/>and also a blank line:<br/>[here](https://pisquare.osisoft.com/docs/DOC-3986-msa-consent-for-azure-active-directory).<br/>
+Several lines of text,
+with some "quotes" of various 'types',
+and also a blank line:
+[here](https://pisquare.osisoft.com/docs/DOC-3986-msa-consent-for-azure-active-directory).
 
 ### Request
 ```text 
@@ -80,9 +83,9 @@ Allowed for these roles:
 
 ---
 
-## Get Users Header
+## Get Total Count of Users
 
-<a id="opIdUsers_Get Users Header"></a>
+<a id="opIdUsers_Get Total Count of Users"></a>
 
 Returns tthe otal number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -118,9 +121,9 @@ Allowed for these roles:
 
 ---
 
-## Create User
+## Create User (`v1` path)
 
-<a id="opIdUsers_Create User"></a>
+<a id="opIdUsers_Create User (`v1` path)"></a>
 
 Creates a user in the tenant. This endpoint does not create an invitation for the user. You will need to create an invitation in the respective endpoint for this user, otherwise they will not be able to finish the sign-up process. Users have unique Ids in a tenant. Currently there is a limit of 50000 users per tenant. For Windows Active Directory users, the externalUserId must be specified.
 
@@ -195,9 +198,9 @@ Allowed for these roles:
 
 ---
 
-## Get User Model
+## Get User from a Tenant
 
-<a id="opIdUsers_Get User Model"></a>
+<a id="opIdUsers_Get User from a Tenant"></a>
 
 ```json
 {
@@ -258,9 +261,9 @@ Allowed for these roles:
 
 ---
 
-## Get User Header
+## Get Header for User
 
-<a id="opIdUsers_Get User Header"></a>
+<a id="opIdUsers_Get Header for User"></a>
 
 Validates that a user exists. This endpoint is identical to the GET one, but it does not return an object in the body.
 
@@ -295,9 +298,9 @@ Allowed for these roles:
 
 ---
 
-## Update User
+## Update User in a Tenant
 
-<a id="opIdUsers_Update User"></a>
+<a id="opIdUsers_Update User in a Tenant"></a>
 
 Updates a user in a tenant. The user unique identifier cannot be changed.
 
@@ -373,9 +376,9 @@ Allowed for these roles:
 
 ---
 
-## Delete User
+## Delete User in a Tenant
 
-<a id="opIdUsers_Delete User"></a>
+<a id="opIdUsers_Delete User in a Tenant"></a>
 
 Deletes a user. Users cannot delete themselves. Deleting a user does not invalidate any of the existing access tokens, but it prevents this user from being able to authenticate in the future. Existing access tokens for the user will be valid until their expiration date. Refresh tokens on behalf of the user will no longer be valid after the user has been deleted. Deleting a user with explicit and claim role mappings will only have their explicit roles deleted. Forcibly deleting a user will delete a user completely regardless of claim role mappings.
 
@@ -428,9 +431,9 @@ Allowed for these roles:
 
 ---
 
-## Get User Preferences
+## Get User's Preferences
 
-<a id="opIdUsers_Get User Preferences"></a>
+<a id="opIdUsers_Get User's Preferences"></a>
 
 Gets preferences from a user. User preferences can be any valid JSON object. A common use case is to store UI preferences for the user.
 
@@ -479,9 +482,9 @@ Allowed for these roles:
 
 ---
 
-## Get User Preferences Header
+## Get Header for User's Preferences
 
-<a id="opIdUsers_Get User Preferences Header"></a>
+<a id="opIdUsers_Get Header for User's Preferences"></a>
 
 Validates that there are preferences for a user. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -516,9 +519,9 @@ Allowed for these roles:
 
 ---
 
-## Update User Preferences
+## Update User's Preferences
 
-<a id="opIdUsers_Update User Preferences"></a>
+<a id="opIdUsers_Update User's Preferences"></a>
 
 Updates preferences for a user.
 
@@ -568,9 +571,9 @@ Allowed for these roles:
 
 ---
 
-## Get User Status
+## Get User's Invitation Status
 
-<a id="opIdUsers_Get User Status"></a>
+<a id="opIdUsers_Get User's Invitation Status"></a>
 
 Gets invitation status for a user. It can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
 
@@ -629,11 +632,19 @@ Allowed for these roles:
 
 ---
 
-## List Users Status
+## List Users' Invitation Status
 
-<a id="opIdUsers_List Users Status"></a>
+<a id="opIdUsers_List Users' Invitation Status"></a>
 
-|Status Code|Body Type|Description|<br/>|---|---|---|<br/>|200|List of [User](#schemauser)s|List of Users found.|<br/>|207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of Users found.|<br/>|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|<br/>|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|<br/>|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|<br/>|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|<br/>|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|<br/>
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|List of [User](#schemauser)s|List of Users found.|
+|207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of Users found.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ### Request
 ```text 
@@ -698,9 +709,9 @@ Allowed for these roles:
 
 ---
 
-## Create V1 Preview User
+## Create User (`v1-preview` path)
 
-<a id="opIdUsers_Create V1 Preview User"></a>
+<a id="opIdUsers_Create User (`v1-preview` path)"></a>
 
 Creates a `User`.
 
@@ -772,9 +783,9 @@ Allowed for these roles:
 
 ---
 
-## Update V1 Preview User
+## Update User
 
-<a id="opIdUsers_Update V1 Preview User"></a>
+<a id="opIdUsers_Update User"></a>
 
 Create or Update a user.
 
@@ -847,9 +858,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Users By Ids
+## List Users By I Ds
 
-<a id="opIdUsers_List V1 Preview Users By Ids"></a>
+<a id="opIdUsers_List Users By I Ds"></a>
 
 Returns an ordered list of user objects based on userId for a given tenant or a MultiStatusResponse with a list of user objects and a list of errors.
 
@@ -913,9 +924,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Users Status By Ids
+## List Users' Status By I Ds
 
-<a id="opIdUsers_List V1 Preview Users Status By Ids"></a>
+<a id="opIdUsers_List Users' Status By I Ds"></a>
 
 Returns an ordered list of UserStatus objects for a given tenant or a MultiStatusResponse with a list of UserStatus objects and a list of errors.
 
