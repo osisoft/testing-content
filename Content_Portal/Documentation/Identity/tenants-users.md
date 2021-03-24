@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210323.1
+title: Identity/tenants-users v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -87,7 +87,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Get Total Count of Users"></a>
 
-Returns tthe otal number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns the total number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET method but it does not return any objects in the body.
 
 ### Request
 ```text 
