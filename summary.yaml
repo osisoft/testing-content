@@ -1,0 +1,4 @@
+test:
+  type: text/plain
+  value: |
+    This is my test content in place of roles API definition.
