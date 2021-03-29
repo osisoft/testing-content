@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210329.2
+title: Identity/users-roles v20210329.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,7 +18,7 @@ APIs for getting, updating, and deleting users roles.
 
 <a id="opIdRoles_List Roles for User"></a>
 
-Invalid URL: #https://raw.githubusercontent.com/osisoft/testing-content/main/summary.txt
+This is my test content in place of roles API definition.<br/>
 
 ### Request
 ```text 
