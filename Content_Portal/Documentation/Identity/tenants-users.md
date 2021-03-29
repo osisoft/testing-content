@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210324.1
+title: Identity/tenants-users v20210329.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -858,9 +858,9 @@ Allowed for these roles:
 
 ---
 
-## List Users By I Ds
+## List Users By IDs
 
-<a id="opIdUsers_List Users By I Ds"></a>
+<a id="opIdUsers_List Users By IDs"></a>
 
 Returns an ordered list of user objects based on userId for a given tenant or a MultiStatusResponse with a list of user objects and a list of errors.
 
@@ -924,9 +924,9 @@ Allowed for these roles:
 
 ---
 
-## List Users' Status By I Ds
+## List Users' Status By IDs
 
-<a id="opIdUsers_List Users' Status By I Ds"></a>
+<a id="opIdUsers_List Users' Status By IDs"></a>
 
 Returns an ordered list of UserStatus objects for a given tenant or a MultiStatusResponse with a list of UserStatus objects and a list of errors.
 
