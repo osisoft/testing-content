@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210402.1
+title: Identity/api-identity-providers v20210402.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -166,7 +166,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get Identity Provider based on Id"></a>
 
-Validates that a identity provider exists
+Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#something-parameter
 
 ### Request
 ```text 
@@ -176,7 +176,7 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}
 #### Parameters
 
 `string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>
+<br/>Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#something-parameter<br/><br/>
 
 ### Response
 
