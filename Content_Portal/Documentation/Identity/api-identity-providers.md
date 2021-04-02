@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210402.5
+title: Identity/api-identity-providers v20210402.6
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,7 +18,12 @@ APIs for getting a list of all supported identity providers.
 
 <a id="opIdIdentityProviders_List Identity Providers"></a>
 
-Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#summary
+For your homework due Tuesday: 
+ 
+- Create more parameters in this file.
+- Browse through the content in [PItoOCS API documentation](https://dev.azure.com/osieng/engineering/_wiki/wikis/OCS%20Internal%20API%20Documentation/17057/access-control).
+- I got started with PI to OCS parameters [here](https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/parameters.yaml), but might not have captured everything. 
+Ping me Monday if you're unsure. 
 
 ### Request
 ```text 
@@ -166,7 +171,13 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get Identity Provider based on Id"></a>
 
-Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#something-parameter
+OCS has wonderful documentation. 
+It does 
+- a
+- b
+- c
+
+For more information, see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Asset%20Rules/asset-rules-api/asset-rules-api.html#get-rule).
 
 ### Request
 ```text 
@@ -176,7 +187,7 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}
 #### Parameters
 
 `string identityProviderId`
-<br/>Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#something-parameter<br/><br/>
+<br/>X identifier <br/><br/><br/>
 
 ### Response
 

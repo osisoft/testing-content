@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210402.5
+title: Identity/communities v20210402.6
 language_tabs: []
 toc_footers: []
 includes: []
@@ -80,8 +80,6 @@ Allowed for these roles:
 ## Create a new Community
 
 <a id="opIdCommunities_Create a new Community"></a>
-
-Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#summary
 
 ### Request
 ```text 
