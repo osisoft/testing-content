@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210402.2
+title: Identity/users-roles v20210402.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -29,8 +29,8 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string userId`
+<br/>This is my test content in place of roles API definition.<br/><br/><br/>
 `[optional] string query`
 <br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
 <br/>Number of roles to skip.<br/><br/>`[optional] integer count`
