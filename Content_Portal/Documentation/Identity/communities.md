@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210402.4
+title: Identity/communities v20210402.5
 language_tabs: []
 toc_footers: []
 includes: []
@@ -81,7 +81,7 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Create a new Community"></a>
 
-Creates a new community within a specific tenant. The tenant sending this request will be assigned ownership of the community. The calling user or client will be granted community administrator and member roles for the community.
+Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#summary
 
 ### Request
 ```text 
@@ -95,7 +95,7 @@ POST /api/v1/tenants/{tenantId}/Communities
 
 ### Request Body
 
-why!!!<br/>
+For your homework due Tuesday: <br/>
 
 ```json
 {
@@ -154,7 +154,7 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Get a Community by Id"></a>
 
-Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#summary
+X identifier <br/>
 
 ### Request
 ```text 
@@ -165,7 +165,13 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
 
 `string tenantId`
 <br/>Owning tenant identifier<br/><br/><br/>`string communityId`
-<br/>Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#parameter<br/><br/>
+<br/>OCS has wonderful documentation. 
+It does 
+- a
+- b
+- c
+For more information see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Management/Account_ServiceBlog.html#get-service-blog-entry).
+<br/><br/>
 
 ### Response
 
