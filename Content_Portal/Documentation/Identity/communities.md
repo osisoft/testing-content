@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210402.3
+title: Identity/communities v20210402.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -91,11 +91,11 @@ POST /api/v1/tenants/{tenantId}/Communities
 #### Parameters
 
 `string tenantId`
-<br/>The id of the owning tenant.<br/><br/>
+<br/>Owning tenant identifier<br/><br/><br/>
 
 ### Request Body
 
-The community information to create.<br/>
+why!!!<br/>
 
 ```json
 {
@@ -154,7 +154,7 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Get a Community by Id"></a>
 
-Gets a community and related information by id.
+Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#summary
 
 ### Request
 ```text 
@@ -164,8 +164,8 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
 #### Parameters
 
 `string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community to find.<br/><br/>
+<br/>Owning tenant identifier<br/><br/><br/>`string communityId`
+<br/>Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#parameter<br/><br/>
 
 ### Response
 
