@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210329.3
+title: Identity/api-identity-providers v20210402.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,7 +18,7 @@ APIs for getting a list of all supported identity providers.
 
 <a id="opIdIdentityProviders_List Identity Providers"></a>
 
-Returns a list of identity provider objects.
+Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/jiwon.yaml#summary
 
 ### Request
 ```text 
