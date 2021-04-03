@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210402.6
+title: Identity/users-roles v20210402.7
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,7 +18,13 @@ APIs for getting, updating, and deleting users roles.
 
 <a id="opIdRoles_List Roles for User"></a>
 
-This is my test content in place of roles API definition.<br/>
+OCS has wonderful documentation. 
+It does 
+- a
+- b
+- c
+
+For more information, see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Asset%20Rules/asset-rules-api/asset-rules-api.html#get-rule).
 
 ### Request
 ```text 
@@ -78,7 +84,13 @@ Allowed for these roles:
 
 <a id="opIdRoles_Get Roles for User Header"></a>
 
-Head request to get the total number of user roles for the specified user.
+I love shopping! 
+It does 
+- make me happy
+- give me joy
+- instill euphoria
+
+For more information, check out [Jcrew](https://www.jcrew.com/).
 
 ### Request
 ```text 
