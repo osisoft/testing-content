@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210402.7
+title: Identity/communities v20210402.8
 language_tabs: []
 toc_footers: []
 includes: []
@@ -28,7 +28,7 @@ GET /api/v1/tenants/{tenantId}/Communities
 #### Parameters
 
 `string tenantId`
-<br/>The id of the owning tenant.<br/><br/>
+<br/>X Dave identifier <br/><br/><br/>
 
 ### Response
 
@@ -81,6 +81,13 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Create a new Community"></a>
 
+For your homework due Tuesday: 
+ 
+- Create more parameters in this file.
+- Browse through the content in [PItoOCS API documentation](https://dev.azure.com/osieng/engineering/_wiki/wikis/OCS%20Internal%20API%20Documentation/17057/access-control).
+- I got started with PI to OCS parameters [here](https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/parameters.yaml), but might not have captured everything. 
+Ping me Monday if you're unsure. 
+
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/Communities
@@ -93,7 +100,7 @@ POST /api/v1/tenants/{tenantId}/Communities
 
 ### Request Body
 
-For your homework due Tuesday: <br/>
+X Josh identifier <br/><br/>
 
 ```json
 {
@@ -152,7 +159,12 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Get a Community by Id"></a>
 
-X identifier <br/>
+OCS has wonderful documentation. 
+It does 
+- a
+- b
+- c
+For more information see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Management/Account_ServiceBlog.html#get-service-blog-entry).
 
 ### Request
 ```text 
@@ -163,13 +175,7 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
 
 `string tenantId`
 <br/>Owning tenant identifier<br/><br/><br/>`string communityId`
-<br/>OCS has wonderful documentation. 
-It does 
-- a
-- b
-- c
-For more information see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Management/Account_ServiceBlog.html#get-service-blog-entry).
-<br/><br/>
+<br/>X Mark identifier <br/><br/><br/>
 
 ### Response
 
