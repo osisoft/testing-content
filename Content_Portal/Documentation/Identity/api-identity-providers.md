@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210402.8
+title: Identity/api-identity-providers v20210420.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -17,13 +17,6 @@ APIs for getting a list of all supported identity providers.
 ## List Identity Providers
 
 <a id="opIdIdentityProviders_List Identity Providers"></a>
-
-For your homework due Tuesday: 
- 
-- Create more parameters in this file.
-- Browse through the content in [PItoOCS API documentation](https://dev.azure.com/osieng/engineering/_wiki/wikis/OCS%20Internal%20API%20Documentation/17057/access-control).
-- I got started with PI to OCS parameters [here](https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/parameters.yaml), but might not have captured everything. 
-Ping me Monday if you're unsure. 
 
 ### Request
 ```text 
@@ -171,13 +164,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get Identity Provider based on Id"></a>
 
-OCS has wonderful documentation. 
-It does 
-- a
-- b
-- c
-
-For more information, see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Asset%20Rules/asset-rules-api/asset-rules-api.html#get-rule).
+Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/laureen.yaml#markdown-content
 
 ### Request
 ```text 

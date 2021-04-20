@@ -1,5 +1,5 @@
 ---
-title: Identity/users-roles v20210402.8
+title: Identity/users-roles v20210420.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,13 +18,7 @@ APIs for getting, updating, and deleting users roles.
 
 <a id="opIdRoles_List Roles for User"></a>
 
-OCS has wonderful documentation. 
-It does 
-- a
-- b
-- c
-
-For more information, see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Asset%20Rules/asset-rules-api/asset-rules-api.html#get-rule).
+Invalid URL: #https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/laureen.yaml#markdown-content
 
 ### Request
 ```text 

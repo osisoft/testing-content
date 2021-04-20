@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210402.8
+title: Identity/communities v20210420.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -81,13 +81,6 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Create a new Community"></a>
 
-For your homework due Tuesday: 
- 
-- Create more parameters in this file.
-- Browse through the content in [PItoOCS API documentation](https://dev.azure.com/osieng/engineering/_wiki/wikis/OCS%20Internal%20API%20Documentation/17057/access-control).
-- I got started with PI to OCS parameters [here](https://raw.githubusercontent.com/osisoft/OCS-Docs/master/Content_Portal/external-references/parameters.yaml), but might not have captured everything. 
-Ping me Monday if you're unsure. 
-
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/Communities
@@ -96,7 +89,7 @@ POST /api/v1/tenants/{tenantId}/Communities
 #### Parameters
 
 `string tenantId`
-<br/>Owning tenant identifier<br/><br/><br/>
+<br/><br/>
 
 ### Request Body
 
@@ -174,7 +167,7 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
 #### Parameters
 
 `string tenantId`
-<br/>Owning tenant identifier<br/><br/><br/>`string communityId`
+<br/><br/>`string communityId`
 <br/>X Mark identifier <br/><br/><br/>
 
 ### Response
