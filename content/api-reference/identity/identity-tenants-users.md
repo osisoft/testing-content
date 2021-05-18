@@ -1,4 +1,7 @@
+---
+uid: identity-tenants-users
 
+---
 
 # Users
 Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in the user cannot change the identity provider it signed up with. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
@@ -644,9 +647,9 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant unique identifier<br/><br/>
 `[optional] array id`
-<br/>Unordered list of user Ids to get.<br/><br/>`[optional] string query`
+<br/>Unordered list of user Ids<br/><br/>`[optional] string query`
 <br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
 <br/>Number of users to skip. Ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`
 <br/>Maximum number of users to return. Ignored if a list of Ids is passed.<br/><br/>`[optional] array status`
@@ -656,12 +659,12 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[UserStatus](#schemauserstatus)[]|List of user statuses found.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[UserStatus](#schemauserstatus)[]|List of user statuses found|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response

@@ -1,4 +1,7 @@
+---
+uid: ""
 
+---
 
 # Invitations
 Defines the public API endpoints that are used to manage community invitations. Using this API you can, for example, create, retrieve, update and process invitations. You can also resend an invitation email.

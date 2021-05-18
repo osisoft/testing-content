@@ -1,4 +1,7 @@
+---
+uid: identity-users-roles
 
+---
 
 # Roles
 APIs for getting, updating, and deleting users roles.
