@@ -1,4 +1,7 @@
+---
+uid: community-users
 
+---
 
 # Users
 APIs for getting, updating, and deleting Users from Communities.

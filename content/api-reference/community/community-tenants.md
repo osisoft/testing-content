@@ -1,4 +1,7 @@
+---
+uid: community-tenants
 
+---
 
 # Community Tenants
 APIs for getting Member Tenants info in a Community.

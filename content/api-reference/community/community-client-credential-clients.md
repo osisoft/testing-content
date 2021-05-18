@@ -1,4 +1,7 @@
+---
+uid: community-client-credential-clients
 
+---
 
 # Client Credential Clients
 APIs for getting, adding, or removing Client Credential clients from Communities.
