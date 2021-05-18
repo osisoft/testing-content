@@ -24,9 +24,9 @@ GET /api/v1/Tenants/{tenantId}/Users
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 `[optional] array id`
-<br/>Unordered list of user Ids to get.<br/><br/>`[optional] string query`
+<br/>Unordered list of user Ids<br/><br/>`[optional] string query`
 <br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
 <br/>Number of users to skip. Ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`
 <br/>Maximum number of users to return. Ignored if a list of Ids is passed.<br/><br/>
@@ -35,13 +35,13 @@ GET /api/v1/Tenants/{tenantId}/Users
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[User](#schemauser)[]|List of users found.|
-|207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of users found.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[User](#schemauser)[]|List of users found|
+|207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of users found|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
