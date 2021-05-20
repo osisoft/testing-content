@@ -4,7 +4,7 @@ uid: identity-authorization-code-clients
 ---
 
 # Authorization Code Clients
-Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens.
+Authorization code clients are used in Javascript/Browser(SPA) based applications or native mobile applications with the presence of a User.You can read more about these clients [here] (https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md#authorization-code-flow-with-pkce). Authorization code clients are not issued secrets or refresh tokens. For some guidelines on use of secrets, refer to the[Credential management](xref:CredentialManagement) topic. For some recommendations on least privilege for users and clients, refer to the[Least privilege] (xref:LeastPrivilege) topic
 
 ## List All Authorization Code Clients from Tenant
 
@@ -165,13 +165,13 @@ New AuthorizationCodeClient object.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[AuthorizationCodeClient](#schemaauthorizationcodeclient)|Authorization code client created.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|400|[ErrorResponse](#schemaerrorresponse)|Due to a client error, the server could not process the request<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Authentication has failed or has not been provided<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Unauthorized. Make sure the user has the right role to access the resource<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The server could not find the requested resource<br/>|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|500|[ErrorResponse](#schemaerrorresponse)|The server ran into an unexpected condition and failed to complete the request|
 
 #### Example response body
 > 201 Response
