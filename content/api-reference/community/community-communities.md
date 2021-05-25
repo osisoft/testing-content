@@ -4,23 +4,28 @@ uid: community-communities
 ---
 
 # Communities
-A Community is an organizational entity that facilitates data sharing across multiple Tenants.
+A community is an organizational entity that facilitates data sharing across multiple tenants.
 
-## List Communities a Tenant is joined to
+## List Communities a Tenant is Joined to
 
-<a id="opIdCommunities_List Communities a Tenant is joined to"></a>
+<a id="opIdCommunities_List Communities a Tenant is Joined to"></a>
 
 Gets all communities a tenant is joined to.
 
 ### Request
 ```text 
-GET /api/v1/tenants/{tenantId}/Communities
+GET /api/v1-preview/tenants/{tenantId}/Communities
+?query={query}&skip={skip}&count={count}
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/>X Dave identifier <br/><br/><br/>
+<br/>Owning tenant identifier<br/><br/>
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
 ### Response
 
@@ -47,7 +52,7 @@ GET /api/v1/tenants/{tenantId}/Communities
       {
         "Id": "string",
         "Name": "string",
-        "Status": "Undefined",
+        "Status": "None",
         "IsOwner": true,
         "UserCount": 0,
         "ClientCount": 0
@@ -69,23 +74,25 @@ Allowed for these roles:
 
 ---
 
-## Create a new Community
+## Create a New Community
 
-<a id="opIdCommunities_Create a new Community"></a>
+<a id="opIdCommunities_Create a New Community"></a>
+
+Creates a new community within a specific tenant. The tenant sending this request will be assigned ownership of the community. The calling user or client will be granted community administrator and member roles for the community.
 
 ### Request
 ```text 
-POST /api/v1/tenants/{tenantId}/Communities
+POST /api/v1-preview/tenants/{tenantId}/Communities
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/><br/>
+<br/>Owning tenant identifier<br/><br/>
 
 ### Request Body
 
-X Josh identifier <br/><br/>
+Community information to create<br/>
 
 ```json
 {
@@ -119,7 +126,7 @@ X Josh identifier <br/><br/>
     {
       "Id": "string",
       "Name": "string",
-      "Status": "Undefined",
+      "Status": "None",
       "IsOwner": true,
       "UserCount": 0,
       "ClientCount": 0
@@ -144,23 +151,18 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Get a Community by Id"></a>
 
-OCS has wonderful documentation. 
-It does 
-- a
-- b
-- c
-For more information see [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Management/Account_ServiceBlog.html#get-service-blog-entry).
+Gets a community and related information by Id.
 
 ### Request
 ```text 
-GET /api/v1/tenants/{tenantId}/Communities/{communityId}
+GET /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string communityId`
-<br/>X Mark identifier <br/><br/><br/>
+<br/>Owning tenant identifier<br/><br/>`string communityId`
+<br/>Community id<br/><br/>
 
 ### Response
 
@@ -186,7 +188,7 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
     {
       "Id": "string",
       "Name": "string",
-      "Status": "Undefined",
+      "Status": "None",
       "IsOwner": true,
       "UserCount": 0,
       "ClientCount": 0
@@ -203,7 +205,6 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -216,14 +217,14 @@ Updates attributes of a community such as name and description.
 
 ### Request
 ```text 
-PUT /api/v1/tenants/{tenantId}/Communities/{communityId}
+PUT /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community.<br/><br/>
+<br/>Owning tenant identifier<br/><br/>`string communityId`
+<br/>Community identifier<br/><br/>
 
 ### Request Body
 
@@ -256,6 +257,10 @@ The community object that contains the attributes to use for the update.<br/>
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -266,7 +271,6 @@ The community object that contains the attributes to use for the update.<br/>
 Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -275,17 +279,17 @@ Allowed for these roles:
 
 <a id="opIdCommunities_Delete a Community"></a>
 
-Deletes a community by id.
+Deletes a community by Id.
 
 ### Request
 ```text 
-DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
+DELETE /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>Owning tenant identifier<br/><br/>`string communityId`
 <br/>The id of the community to delete.<br/><br/>
 
 ### Response
@@ -298,7 +302,7 @@ DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The community was not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
 #### Example response body
 > 400 Response
@@ -309,6 +313,10 @@ DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -319,7 +327,6 @@ DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
 Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -332,20 +339,20 @@ Allowed for these roles:
 <a id="tocScommunity"></a>
 <a id="tocscommunity"></a>
 
-The Community Data Transfer Object. This is the model representation exposed to callers of controller endpoints.
+The Community object
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|The Primary Key.|
-|Name|string|false|true|The Name of the Community.|
-|Alias|string|false|true|The requesting Tenant's alias for the Community.|
-|Description|string|false|true|The Description of the Community.|
-|Tenants|[[CommunityTenant](#schemacommunitytenant)]|false|true|The List of CommunityTenants that are in the Community.|
-|DateCreated|date-time|false|true|The Date that the Community was created.|
-|StreamsContributedCount|integer|false|false|Current Tenant's view of how many streams it contributed.|
-|TotalStreamsContributedCount|integer|false|false|Total streams from all Community Tenants.|
+|Id|guid|false|false|Community identifier|
+|Name|string|false|true|Community name|
+|Alias|string|false|true|Requesting tenant's alias for the community|
+|Description|string|false|true|Community description|
+|Tenants|[[CommunityTenant](#schemacommunitytenant)]|false|true|List of CommunityTenant that are in the community|
+|DateCreated|date-time|false|true|Date community was created|
+|StreamsContributedCount|integer|false|false|Current tenant's view of how many streams it contributed|
+|TotalStreamsContributedCount|integer|false|false|Total streams from all community tenants|
 
 ```json
 {
@@ -357,7 +364,7 @@ The Community Data Transfer Object. This is the model representation exposed to 
     {
       "Id": "string",
       "Name": "string",
-      "Status": "Undefined",
+      "Status": "None",
       "IsOwner": true,
       "UserCount": 0,
       "ClientCount": 0
@@ -379,24 +386,24 @@ The Community Data Transfer Object. This is the model representation exposed to 
 <a id="tocScommunitytenant"></a>
 <a id="tocscommunitytenant"></a>
 
-The Community Tenant Data Transfer Object.
+The CommunityTenant object
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|The Tenant ID.|
-|Name|string|false|true|The name of the Tenant.|
-|Status|[CommunityTenantStatus](#schemacommunitytenantstatus)|false|false|The Status of the CommunityTenant in the Community.|
-|IsOwner|boolean|false|false|Boolean to indicate if CommunityTenant is Owner of Community.|
-|UserCount|integer|false|false|Summary count of the users authorized to access this community within the Tenant.|
-|ClientCount|integer|false|false|Summary count of the clients authorized to access this community within this Tenant.|
+|Id|guid|false|false|Tenant Id|
+|Name|string|false|true|Tenant name|
+|Status|[CommunityTenantStatus](#schemacommunitytenantstatus)|false|false|CommunityTenant status in a community|
+|IsOwner|boolean|false|false|Boolean indicating whether the CommunityTenant is the owner of the community|
+|UserCount|integer|false|false|Summary count of the users authorized to access the community within the tenant|
+|ClientCount|integer|false|false|Summary count of the clients authorized to access the community within the tenant|
 
 ```json
 {
   "Id": "string",
   "Name": "string",
-  "Status": "Undefined",
+  "Status": "None",
   "IsOwner": true,
   "UserCount": 0,
   "ClientCount": 0
@@ -413,13 +420,13 @@ The Community Tenant Data Transfer Object.
 <a id="tocScommunitytenantstatus"></a>
 <a id="tocscommunitytenantstatus"></a>
 
-Represents a status of a Community Tenant.
+Represents a status of a community tenant
 
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
-|Undefined|Undefined|
+|None|None|
 |AwaitingConfirmation|AwaitingConfirmation|
 |Paused|Paused|
 |Active|Active|
@@ -434,16 +441,17 @@ Represents a status of a Community Tenant.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
+Object returned whenever there is an error
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -451,6 +459,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -466,14 +478,14 @@ Object returned whenever there is an error.
 <a id="tocScreatecommunityinput"></a>
 <a id="tocscreatecommunityinput"></a>
 
-The CreateCommunityInput Data Transfer Object. This is the model input for the CreateCommunity controller endpoint.
+The CreateCommunityInput object. This is the model input for creating a community.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|The Name of the Community to create.|
-|Description|string|false|true|The Description of the Community.|
+|Name|string|false|true|Name of the community to be created|
+|Description|string|false|true|Description of the community|
 
 ```json
 {
@@ -492,14 +504,14 @@ The CreateCommunityInput Data Transfer Object. This is the model input for the C
 <a id="tocSupdatecommunityinput"></a>
 <a id="tocsupdatecommunityinput"></a>
 
-The UpdateCommunityInput Data Transfer Object. This is the model input for the UpdateCommunityById controller endpoint.
+The UpdateCommunityInput object
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|The Name of the Community.|
-|Description|string|false|true|The Description of the Community.|
+|Name|string|false|true|Community name|
+|Description|string|false|true|Community description|
 
 ```json
 {
