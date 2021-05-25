@@ -21,22 +21,22 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 `[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
-<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
-<br/>Maximum number of clients to return.<br/><br/>
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Number of clients to skip. From query<br/><br/>`[optional] integer count`
+<br/>Maximum number of clients to return<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)[]|List of secret information corresponding to the specified client credential client.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret](#schemaclientsecret)[]|List of secret information corresponding to the specified client credential client|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -75,18 +75,18 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Client credential client secret header information.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Client or tenant not found.|
-|500|None|Internal server error.|
+|200|None|Client credential client secret header information|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Client or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -111,8 +111,8 @@ POST /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Request Body
 
@@ -130,13 +130,13 @@ ClientSecretCreateOrUpdate object.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse](#schemaclientsecretresponse)|Information about created secret.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|201|[ClientSecretResponse](#schemaclientsecretresponse)|Information about the created secret|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -174,19 +174,19 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secre
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Information about specified secret.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret](#schemaclientsecret)|Information about specified secret|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -223,19 +223,19 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secr
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for specified client secret.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Secret, client, or tenant not found.|
-|500|None|Internal server error.|
+|200|None|Header for specified client secret|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Secret, client, or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -260,9 +260,9 @@ PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secre
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Request Body
 
@@ -280,13 +280,13 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Information about updated secret.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret](#schemaclientsecret)|Information about the updated secret|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -323,20 +323,20 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{se
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No content.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 401 Response
@@ -347,6 +347,10 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{se
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -376,22 +380,22 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 `[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
-<br/>Number of clients to skip.<br/><br/>`[optional] integer count`
-<br/>Maximum number of clients to return.<br/><br/>
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Number of clients to skip<br/><br/>`[optional] integer count`
+<br/>Maximum number of clients to return<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)[]|List of hybrid client secret information corresponding to the specified client credential client.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret](#schemaclientsecret)[]|List of hybrid client secret information corresponding to the specified client credential client|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -430,18 +434,18 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Headers for hybrid client secret.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Client or tenant not found.|
-|500|None|Internal server error.|
+|200|None|Headers for hybrid client secret|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Client or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -466,12 +470,12 @@ POST /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Request Body
 
-ClientSecretCreateOrUpdate object.<br/>
+ClientSecretCreateOrUpdate object<br/>
 
 ```json
 {
@@ -485,12 +489,12 @@ ClientSecretCreateOrUpdate object.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse](#schemaclientsecretresponse)|Information about created hybrid client secret.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|201|[ClientSecretResponse](#schemaclientsecretresponse)|Information about created hybrid client secret|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -528,19 +532,19 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Information about specified hybrid client secret.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret](#schemaclientsecret)|Information about specified hybrid client secret|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -577,19 +581,19 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for hybrid client secret.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Secret, client, or tenant not found.|
-|500|None|Internal server error.|
+|200|None|Header for hybrid client secret|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Secret, client, or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -614,9 +618,9 @@ PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Request Body
 
@@ -634,13 +638,13 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret](#schemaclientsecret)|Information about updated hybrid client secret.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret](#schemaclientsecret)|Information about updated hybrid client secret|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -677,20 +681,20 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|204|None|No content|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 401 Response
@@ -701,6 +705,10 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -730,22 +738,22 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 `[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
-<br/>Maximum number of clients to return.<br/><br/>
+<br/>Maximum number of clients to return<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)[]|Client credential client secrets found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret2](#schemaclientsecret2)[]|Client credential client secrets found|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -785,12 +793,12 @@ POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secre
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Request Body
 
-Client secret to create.<br/>
+Client secret to create<br/>
 
 ```json
 {
@@ -804,12 +812,12 @@ Client secret to create.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Client credential client secret created.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Client credential client secret created|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -849,19 +857,19 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Client credential client secret specified.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret2](#schemaclientsecret2)|Client credential client secret specified|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -899,13 +907,13 @@ PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secret
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>secretId.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>secretId<br/><br/>
 
 ### Request Body
 
-Client secret details.<br/>
+Client secret details<br/>
 
 ```json
 {
@@ -919,13 +927,13 @@ Client secret details.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Updated client credential client secret.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret2](#schemaclientsecret2)|Updated client credential client secret|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -953,7 +961,7 @@ Allowed for these roles:
 
 <a id="opIdSecrets_List Hybrid Client Secrets (`v1-preview` path)"></a>
 
-Get all secrets for a hybrid client.
+Gets all secrets for a hybrid client.
 
 ### Request
 ```text 
@@ -964,22 +972,22 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 `[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
-<br/>Maximum number of clients to return.<br/><br/>
+<br/>Maximum number of clients to return<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)[]|Hybrid client secrets found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret2](#schemaclientsecret2)[]|Hybrid client secrets found|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -1009,7 +1017,7 @@ Allowed for these roles:
 
 <a id="opIdSecrets_Add Hybrid Client Secret (`v1-preview` path)"></a>
 
-Add a new secret for a hybrid client.
+Adds a new secret for a hybrid client.
 
 ### Request
 ```text 
@@ -1019,12 +1027,12 @@ POST /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Request Body
 
-Client secret to create.<br/>
+Client secret to create<br/>
 
 ```json
 {
@@ -1038,12 +1046,12 @@ Client secret to create.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Hybrid client secret created.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|201|[ClientSecretResponse2](#schemaclientsecretresponse2)|Hybrid client secret created|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -1073,7 +1081,7 @@ Allowed for these roles:
 
 <a id="opIdSecrets_Get Hybrid Client Secret (`v1-preview` path)"></a>
 
-Get a specific hybrid client secret.
+Gets a specific hybrid client secret.
 
 ### Request
 ```text 
@@ -1083,19 +1091,19 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretI
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>Secret unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Hybrid client secret specified.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret2](#schemaclientsecret2)|Hybrid client secret specified|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -1123,7 +1131,7 @@ Allowed for these roles:
 
 <a id="opIdSecrets_Update Hybrid Client Secret (`v1-preview` path)"></a>
 
-Update a hybrid client secret. Only secret description and secret expiration date can be updated.
+Updates a hybrid client secret. Only secret description and secret expiration date can be updated.
 
 ### Request
 ```text 
@@ -1133,13 +1141,13 @@ PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretI
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>secretId.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>`integer secretId`
+<br/>secretId<br/><br/>
 
 ### Request Body
 
-Client secret details.<br/>
+Client secret details<br/>
 
 ```json
 {
@@ -1153,13 +1161,13 @@ Client secret details.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSecret2](#schemaclientsecret2)|Updated hybrid client secret.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientSecret2](#schemaclientsecret2)|Updated hybrid client secret|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -1191,16 +1199,16 @@ Allowed for these roles:
 <a id="tocSclientsecret"></a>
 <a id="tocsclientsecret"></a>
 
-Client Secret Object.
+Client secret object.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Expiration|date-time|false|true|Gets or sets expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Gets or sets determines if the secret expires. Defaults to true. If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and Expiration is null, a 400 error will be returned. If Expires is set to false and Expiration is not null, a 400 error will be returned. If Expires is set to false and Expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|Id|int32|false|false|Gets or sets id for this Secret.|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|Id|int32|false|false|Unique identifier of this client secret.|
 
 ```json
 {
@@ -1221,16 +1229,17 @@ Client Secret Object.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
+Object returned whenever there is an error
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -1238,6 +1247,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -1253,17 +1266,17 @@ Object returned whenever there is an error.
 <a id="tocSclientsecretresponse"></a>
 <a id="tocsclientsecretresponse"></a>
 
-Object returned after a Client Secret is created.
+Object returned after a client secret is created.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|int32|false|false|Gets or sets id for this Secret.|
-|Expiration|date-time|false|true|Gets or sets expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Gets or sets determines if the secret expires. Defaults to true. If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and Expiration is null, a 400 error will be returned. If Expires is set to false and Expiration is not null, a 400 error will be returned. If Expires is set to false and Expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|Secret|string|false|true|Gets or sets client secret.|
+|Id|int32|false|false|Unique identifier of this client secret.|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|Secret|string|false|true|Client secret.|
 
 ```json
 {
@@ -1285,15 +1298,15 @@ Object returned after a Client Secret is created.
 <a id="tocSclientsecretcreateorupdate"></a>
 <a id="tocsclientsecretcreateorupdate"></a>
 
-Object to write a Client Secret.
+Object to write a client secret.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Expiration|date-time|false|true|Gets or sets expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Gets or sets determines if the secret expires. Defaults to true. If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and Expiration is null, a 400 error will be returned. If Expires is set to false and Expiration is not null, a 400 error will be returned. If Expires is set to false and Expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
 
 ```json
 {
@@ -1313,15 +1326,17 @@ Object to write a Client Secret.
 <a id="tocSclientsecret2"></a>
 <a id="tocsclientsecret2"></a>
 
+Client secret object
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Expiration|date-time|false|true|Gets or sets expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Gets or sets determines if the secret expires. Defaults to true. If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and Expiration is null, a 400 error will be returned. If Expires is set to false and Expiration is not null, a 400 error will be returned. If Expires is set to false and Expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|SecretId|string|false|true|None|
-|Id|string|false|true|None|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|SecretId|string|false|true|Obsolete: Use Id.|
+|Id|string|false|true|Secret unique identifier for this secret.|
 
 ```json
 {
@@ -1343,17 +1358,19 @@ Object to write a Client Secret.
 <a id="tocSclientsecretresponse2"></a>
 <a id="tocsclientsecretresponse2"></a>
 
+Object returned after a client secret is created.
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|SecretId|string|false|true|None|
-|Id|string|false|true|None|
-|Expiration|date-time|false|true|Gets or sets expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Gets or sets determines if the secret expires. Defaults to true. If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and Expiration is null, a 400 error will be returned. If Expires is set to false and Expiration is not null, a 400 error will be returned. If Expires is set to false and Expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|ClientSecret|string|false|true|None|
-|Secret|string|false|true|None|
+|SecretId|string|false|true|Obsolete: Use Id.|
+|Id|string|false|true|Secret unique identifier for this secret.|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|ClientSecret|string|false|true|Obsolete: Use secret.|
+|Secret|string|false|true|Client secret.|
 
 ```json
 {

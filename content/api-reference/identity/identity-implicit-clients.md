@@ -21,11 +21,11 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier.<br/><br/>
 `[optional] array id`
 <br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`
 <br/>Only return clients that have these tags.<br/><br/>`[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Number of clients to skip. Will be ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`
 <br/>Maximum number of clients to return. Will be ignored if a list of Ids is passed.<br/><br/>
 
@@ -34,10 +34,10 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ImplicitClient](#schemaimplicitclient)[]|Implicit clients found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -92,7 +92,7 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier.<br/><br/>
 `[optional] array id`
 <br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`
 <br/>Only count clients that have these tags.<br/><br/>
@@ -102,10 +102,10 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Implicit client headers found on tenant.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Client or tenant not found.|
-|500|None|Internal server error.|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Client or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -166,12 +166,12 @@ New ImplicitClient object.<br/>
 |---|---|---|
 |201|[ImplicitClient](#schemaimplicitclient)|Implicit client created.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -222,18 +222,18 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string clientId`
+<br/>Client identifier.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ImplicitClient](#schemaimplicitclient)|Implicit client specified.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -285,18 +285,18 @@ HEAD /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string clientId`
+<br/>Client identifier.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Header for implicit client.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Client or tenant not found.|
-|500|None|Internal server error.|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Client or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -322,8 +322,8 @@ PUT /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Request Body
 
@@ -357,12 +357,12 @@ Updated implicit client values. Properties that are not set or are null will not
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ImplicitClient](#schemaimplicitclient)|Implicit client updated.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -413,19 +413,19 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string clientId`
+<br/>Client identifier.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No content.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 401 Response
@@ -436,6 +436,10 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -465,10 +469,10 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 #### Parameters
 
 `string tenantId`
-<br/>Id of Tenant.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 `[optional] array tag`
 <br/>Only return Clients that have these tags.<br/><br/>`[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
 <br/>Maximum number of clients to return.<br/><br/>
 
@@ -477,10 +481,10 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ImplicitClient2](#schemaimplicitclient2)[]|Implicit Clients found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -533,7 +537,7 @@ POST /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 #### Parameters
 
 `string tenantId`
-<br/>Id of Tenant.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 
 ### Request Body
 
@@ -568,12 +572,12 @@ New ImplicitClient object.<br/>
 |---|---|---|
 |201|[ImplicitClient2](#schemaimplicitclient2)|Implicit Client created.|
 |400|[ErrorResponse](#schemaerrorresponse)|Client limit exceeded.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
 |409|[ErrorResponse](#schemaerrorresponse)|Client Id already exists.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -624,7 +628,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Tenant identifier<br/><br/>`string clientId`
 <br/>Id of client.<br/><br/>
 
 ### Response
@@ -632,10 +636,10 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ImplicitClient2](#schemaimplicitclient2)|Implicit Client specified.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -686,7 +690,7 @@ PUT /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Tenant identifier<br/><br/>`string clientId`
 <br/>Id of client.<br/><br/>
 
 ### Request Body
@@ -721,12 +725,12 @@ Updated Implicit Client values.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ImplicitClient2](#schemaimplicitclient2)|Updated Implicit Client.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or Tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -782,10 +786,10 @@ Object used during implicit client creation.
 |ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
 |LogoUri|string|false|true|URI to client logo (used on consent screen).|
 |Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|false|true|Name of client.|
+|Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |AllowedCorsOrigins|string[]|false|true|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients. Maximum 10 per client.|
 
 ```json
@@ -821,16 +825,17 @@ Object used during implicit client creation.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
+Object returned whenever there is an error
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -838,6 +843,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -853,20 +862,22 @@ Object returned whenever there is an error.
 <a id="tocSimplicitclient2"></a>
 <a id="tocsimplicitclient2"></a>
 
+Object used during implicit client creation.
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|RedirectUris|string[]|false|true|None|
-|PostLogoutRedirectUris|string[]|false|true|None|
-|ClientUri|string|false|true|None|
-|LogoUri|string|false|true|None|
-|ClientId|string|false|true|None|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Enabled|boolean|false|true|None|
-|Tags|string[]|false|true|None|
-|AllowedCorsOrigins|string[]|false|true|None|
+|RedirectUris|string[]|false|true|Allowed URIs to return tokens or authorization codes to.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|false|true|URI to client logo (used on consent screen).|
+|ClientId|string|false|true|Obsolete: Use Id.|
+|Id|string|false|true|Client unique identifier for this Client.|
+|Name|string|false|true|Name of the Client.|
+|Enabled|boolean|false|true|Value indicating whether Client enabled.|
+|Tags|string[]|false|true|List of tags for OSIsoft internal use only.|
+|AllowedCorsOrigins|string[]|false|true|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients.|
 
 ```json
 {

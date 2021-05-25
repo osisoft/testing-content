@@ -21,21 +21,21 @@ GET /api/v1/Tenants/{tenantId}/Roles
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 `[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
-<br/>Number of providers to skip.<br/><br/>`[optional] integer count`
-<br/>Max number of providers to return.<br/><br/>
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Number of providers to skip<br/><br/>`[optional] integer count`
+<br/>Max number of providers to return<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Role](#schemarole)[]|List of roles found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[Role](#schemarole)[]|List of roles found|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -46,7 +46,7 @@ GET /api/v1/Tenants/{tenantId}/Roles
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -63,9 +63,9 @@ Allowed for these roles:
 
 ---
 
-## Get header for Roles
+## Get Header for Roles
 
-<a id="opIdRoles_Get header for Roles"></a>
+<a id="opIdRoles_Get Header for Roles"></a>
 
 Gets header for roles to get the total number of roles for a given tenant including community roles for any community the tenant is joined to.
 
@@ -77,17 +77,17 @@ HEAD /api/v1/Tenants/{tenantId}/Roles
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Headers for roles found.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Tenant not found.|
-|500|None|Internal server error.|
+|200|None|Headers for roles found|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -112,18 +112,18 @@ POST /api/v1/Tenants/{tenantId}/Roles
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 
 ### Request Body
 
-Role to create.<br/>
+Role to create<br/>
 
 ```json
 {
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -134,15 +134,15 @@ Role to create.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[Role](#schemarole)|Role created.|
+|201|[Role](#schemarole)|Role created|
 |302|None|A role with the same unique identifier or name already exists in the tenant.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant or role not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant or role not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
 |409|[ErrorResponse](#schemaerrorresponse)|A role with some matching values already exists in tenant.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -152,7 +152,7 @@ Role to create.<br/>
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -182,18 +182,18 @@ GET /api/v1/Tenants/{tenantId}/Roles/{roleId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Role](#schemarole)|Role specified.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Role or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[Role](#schemarole)|Role specified|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Role or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -203,7 +203,7 @@ GET /api/v1/Tenants/{tenantId}/Roles/{roleId}
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -219,11 +219,11 @@ Allowed for these roles:
 
 ---
 
-## Get header for Role
+## Get Header for a Given Role
 
-<a id="opIdRoles_Get header for Role"></a>
+<a id="opIdRoles_Get Header for a Given Role"></a>
 
-Gets header for a role on given tenant.
+Gets the header for a role on a given tenant.
 
 ### Request
 ```text 
@@ -233,18 +233,18 @@ HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Provider unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Provider unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for role specified.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Identity provider or tenant not found.|
-|500|None|Internal server error.|
+|200|None|Header for role specified|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Identity provider or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -269,19 +269,19 @@ PUT /api/v1/Tenants/{tenantId}/Roles/{roleId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
 
 ### Request Body
 
-Role to update.<br/>
+Role to update<br/>
 
 ```json
 {
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -292,13 +292,13 @@ Role to update.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Role](#schemarole)|Updated role.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant or role not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[Role](#schemarole)|Updated role|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant or role not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -308,7 +308,7 @@ Role to update.<br/>
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -338,20 +338,20 @@ DELETE /api/v1/Tenants/{tenantId}/Roles/{roleId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|204|None|No content|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 400 Response
@@ -376,9 +376,9 @@ Allowed for these roles:
 
 ---
 
-## List all the clients for a given role
+## List All Clients for a Given Role
 
-<a id="opIdRoles_List all the clients for a given role"></a>
+<a id="opIdRoles_List All Clients for a Given Role"></a>
 
 Gets all the clients for a given role.
 
@@ -390,18 +390,18 @@ GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Clients for a given role.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Tenant or role not found.|
-|500|None|Internal server error.|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Clients for a given role|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -432,9 +432,9 @@ Allowed for these roles:
 
 ---
 
-## Get header for the total number of clients for a given role
+## Get Count of Clients for a Given Role
 
-<a id="opIdRoles_Get header for the total number of clients for a given role"></a>
+<a id="opIdRoles_Get Count of Clients for a Given Role"></a>
 
 Gets the total number of clients for a given role.
 
@@ -446,18 +446,18 @@ HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Headers for the total number of clients for a given role.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Tenant or role not found.|
-|500|None|Internal server error.|
+|200|None|Headers for the total number of clients for a given role|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -468,11 +468,11 @@ Allowed for these roles:
 
 ---
 
-## List users for a Role
+## List Users for a Given Role
 
-<a id="opIdRoles_List users for a Role"></a>
+<a id="opIdRoles_List Users for a Given Role"></a>
 
-Gets all the users for a given role.
+Gets all users for a given role.
 
 ### Request
 ```text 
@@ -482,18 +482,18 @@ GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[User](#schemauser)[]|Users for a given role.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Tenant or role not found.|
-|500|None|Internal server error.|
+|200|[User](#schemauser)[]|Users for a given role|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -527,11 +527,11 @@ Allowed for these roles:
 
 ---
 
-## Get header for the total users for a given role
+## Get Total Count of Users for a Given Role
 
-<a id="opIdRoles_Get header for the total users for a given role"></a>
+<a id="opIdRoles_Get Total Count of Users for a Given Role"></a>
 
-Gets the total number of users for a given role.
+Gets total number of users for a given role.
 
 ### Request
 ```text 
@@ -541,18 +541,18 @@ HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Headers for roles found.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Tenant or role not found.|
-|500|None|Internal server error.|
+|200|None|Headers for roles found|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -571,24 +571,26 @@ Allowed for these roles:
 <a id="tocSrole"></a>
 <a id="tocsrole"></a>
 
+The object for retrieving a role
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|RoleScope|[RoleScope](#schemarolescope)|false|true|None|
-|TenantId|guid|false|true|None|
-|CommunityId|guid|false|true|None|
-|RoleTypeId|guid|false|true|None|
+|Id|string|false|true|Role unique identifier. Generated by the server upon creation.|
+|Name|string|false|true|Role name. This cannot be empty.|
+|Description|string|false|true|Role description.|
+|RoleScope|[RoleScope](#schemarolescope)|false|true|Role scope.|
+|TenantId|string|false|true|Tenant unique identifier, if this is a Tenant Role. Otherwise set to null.|
+|CommunityId|string|false|true|Community unique identifier, if this is a Community Role. Otherwise set to null.|
+|RoleTypeId|string|false|true|Role type identifier for built-in roles.|
 
 ```json
 {
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -605,11 +607,14 @@ Allowed for these roles:
 <a id="tocSrolescope"></a>
 <a id="tocsrolescope"></a>
 
+The object that represents the scope of a given role
+
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
-|Account|1|
+|None|0|
+|Tenant|1|
 |Community|2|
 |Cluster|3|
 
@@ -622,7 +627,7 @@ Allowed for these roles:
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
+Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
 ### Properties
 
@@ -654,22 +659,22 @@ Object returned whenever there is an error.
 <a id="tocSuser"></a>
 <a id="tocsuser"></a>
 
-Object for retrieving a user.
+Object for retrieving a user
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|User unique identifier.|
-|GivenName|string|false|true|Given name of the user.|
-|Surname|string|false|true|Surname of the user.|
-|Name|string|false|true|Name of the user.|
-|Email|string|false|true|Email of the user.|
+|Id|guid|false|false|User unique identifier|
+|GivenName|string|false|true|Given name of the user|
+|Surname|string|false|true|Surname of the user|
+|Name|string|false|true|Name of the user|
+|Email|string|false|true|Email of the user|
 |ContactEmail|string|false|true|Contact email for the user. User will only be contacted through this email.|
-|ContactGivenName|string|false|true|Preferred contact name for the user.|
-|ContactSurname|string|false|true|Preferred contact surname for the user.|
+|ContactGivenName|string|false|true|Preferred given name for the user|
+|ContactSurname|string|false|true|Preferred contact surname for the user|
 |ExternalUserId|string|false|true|Provider unique identifier for the user. This is the unique identifier we get from the identity provider.|
-|IdentityProviderId|guid|false|true|Identity provider unique identifier used to authenticate the user. Will be set once the user accepts an invitation. If not specified when sending the invitation to the user, it can be any of the identity provider Ids configured for this tenant.|
+|IdentityProviderId|guid|false|true|Identity provider unique identifier used to authenticate the user. This cannot be set to null and must be set when creating a new User.|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 ```json
@@ -700,17 +705,17 @@ Object for retrieving a user.
 <a id="tocSclientcredentialclient"></a>
 <a id="tocsclientcredentialclient"></a>
 
-Object to get or update a client credential client.
+Object to get or update a ClientCredentialClient
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|false|true|Name of client.|
+|Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 ```json

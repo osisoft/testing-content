@@ -21,21 +21,21 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 #### Parameters
 
 `string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>
+<br/>Identity provider unique identifier<br/><br/>
 `[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
-<br/>Number of identity providers to skip.<br/><br/>`[optional] integer count`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Number of identity providers to skip<br/><br/>`[optional] integer count`
 <br/>Maximum number of identity providers to return.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderClaimTypeName](#schemaidentityproviderclaimtypename)[]|List of identity provider type names found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity provider not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[IdentityProviderClaimTypeName](#schemaidentityproviderclaimtypename)[]|List of identity provider type names found|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -73,17 +73,17 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 #### Parameters
 
 `string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>
+<br/>Identity provider unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for identity provider claim type names.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Identity provider not found.|
-|500|None|Internal server error.|
+|200|None|Header for identity provider claim type names|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Identity provider not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -108,18 +108,18 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProvi
 #### Parameters
 
 `string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimTypeNameId`
-<br/>Identity provider claim type name unique identifier.<br/><br/>
+<br/>Identity provider unique identifier<br/><br/>`string identityProviderClaimTypeNameId`
+<br/>Identity provider claim type name unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity provider claim type name specified.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity provider, or identity provider claim type name not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity provider claim type name specified|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or identity provider claim type name not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -158,18 +158,18 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProv
 #### Parameters
 
 `string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimTypeNameId`
-<br/>Identity provider claim type name unique identifier.<br/><br/>
+<br/>Identity provider unique identifier<br/><br/>`string identityProviderClaimTypeNameId`
+<br/>Identity provider claim type name unique identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for identity provider claim type name specified.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Identity provider, or identity provider claim type name not found.|
-|500|None|Internal server error.|
+|200|None|Header for identity provider claim type name specified|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Identity provider or identity provider claim type name not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -188,15 +188,15 @@ Allowed for these roles:
 <a id="tocSidentityproviderclaimtypename"></a>
 <a id="tocsidentityproviderclaimtypename"></a>
 
-Claim Type Name associated with an Identity Provider.
+Claim type name associated with an identity provider.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets the ID for this Claim Type Name.|
-|TypeName|string|false|true|Gets or sets the Claim Type Name.|
-|IdentityProviderId|guid|false|false|Gets or sets the Identity Provider Id associated with this Claim Type Name.|
+|Id|guid|false|false|Claim type name unique identifier.|
+|TypeName|string|false|true|Claim type name.|
+|IdentityProviderId|guid|false|false|Unique identifier of identity provider associated with this claim type name.|
 
 ```json
 {
@@ -216,16 +216,17 @@ Claim Type Name associated with an Identity Provider.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
+Object returned whenever there is an error
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -233,6 +234,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -248,7 +253,7 @@ Object returned whenever there is an error.
 <a id="tocSidentityproviderclaim"></a>
 <a id="tocsidentityproviderclaim"></a>
 
-Object representing a claim from an identity provider to map to a role.
+Object representing a claim from an identity provider to map to a role
 
 ### Properties
 

@@ -21,11 +21,11 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 `[optional] array id`
 <br/>Unordered list of client credential client Ids. Empty, whitespace or null Ids will be ignored.<br/><br/>`[optional] array tag`
 <br/>Only return clients that have these tags.<br/><br/>`[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Number of clients to skip. Will be ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`
 <br/>Maximum number of clients to return. Will be ignored if a list of Ids is passed.<br/><br/>
 
@@ -33,12 +33,12 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Client credential clients found.|
-|207|[ClientCredentialClientMultiStatusResponse](#schemaclientcredentialclientmultistatusresponse)|Client credential clients found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Client credential clients found|
+|207|[ClientCredentialClientMultiStatusResponse](#schemaclientcredentialclientmultistatusresponse)|Client credential clients found|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -84,20 +84,20 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 `[optional] array id`
 <br/>Unordered list of client credential client Ids. Empty, whitespace or null Ids will be ignored.<br/><br/>`[optional] array tag`
-<br/>Only count clients that have these tags.<br/><br/>
+<br/>Only count clients that have these tags<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Client credential client headers found.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Client or tenant not found.|
-|500|None|Internal server error.|
+|200|None|Client credential client headers found|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Client or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -122,11 +122,11 @@ POST /api/v1/Tenants/{tenantId}/ClientCredentialClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 
 ### Request Body
 
-ClientCredentialClientCreate object.<br/>
+ClientCredentialClientCreate object<br/>
 
 ```json
 {
@@ -149,14 +149,14 @@ ClientCredentialClientCreate object.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientCredentialClientCreateResponse](#schemaclientcredentialclientcreateresponse)|Client credential client details for created client.|
+|201|[ClientCredentialClientCreateResponse](#schemaclientcredentialclientcreateresponse)|Client credential client details for created client|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
 |409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -205,18 +205,18 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)|Client credential client details for specified client.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)|Client credential client details for specified client|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -260,18 +260,18 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Header for specified client credential client.|
-|401|None|Unauthorized.|
-|403|None|Forbidden.|
-|404|None|Client or tenant not found.|
-|500|None|Internal server error.|
+|200|None|Header for specified client credential client|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Client or tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -297,8 +297,8 @@ PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Request Body
 
@@ -323,13 +323,13 @@ ClientCredentialClient object. Properties that are not set or are null will not 
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)|Client credential client details for updated client.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)|Client credential client details for updated client|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -372,19 +372,19 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|204|None|No content|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 401 Response
@@ -413,7 +413,7 @@ Allowed for these roles:
 
 <a id="opIdClientCredentialClients_List All Client Credential Clients"></a>
 
-Get all client credential clients.
+Gets all client credential clients.
 
 ### Request
 ```text 
@@ -424,23 +424,23 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 `[optional] array tag`
-<br/>Only return clients that have these tags.<br/><br/>`[optional] string query`
-<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Only return clients that have these tags<br/><br/>`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
-<br/>Maximum number of clients to return.<br/><br/>
+<br/>Maximum number of clients to return<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient2](#schemaclientcredentialclient2)[]|List of client credential clients found.|
-|207|[ClientCredentialClientMultiStatusResponse2](#schemaclientcredentialclientmultistatusresponse2)|List of client credential clients found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientCredentialClient2](#schemaclientcredentialclient2)[]|List of client credential clients that are found|
+|207|[ClientCredentialClientMultiStatusResponse2](#schemaclientcredentialclientmultistatusresponse2)|List of client credential clients that are found|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -475,7 +475,7 @@ Allowed for these roles:
 
 <a id="opIdClientCredentialClients_Create Client Credential Client (`v1-preview` path)"></a>
 
-Create a client credential flow client.
+Creates a client credential flow client.
 
 ### Request
 ```text 
@@ -485,11 +485,11 @@ POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>
 
 ### Request Body
 
-New ClientCredentialClientCreate object.<br/>
+ClientCredentialClientCreate object<br/>
 
 ```json
 {
@@ -512,13 +512,13 @@ New ClientCredentialClientCreate object.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientCredentialClientResponse](#schemaclientcredentialclientresponse)|Hybrid client created.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
+|201|[ClientCredentialClientResponse](#schemaclientcredentialclientresponse)|Hybrid client created|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
 |409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 201 Response
@@ -555,7 +555,7 @@ Allowed for these roles:
 
 <a id="opIdClientCredentialClients_Get Client Credential Client (`v1-preview` path)"></a>
 
-Get a client credential client.
+Gets a client credential client.
 
 ### Request
 ```text 
@@ -565,18 +565,18 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient2](#schemaclientcredentialclient2)|Client credential client specified.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientCredentialClient2](#schemaclientcredentialclient2)|Client credential client specified|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -619,12 +619,12 @@ PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client identifier<br/><br/>
 
 ### Request Body
 
-Updated client credential client values.<br/>
+Updated client credential client values<br/>
 
 ```json
 {
@@ -645,13 +645,13 @@ Updated client credential client values.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient2](#schemaclientcredentialclient2)|Updated client credential client.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|200|[ClientCredentialClient2](#schemaclientcredentialclient2)|Updated client credential client|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -688,17 +688,17 @@ Allowed for these roles:
 <a id="tocSclientcredentialclientcreateresponse"></a>
 <a id="tocsclientcredentialclientcreateresponse"></a>
 
-Secret information returned after a Client Credential Client is created.
+Secret information returned after a client credential client is created.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Secret|string|false|true|Gets or sets client secret.|
-|Id|int32|false|false|Gets or sets secret Id.|
-|Description|string|false|true|Gets or sets description for the initial secret for the client.|
-|ExpirationDate|date-time|false|true|Gets or sets expiration date for the initial secret for the client.|
-|Client|[ClientCredentialClient](#schemaclientcredentialclient)|false|true|Gets or sets client Client Credential Client created.|
+|Secret|string|false|true|Client secret.|
+|Id|int32|false|false|Unique identifier of the client secret.|
+|Description|string|false|true|Description for the initial secret for the client.|
+|ExpirationDate|date-time|false|true|Expiration date for the initial secret for the client.|
+|Client|[ClientCredentialClient](#schemaclientcredentialclient)|false|true|Created client credential client.|
 
 ```json
 {
@@ -731,17 +731,17 @@ Secret information returned after a Client Credential Client is created.
 <a id="tocSclientcredentialclient"></a>
 <a id="tocsclientcredentialclient"></a>
 
-Object to get or update a client credential client.
+Object to get or update a ClientCredentialClient
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|false|true|Name of client.|
+|Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 ```json
@@ -769,7 +769,7 @@ Object to get or update a client credential client.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
+Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
 ### Properties
 
@@ -809,10 +809,10 @@ Object used during Client creation.
 |---|---|---|---|---|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 |Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|false|true|Name of client.|
+|Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |SecretDescription|string|false|true|Description for the initial secret for the client. Ensure that this is descriptive enough, as it will be the only way to distinguish between multiple secrets and their usage for a client.|
 |SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
 
@@ -843,7 +843,7 @@ Object used during Client creation.
 <a id="tocSclientcredentialclientmultistatusresponse"></a>
 <a id="tocsclientcredentialclientmultistatusresponse"></a>
 
-MultiStatusResponse objects returned in a 207 response.
+MultiStatusResponse objects returned in a 207 response. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
 ### Properties
 
@@ -899,7 +899,7 @@ MultiStatusResponse objects returned in a 207 response.
 <a id="tocSmultistatusresponsechilderror"></a>
 <a id="tocsmultistatusresponsechilderror"></a>
 
-ChildError objects returned in a 207 response.
+ChildError objects returned in a 207 response. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
 ### Properties
 
@@ -935,16 +935,18 @@ ChildError objects returned in a 207 response.
 <a id="tocSclientcredentialclient2"></a>
 <a id="tocsclientcredentialclient2"></a>
 
+Object to get or update the ClientCredentialClient
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|ClientId|string|false|true|None|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Enabled|boolean|false|true|None|
-|Tags|string[]|false|true|None|
-|RoleIds|string[]|false|true|None|
+|ClientId|string|false|true|Obsolete: Use Id.|
+|Id|string|false|true|Client unique identifier for this Client.|
+|Name|string|false|true|Name of the Client.|
+|Enabled|boolean|false|true|Value indicating whether Client enabled.|
+|Tags|string[]|false|true|List of tags for OSIsoft internal use only.|
+|RoleIds|string[]|false|true|List of role unique identifiers to be assigned to this client.|
 
 ```json
 {
@@ -971,15 +973,17 @@ ChildError objects returned in a 207 response.
 <a id="tocSclientcredentialclientmultistatusresponse2"></a>
 <a id="tocsclientcredentialclientmultistatusresponse2"></a>
 
+MultiStatusResponse objects returned in a 207 response.
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|[ChildError objects returned in a 207 response.]|
-|Data|[[ClientCredentialClient2](#schemaclientcredentialclient2)]|false|true|None|
+|OperationId|string|false|true|Unique identifier of the operation that resulted in this error.|
+|Error|string|false|true|Message describing the error.|
+|Reason|string|false|true|Reason that caused the error.|
+|ChildErrors|[[MultiStatusResponseChildError2](#schemamultistatusresponsechilderror2)]|false|true|List of child errors.|
+|Data|[[ClientCredentialClient2](#schemaclientcredentialclient2)]|false|true|Data representing client credentials.|
 
 ```json
 {
@@ -992,6 +996,10 @@ ChildError objects returned in a 207 response.
       "Error": "string",
       "Reason": "string",
       "Resolution": "string",
+      "DynamicProperties": {
+        "property1": null,
+        "property2": null
+      },
       "StatusCode": 0,
       "ModelId": "string",
       "property1": null,
@@ -1018,6 +1026,47 @@ ChildError objects returned in a 207 response.
 
 ---
 
+## MultiStatusResponseChildError2
+
+<a id="schemamultistatusresponsechilderror2"></a>
+<a id="schema_MultiStatusResponseChildError2"></a>
+<a id="tocSmultistatusresponsechilderror2"></a>
+<a id="tocsmultistatusresponsechilderror2"></a>
+
+ChildError objects returned in a 207 response.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
+|StatusCode|int32|false|false|Http status code.|
+|ModelId|string|false|true|Model unique identifier.|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
+  "StatusCode": 0,
+  "ModelId": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
 ## ClientCredentialClientResponse
 
 <a id="schemaclientcredentialclientresponse"></a>
@@ -1025,20 +1074,22 @@ ChildError objects returned in a 207 response.
 <a id="tocSclientcredentialclientresponse"></a>
 <a id="tocsclientcredentialclientresponse"></a>
 
+Object returned after a client credential client is created.
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|SecretDescription|string|false|true|None|
-|SecretExpirationDate|date-time|false|true|None|
-|RoleIds|string[]|false|true|None|
-|ClientId|string|false|true|None|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Enabled|boolean|false|true|None|
-|Tags|string[]|false|true|None|
-|ClientSecret|string|false|true|None|
-|SecretId|string|false|true|None|
+|SecretDescription|string|false|true|Description for the initial secret for the client.|
+|SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client.|
+|RoleIds|string[]|false|true|List of role unique identifiers to be assigned to this client.|
+|ClientId|string|false|true|Obsolete: Use Id.|
+|Id|string|false|true|Client unique identifier for this Client.|
+|Name|string|false|true|Name of the Client.|
+|Enabled|boolean|false|true|Value indicating whether Client enabled.|
+|Tags|string[]|false|true|List of tags for OSIsoft internal use only.|
+|ClientSecret|string|false|true|Client secret.|
+|SecretId|string|false|true|Secret unique identifier.|
 
 ```json
 {
@@ -1069,18 +1120,20 @@ ChildError objects returned in a 207 response.
 <a id="tocSclientcredentialclientcreate2"></a>
 <a id="tocsclientcredentialclientcreate2"></a>
 
+Object used during client creation.
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|RoleIds|string[]|false|true|None|
-|ClientId|string|false|true|None|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Enabled|boolean|false|true|None|
-|Tags|string[]|false|true|None|
-|SecretDescription|string|false|true|None|
-|SecretExpirationDate|date-time|false|true|None|
+|RoleIds|string[]|false|true|List of role unique identifiers to be assigned to this client.|
+|ClientId|string|false|true|Obsolete: Use Id.|
+|Id|string|false|true|Client unique identifier for this Client.|
+|Name|string|false|true|Name of the Client.|
+|Enabled|boolean|false|true|Value indicating whether Client enabled.|
+|Tags|string[]|false|true|List of tags for OSIsoft internal use only.|
+|SecretDescription|string|false|true|Description for the initial secret for the client.|
+|SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client.|
 
 ```json
 {
