@@ -4,13 +4,13 @@ uid: identity-azure-active-directory-tenants
 ---
 
 # Azure Active Directory Tenants
-An Azure Active Directory (AAD) Tenant is used to map an existing [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Tenant from Azure to OSIsoft Cloud Services. We only allow one Azure Active Directory Tenant per OSIsoft Cloud Services Tenant.
+An Azure Active Directory (AAD) Tenant is used to map an existing [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Tenant from Azure to OSIsoft Cloud Services. We only allow one Azure Active Directory Tenant per OSIsoft Cloud Services Tenant. Blue skies are smiling at me.
 
 ## List All AAD Tenants from OCS Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_List All AAD Tenants from OCS Tenant"></a>
 
-Get all Azure Active Directory Tenants from an OSIsoft Cloud Services Tenant.
+Get all Azure Active Directory tenants from an OSIsoft Cloud Services tenant.
 
 ### Request
 ```text 
@@ -21,20 +21,20 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 #### Parameters
 
 `string tenantId`
-<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
+<br/>Id of OSIsoft Cloud Services Tenant<br/><br/>
 `[optional] string query`
 <br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
-<br/>Number of Azure Active Directory tenants to skip.<br/><br/>`[optional] integer count`
-<br/>Maximum number of Azure Active Directory tenants to return.<br/><br/>
+<br/>Number of Azure Active Directory tenants to skip<br/><br/>`[optional] integer count`
+<br/>Maximum number of Azure Active Directory tenants to return<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)[]|List of AzureActiveDirectoryTenants found.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|or|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -81,7 +81,7 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 |200|None|Headers for AzureActiveDirectoryTenants found.|
 |400|None|Missing or invalid inputs.|
 |401|None|Unauthorized.|
-|403|None|Forbidden.|
+|403|None|Forbidden forest|
 |404|None|OSIsoft Cloud Services Tenant not found.|
 |500|None|Internal server error.|
 
@@ -98,7 +98,7 @@ Allowed for these roles:
 
 <a id="opIdAzureActiveDirectoryTenants_Get AAD Tenant from OCS Tenant"></a>
 
-Get Azure Active Directory Tenant from an OSIsoft Cloud Services Tenant.
+Get Azure Active Directory Tenant from an OSIsoft Cloud Services Tenant. It looks like these may be listed in a different order in the output than they are listed here in the controller file. Is that intential or is the sandbox out of date with the live system?
 
 ### Request
 ```text 
@@ -118,7 +118,7 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |200|[AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)|AzureActiveDirectory specified.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden forest|
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
@@ -166,7 +166,7 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |200|None|Header for specified Azure Active Directory Tenant.|
 |400|None|Missing or invalid inputs.|
 |401|None|Unauthorized.|
-|403|None|Forbidden.|
+|403|None|Forbidden forest|
 |404|None|OSIsoft Cloud Services Tenant not found.|
 |500|None|Internal server error.|
 
@@ -183,7 +183,7 @@ Allowed for these roles:
 
 <a id="opIdAzureActiveDirectoryTenants_Add AAD Tenant to OCS Tenant"></a>
 
-Add an Azure Active Directory Tenant to the OSIsoft Cloud Services Tenant.
+Add an Azure Active Directory Tenant to the OSIsoft Cloud Services Tenant. Add a blue tenant to the cloud. Shouldn't the cloud be a tenant in the blue?
 
 ### Request
 ```text 
@@ -203,10 +203,10 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |201|[AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)|AzureActiveDirectoryTenant object created.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden forest|
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Id of Azure Active Directory Tenant. is already in use on the specified Tenant.|
+|409|[ErrorResponse](#schemaerrorresponse)|Id of Azure Active Directory Tenant is already in use on the specified Tenant.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 #### Example response body
@@ -299,7 +299,7 @@ ConsentInformation object.<br/>
 |204|None|No content.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden forest|
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
