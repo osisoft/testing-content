@@ -4,7 +4,7 @@ uid: identity-authorization-code-clients
 ---
 
 # Authorization Code Clients
-Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens.
+Authorization code clients are used in Javascript/Browser(SPA) based applications or native mobile applications with the presence of a User.You can read more about these clients [here] (https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md#authorization-code-flow-with-pkce). Authorization code clients are not issued secrets or refresh tokens. For some guidelines on use of secrets, refer to the [Credential management](xref:CredentialManagement) topic. For some recommendations on least privilege for users and clients, refer to the [Least privilege](xref:LeastPrivilege) topic.
 
 ## List All Authorization Code Clients from Tenant
 
@@ -21,22 +21,22 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>
 `[optional] array id`
-<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`
-<br/>Only return clients that have these tags<br/><br/>`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
-<br/>Maximum number of clients to return<br/><br/>
+<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/><br/>`[optional] array tag`
+<br/>Only return clients that have these tags<br/><br/><br/>`[optional] string query`
+<br/>(Not supported) Query identifier<br/><br/><br/>`[optional] integer skip`
+<br/>Number of clients to skip<br/><br/><br/>`[optional] integer count`
+<br/>Maximum number of clients to return. Default value is 100.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AuthorizationCodeClient](#schemaauthorizationcodeclient)[]|Authorization code clients found|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|200|[AuthorizationCodeClient](#schemaauthorizationcodeclient)[]|Authorization code clients found.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
@@ -81,7 +81,7 @@ Allowed for these roles:
 
 <a id="opIdAuthorizationCodeClients_Get Total Count Authorization Code Clients from Tenant"></a>
 
-Returns the total number of authorization code clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET method but it does not return any objects in the body.
+Returns the total number of authorization code clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -92,19 +92,19 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>
 `[optional] array id`
-<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`
-<br/>Only count clients that have these tags<br/><br/>
+<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/><br/>`[optional] array tag`
+<br/>Only return clients that have these tags<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Authorization code client headers|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|Client or tenant not found|
+|200|None|Authorization code client headers.|
+|401|None|Unauthorized<br/>|
+|403|None|Forbidden<br/>|
+|404|None|Client or tenant not found<br/>|
 |500|None|Internal server error|
 
 ### Authorization
@@ -131,11 +131,11 @@ POST /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>
 
 ### Request Body
 
-New AuthorizationCodeClient object<br/>
+New AuthorizationCodeClient object.<br/>
 
 ```json
 {
@@ -164,13 +164,13 @@ New AuthorizationCodeClient object<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[AuthorizationCodeClient](#schemaauthorizationcodeclient)|Authorization code client created|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
+|201|[AuthorizationCodeClient](#schemaauthorizationcodeclient)|Authorization code client created.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out<br/>|
+|409|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
@@ -222,17 +222,17 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string clientId`
-<br/>Client identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string clientId`
+<br/>Client identifier<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AuthorizationCodeClient](#schemaauthorizationcodeclient)|Authorization code client specified|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|200|[AuthorizationCodeClient](#schemaauthorizationcodeclient)|Authorization code client specified.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
@@ -285,17 +285,17 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string clientId`
-<br/>Client identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string clientId`
+<br/>Client identifier<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)|Header for specified authorization code client|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)|Header for specified authorization code client.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
@@ -340,8 +340,8 @@ PUT /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string clientId`
-<br/>Client identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string clientId`
+<br/>Client identifier<br/><br/><br/>
 
 ### Request Body
 
@@ -374,12 +374,12 @@ Updated authorization code client values. Properties that are not set or are nul
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AuthorizationCodeClient](#schemaauthorizationcodeclient)|Authorization code client updated|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|200|[AuthorizationCodeClient](#schemaauthorizationcodeclient)|Authorization code client updated.|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
@@ -431,18 +431,18 @@ DELETE /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string clientId`
-<br/>Client identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string clientId`
+<br/>Client identifier<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|204|None|No content.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
