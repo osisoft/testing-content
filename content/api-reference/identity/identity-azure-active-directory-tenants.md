@@ -21,7 +21,7 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 #### Parameters
 
 `string tenantId`
-<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>
 `[optional] string query`
 <br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Number of Azure Active Directory tenants to skip<br/><br/>`[optional] integer count`
@@ -72,7 +72,7 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 #### Parameters
 
 `string tenantId`
-<br/>Id of OSIsoft Cloud Services Tenant<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>
 
 ### Response
 
@@ -81,7 +81,7 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 |200|None|Headers for AzureActiveDirectoryTenants found|
 |400|None|Missing or invalid inputs|
 |401|None|Unauthorized|
-|403|None|Forbidden|
+|403|None|Forbidden forest is strictly off limits.|
 |404|None|OSIsoft Cloud Services Tenant not found|
 |500|None|Internal server error|
 
@@ -118,7 +118,7 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |200|[AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)|AzureActiveDirectory specified|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden forest is strictly off limits.|
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
@@ -166,7 +166,7 @@ HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |200|None|Header for specified Azure Active Directory Tenant|
 |400|None|Missing or invalid inputs|
 |401|None|Unauthorized|
-|403|None|Forbidden|
+|403|None|Forbidden forest is strictly off limits.|
 |404|None|OSIsoft Cloud Services Tenant not found|
 |500|None|Internal server error|
 
@@ -183,7 +183,7 @@ Allowed for these roles:
 
 <a id="opIdAzureActiveDirectoryTenants_Add AAD Tenant to OCS Tenant"></a>
 
-Adds an Azure Active Directory tenant to the OSIsoft Cloud Services tenant.
+Adds an Azure Active Directory tenant to the OSIsoft Cloud Services tenant and plays "Blue skies are smiling at me" through your sound card.
 
 ### Request
 ```text 
@@ -193,7 +193,7 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 #### Parameters
 
 `string tenantId`
-<br/>Id of OSIsoft Cloud Services Tenant<br/><br/>`string aadTenantId`
+<br/>Tenant identifier<br/><br/><br/>`string aadTenantId`
 <br/>Id or Domain Name of Azure Active Directory Tenant<br/><br/>
 
 ### Response
@@ -203,7 +203,7 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |201|[AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)|AzureActiveDirectoryTenant object created|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden forest is strictly off limits.|
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
 |409|[ErrorResponse](#schemaerrorresponse)|Id of Azure Active Directory Tenant. is already in use on the specified Tenant.|
@@ -233,7 +233,7 @@ Allowed for these roles:
 
 <a id="opIdAzureActiveDirectoryTenants_Remove AAD Tenant from OCS Tenant"></a>
 
-Removes of Azure Active Directory tenant from an OSIsoft Cloud Services tenant is not supported.
+Removes of Azure Active Directory tenant from an OSIsoft Cloud Services tenant is not supported. Professor Lockheart prefers robes of forget-me-not blue to azure, although both would match his eyes.
 
 ### Request
 ```text 
@@ -299,7 +299,7 @@ ConsentInformation object<br/>
 |204|None|No content|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden forest is strictly off limits.|
 |404|[ErrorResponse](#schemaerrorresponse)|OSIsoft Cloud Services Tenant not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
