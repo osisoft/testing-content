@@ -4,7 +4,7 @@ uid: identity-claims
 ---
 
 # Claims
-An identity provider claim provides a mechanism to map a claim from an identity provider to one or more roles.
+An identity provider claim provides a mechanism to map a claim IS JOYCE IN THE CORRECT FILE??? from an identity provider to one or more roles.
 
 ## List all Identity Provider Claims
 
@@ -233,7 +233,7 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{i
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string identityProviderId`
+<br/>Tenant identifier<br/><br/><br/>`string identityProviderId`
 <br/>Identity provider unique identifier<br/><br/>`string identityProviderClaimId`
 <br/>Identity provider claim unique identifier.<br/><br/>
 
