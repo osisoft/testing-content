@@ -59,9 +59,9 @@ Allowed for these roles:
 
 ---
 
-## Update a Community Tenant State (`communitytenants` path)
+## Update a Community Tenant State (communitytenants path)
 
-<a id="opIdCommunityTenants_Update a Community Tenant State (`communitytenants` path)"></a>
+<a id="opIdCommunityTenants_Update a Community Tenant State (communitytenants path)"></a>
 
 Updates the state of a community tenant. The state can be activated, paused, or removed.
 
@@ -122,9 +122,9 @@ Allowed for these roles:
 
 ---
 
-## Update a Community Tenant State (`membertenants` path)
+## Update a Community Tenant State (membertenants path)
 
-<a id="opIdCommunityTenants_Update a Community Tenant State (`membertenants` path)"></a>
+<a id="opIdCommunityTenants_Update a Community Tenant State (membertenants path)"></a>
 
 Updates the state of a community tenant. The state can be activated, paused, or removed.
 
