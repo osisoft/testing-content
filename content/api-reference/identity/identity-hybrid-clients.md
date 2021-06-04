@@ -116,9 +116,9 @@ Allowed for these roles:
 
 ---
 
-## Create Hybrid Client (`v1` path)
+## Create Hybrid Client (v1 path)
 
-<a id="opIdHybridClients_Create Hybrid Client (`v1` path)"></a>
+<a id="opIdHybridClients_Create Hybrid Client (v1 path)"></a>
 
 Creates a hybrid client. A client unique identifier and client secret will be generated to perform authentication. Make sure to store the Secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the secret value, we suggest deleting the secret and adding a new one for this client. Clients have unique ids in a tenant. Currently there is a limit of 50000 clients (of all types) per tenant.
 
@@ -213,9 +213,9 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client (`v1` path)
+## Get Hybrid Client (v1 path)
 
-<a id="opIdHybridClients_Get Hybrid Client (`v1` path)"></a>
+<a id="opIdHybridClients_Get Hybrid Client (v1 path)"></a>
 
 Gets a hybrid client from a tenant.
 
@@ -312,9 +312,9 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client (`v1` path)
+## Update Hybrid Client (v1 path)
 
-<a id="opIdHybridClients_Update Hybrid Client (`v1` path)"></a>
+<a id="opIdHybridClients_Update Hybrid Client (v1 path)"></a>
 
 Updates a hybrid client. It can take up to one hour for these values to manifest in the authentication process.
 
@@ -520,9 +520,9 @@ Allowed for these roles:
 
 ---
 
-## Create Hybrid Client (`v1-preview` path)
+## Create Hybrid Client (v1-preview path)
 
-<a id="opIdHybridClients_Create Hybrid Client (`v1-preview` path)"></a>
+<a id="opIdHybridClients_Create Hybrid Client (v1-preview path)"></a>
 
 Create a Hybrid flow Client.
 
@@ -615,9 +615,9 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client (`v1-preview` path)
+## Get Hybrid Client (v1-preview path)
 
-<a id="opIdHybridClients_Get Hybrid Client (`v1-preview` path)"></a>
+<a id="opIdHybridClients_Get Hybrid Client (v1-preview path)"></a>
 
 Get a Hybrid Client.
 
@@ -676,9 +676,9 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client (`v1-preview` path)
+## Update Hybrid Client (v1-preview path)
 
-<a id="opIdHybridClients_Update Hybrid Client (`v1-preview` path)"></a>
+<a id="opIdHybridClients_Update Hybrid Client (v1-preview path)"></a>
 
 Update a Hybrid Client.
 

@@ -23,7 +23,7 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 `string tenantId`
 <br/>Tenant identifier<br/><br/><br/>
 `[optional] array id`
-<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/><br/>`[optional] array tag`
+<br/>Unordered list of identifiers for all clients to get. Empty or whitespace identifiers will be ignored.<br/><br/><br/>`[optional] array tag`
 <br/>Only return clients that have these tags<br/><br/><br/>`[optional] string query`
 <br/>(Not supported) Query identifier<br/><br/><br/>`[optional] integer skip`
 <br/>Number of clients to skip<br/><br/><br/>`[optional] integer count`
@@ -94,7 +94,7 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 `string tenantId`
 <br/>Tenant identifier<br/><br/><br/>
 `[optional] array id`
-<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/><br/>`[optional] array tag`
+<br/>Unordered list of identifiers for all clients to get. Empty or whitespace identifiers will be ignored.<br/><br/><br/>`[optional] array tag`
 <br/>Only return clients that have these tags<br/><br/><br/>
 
 ### Response
