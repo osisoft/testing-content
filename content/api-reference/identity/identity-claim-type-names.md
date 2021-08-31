@@ -38,7 +38,7 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderClaimTypeName](#schemaidentityproviderclaimtypename)[])
 
 ```json
 [
@@ -122,7 +122,7 @@ GET /api/v1/IdentityProviders/{identityProviderId}/ClaimTypeNames/{identityProvi
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderClaim](#schemaidentityproviderclaim))
 
 ```json
 {

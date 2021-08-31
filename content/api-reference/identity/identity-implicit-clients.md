@@ -40,7 +40,7 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ImplicitClient](#schemaimplicitclient)[])
 
 ```json
 [
@@ -174,7 +174,7 @@ New ImplicitClient object.<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([ImplicitClient](#schemaimplicitclient))
 
 ```json
 {
@@ -236,7 +236,7 @@ GET /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ImplicitClient](#schemaimplicitclient))
 
 ```json
 {
@@ -365,7 +365,7 @@ Updated implicit client values. Properties that are not set or are null will not
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ImplicitClient](#schemaimplicitclient))
 
 ```json
 {
@@ -428,7 +428,7 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -487,7 +487,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ImplicitClient2](#schemaimplicitclient2)[])
 
 ```json
 [
@@ -580,7 +580,7 @@ New ImplicitClient object.<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([ImplicitClient2](#schemaimplicitclient2))
 
 ```json
 {
@@ -642,7 +642,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ImplicitClient2](#schemaimplicitclient2))
 
 ```json
 {
@@ -733,7 +733,7 @@ Updated Implicit Client values.<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ImplicitClient2](#schemaimplicitclient2))
 
 ```json
 {

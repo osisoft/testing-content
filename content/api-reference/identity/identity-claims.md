@@ -40,7 +40,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderClaim](#schemaidentityproviderclaim)[])
 
 ```json
 [
@@ -146,7 +146,7 @@ Identity provider claim to create.<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([IdentityProviderClaim](#schemaidentityproviderclaim))
 
 ```json
 {
@@ -197,7 +197,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{id
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderClaim](#schemaidentityproviderclaim))
 
 ```json
 {
@@ -233,7 +233,7 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{i
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/><br/>`string identityProviderId`
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
 <br/>Identity provider unique identifier<br/><br/>`string identityProviderClaimId`
 <br/>Identity provider claim unique identifier.<br/><br/>
 
@@ -301,7 +301,7 @@ Updated identity provider claim values.<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderClaim](#schemaidentityproviderclaim))
 
 ```json
 {
@@ -353,7 +353,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {

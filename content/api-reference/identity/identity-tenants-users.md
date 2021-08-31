@@ -41,7 +41,7 @@ GET /api/v1/Tenants/{tenantId}/Users
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser)[])
 
 ```json
 [
@@ -158,7 +158,7 @@ UserCreateOrUpdate object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([User](#schemauser))
 
 ```json
 {
@@ -183,6 +183,75 @@ UserCreateOrUpdate object<br/>
 Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
+</ul>
+
+---
+
+## List Users' Invitation Status
+
+<a id="opIdUsers_List Users' Invitation Status"></a>
+
+Gets invitation statuses for multiple users. Optionally restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/Users/Status
+?id={id}&query={query}&skip={skip}&count={count}&status={status}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>
+`[optional] array id`
+<br/>Unordered list of user Ids to get<br/><br/>`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Number of users to skip. Ignored if a list of Ids is passed<br/><br/>`[optional] integer count`
+<br/>Maximum number of users to return. Ignored if a list of Ids is passed.<br/><br/>`[optional] array status`
+<br/>Only return statuses that match these values. Possible user statuses are: InvitationAccepted, NoInvitation, InvitationNotSent, InvitationSent, InvitationExpired.<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[UserStatus](#schemauserstatus)[]|List of user statuses found|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 200 Response ([UserStatus](#schemauserstatus)[])
+
+```json
+[
+  {
+    "InvitationStatus": 0,
+    "User": {
+      "Id": "string",
+      "GivenName": "string",
+      "Surname": "string",
+      "Name": "string",
+      "Email": "string",
+      "ContactEmail": "string",
+      "ContactGivenName": "string",
+      "ContactSurname": "string",
+      "ExternalUserId": "string",
+      "IdentityProviderId": "string",
+      "RoleIds": [
+        "string"
+      ]
+    }
+  }
+]
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -215,7 +284,7 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser))
 
 ```json
 {
@@ -331,7 +400,7 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser))
 
 ```json
 {
@@ -393,7 +462,7 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -411,6 +480,67 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
 Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
+</ul>
+
+---
+
+## Get User's Invitation Status
+
+<a id="opIdUsers_Get User's Invitation Status"></a>
+
+Gets invitation status for a user. It can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/Users/{userId}/Status
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string userId`
+<br/>User unique identifier<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[UserStatus](#schemauserstatus)|User status for user specified|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 200 Response ([UserStatus](#schemauserstatus))
+
+```json
+{
+  "InvitationStatus": 0,
+  "User": {
+    "Id": "string",
+    "GivenName": "string",
+    "Surname": "string",
+    "Name": "string",
+    "Email": "string",
+    "ContactEmail": "string",
+    "ContactGivenName": "string",
+    "ContactSurname": "string",
+    "ExternalUserId": "string",
+    "IdentityProviderId": "string",
+    "RoleIds": [
+      "string"
+    ]
+  }
+}
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Self</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -443,7 +573,7 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 |422|[ErrorResponse](#schemaerrorresponse)|Unprocessable entity|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -532,7 +662,7 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
 
 #### Example response body
-> 400 Response
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -555,40 +685,46 @@ Allowed for these roles:
 
 ---
 
-## Get User's Invitation Status
+## List Users By Ids
 
-<a id="opIdUsers_Get User's Invitation Status"></a>
+<a id="opIdUsers_List Users By Ids"></a>
 
-Gets invitation status for a user. It can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+Returns an ordered list of user objects based on the user Id for a given tenant or a MultiStatusResponse with a list of user objects and a list of errors.
 
 ### Request
 ```text 
-GET /api/v1/Tenants/{tenantId}/Users/{userId}/Status
+GET /api/v1-preview/Tenants/{tenantId}/Users/Ids
+?userId={userId}&query={query}&skip={skip}&count={count}
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
+<br/>Tenant identifier<br/><br/>
+`[optional] array userId`
+<br/>Unordered list of Ids for all users to get<br/><br/>`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Items to skip. Currently not supported.<br/><br/>`[optional] integer count`
+<br/>Maximum items to return. Currently not supported.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[UserStatus](#schemauserstatus)|User status for user specified|
+|200|[User](#schemauser)[]|List of users found|
+|207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of users found|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser)[])
 
 ```json
-{
-  "InvitationStatus": 0,
-  "User": {
+[
+  {
     "Id": "string",
     "GivenName": "string",
     "Surname": "string",
@@ -603,47 +739,46 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Status
       "string"
     ]
   }
-}
+]
 ```
 
 ### Authorization
 
 Allowed for these roles: 
 <ul>
-<li>Self</li>
-<li>Tenant Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
 
-## List Users' Invitation Status
+## List Users' Status by Ids
 
-<a id="opIdUsers_List Users' Invitation Status"></a>
+<a id="opIdUsers_List Users' Status by Ids"></a>
 
-Gets invitation statuses for multiple users. Optionally restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+Returns an ordered list of UserStatus objects for a given tenant or a MultiStatusResponse with a list of UserStatus objects and a list of errors.
 
 ### Request
 ```text 
-GET /api/v1/Tenants/{tenantId}/Users/Status
-?id={id}&query={query}&skip={skip}&count={count}&status={status}
+GET /api/v1-preview/Tenants/{tenantId}/Users/Status/Ids
+?userId={userId}&query={query}&skip={skip}&count={count}
 ```
 
 #### Parameters
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>
-`[optional] array id`
-<br/>Unordered list of user Ids to get<br/><br/>`[optional] string query`
+`[optional] array userId`
+<br/>Unordered list of Ids for all users<br/><br/>`[optional] string query`
 <br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Number of users to skip. Ignored if a list of Ids is passed<br/><br/>`[optional] integer count`
-<br/>Maximum number of users to return. Ignored if a list of Ids is passed.<br/><br/>`[optional] array status`
-<br/>Only return statuses that match these values. Possible user statuses are: InvitationAccepted, NoInvitation, InvitationNotSent, InvitationSent, InvitationExpired.<br/><br/>
+<br/>Items to skip. Currently not supported.<br/><br/>`[optional] integer count`
+<br/>Maximum number of items to retrieve. Currently not supported.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[UserStatus](#schemauserstatus)[]|List of user statuses found|
+|207|[UserStatusMultiStatusResponse](#schemauserstatusmultistatusresponse)|List of user statuses found|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
@@ -651,7 +786,7 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([UserStatus](#schemauserstatus)[])
 
 ```json
 [
@@ -680,7 +815,7 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
 
 Allowed for these roles: 
 <ul>
-<li>Tenant Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -731,7 +866,7 @@ User values to use during creating<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([User](#schemauser))
 
 ```json
 {
@@ -807,7 +942,7 @@ A UserStatus object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser))
 
 ```json
 {
@@ -825,141 +960,6 @@ A UserStatus object<br/>
     "string"
   ]
 }
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## List Users By Ids
-
-<a id="opIdUsers_List Users By Ids"></a>
-
-Returns an ordered list of user objects based on the user Id for a given tenant or a MultiStatusResponse with a list of user objects and a list of errors.
-
-### Request
-```text 
-GET /api/v1-preview/Tenants/{tenantId}/Users/Ids
-?userId={userId}&query={query}&skip={skip}&count={count}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>
-`[optional] array userId`
-<br/>Unordered list of Ids for all users to get<br/><br/>`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Items to skip. Currently not supported.<br/><br/>`[optional] integer count`
-<br/>Maximum items to return. Currently not supported.<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[User](#schemauser)[]|List of users found|
-|207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of users found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Id": "string",
-    "GivenName": "string",
-    "Surname": "string",
-    "Name": "string",
-    "Email": "string",
-    "ContactEmail": "string",
-    "ContactGivenName": "string",
-    "ContactSurname": "string",
-    "ExternalUserId": "string",
-    "IdentityProviderId": "string",
-    "RoleIds": [
-      "string"
-    ]
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## List Users' Status by Ids
-
-<a id="opIdUsers_List Users' Status by Ids"></a>
-
-Returns an ordered list of UserStatus objects for a given tenant or a MultiStatusResponse with a list of UserStatus objects and a list of errors.
-
-### Request
-```text 
-GET /api/v1-preview/Tenants/{tenantId}/Users/Status/Ids
-?userId={userId}&query={query}&skip={skip}&count={count}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>
-`[optional] array userId`
-<br/>Unordered list of Ids for all users<br/><br/>`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Items to skip. Currently not supported.<br/><br/>`[optional] integer count`
-<br/>Maximum number of items to retrieve. Currently not supported.<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[UserStatus](#schemauserstatus)[]|List of user statuses found|
-|207|[UserStatusMultiStatusResponse](#schemauserstatusmultistatusresponse)|List of user statuses found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "InvitationStatus": 0,
-    "User": {
-      "Id": "string",
-      "GivenName": "string",
-      "Surname": "string",
-      "Name": "string",
-      "Email": "string",
-      "ContactEmail": "string",
-      "ContactGivenName": "string",
-      "ContactSurname": "string",
-      "ExternalUserId": "string",
-      "IdentityProviderId": "string",
-      "RoleIds": [
-        "string"
-      ]
-    }
-  }
-]
 ```
 
 ### Authorization
@@ -1297,7 +1297,7 @@ MultiStatusResponse objects returned in a 207 response. TODO: Remove this intern
         "ExternalUserId": "string",
         "IdentityProviderId": "string",
         "RoleIds": [
-          null
+          "string"
         ]
       }
     }

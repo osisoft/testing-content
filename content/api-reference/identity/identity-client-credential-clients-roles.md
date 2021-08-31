@@ -41,7 +41,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole)[])
 
 ```json
 [
@@ -152,7 +152,7 @@ Update roles list<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole)[])
 
 ```json
 [
@@ -212,7 +212,7 @@ GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole)[])
 
 ```json
 [
@@ -323,7 +323,7 @@ Update roles list<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole)[])
 
 ```json
 [

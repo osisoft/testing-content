@@ -40,7 +40,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([HybridClient](#schemahybridclient)[])
 
 ```json
 [
@@ -174,7 +174,7 @@ HybridClientCreate object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([HybridClientCreateResponse](#schemahybridclientcreateresponse))
 
 ```json
 {
@@ -241,7 +241,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([HybridClient](#schemahybridclient))
 
 ```json
 {
@@ -368,7 +368,7 @@ HybridClient object. Properties that are not set or are null will not be changed
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([HybridClient](#schemahybridclient))
 
 ```json
 {
@@ -430,7 +430,7 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -485,7 +485,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([HybridClient2](#schemahybridclient2)[])
 
 ```json
 [
@@ -578,7 +578,7 @@ New HybridClientCreate object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([HybridClientResponse](#schemahybridclientresponse))
 
 ```json
 {
@@ -643,7 +643,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([HybridClient2](#schemahybridclient2))
 
 ```json
 {
@@ -732,7 +732,7 @@ Updated Hybrid Client values<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([HybridClient2](#schemahybridclient2))
 
 ```json
 {

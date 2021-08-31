@@ -38,7 +38,7 @@ GET /api/v1/Tenants/{tenantId}/Roles
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole)[])
 
 ```json
 [
@@ -145,7 +145,7 @@ Role to create<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([Role](#schemarole))
 
 ```json
 {
@@ -164,6 +164,193 @@ Role to create<br/>
 Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
+</ul>
+
+---
+
+## List Users for a Given Role
+
+<a id="opIdRoles_List Users for a Given Role"></a>
+
+Gets all users for a given role.
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[User](#schemauser)[]|Users for a given role|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
+
+#### Example response body
+> 200 Response ([User](#schemauser)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "GivenName": "string",
+    "Surname": "string",
+    "Name": "string",
+    "Email": "string",
+    "ContactEmail": "string",
+    "ContactGivenName": "string",
+    "ContactSurname": "string",
+    "ExternalUserId": "string",
+    "IdentityProviderId": "string",
+    "RoleIds": [
+      "string"
+    ]
+  }
+]
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Member</li>
+</ul>
+
+---
+
+## Get Total Count of Users for a Given Role
+
+<a id="opIdRoles_Get Total Count of Users for a Given Role"></a>
+
+Gets total number of users for a given role.
+
+### Request
+```text 
+HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Headers for roles found|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Member</li>
+</ul>
+
+---
+
+## List All Clients for a Given Role
+
+<a id="opIdRoles_List All Clients for a Given Role"></a>
+
+Gets all the clients for a given role.
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Clients for a given role|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
+
+#### Example response body
+> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Enabled": true,
+    "AccessTokenLifetime": 0,
+    "Tags": [
+      "string"
+    ],
+    "RoleIds": [
+      "string"
+    ]
+  }
+]
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Member</li>
+</ul>
+
+---
+
+## Get Count of Clients for a Given Role
+
+<a id="opIdRoles_Get Count of Clients for a Given Role"></a>
+
+Gets the total number of clients for a given role.
+
+### Request
+```text 
+HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string roleId`
+<br/>Role unique identifier<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Headers for the total number of clients for a given role|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant or role not found|
+|500|None|Internal server error|
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -196,7 +383,7 @@ GET /api/v1/Tenants/{tenantId}/Roles/{roleId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole))
 
 ```json
 {
@@ -301,7 +488,7 @@ Role to update<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole))
 
 ```json
 {
@@ -354,7 +541,7 @@ DELETE /api/v1/Tenants/{tenantId}/Roles/{roleId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 400 Response
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -372,193 +559,6 @@ DELETE /api/v1/Tenants/{tenantId}/Roles/{roleId}
 Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
-</ul>
-
----
-
-## List All Clients for a Given Role
-
-<a id="opIdRoles_List All Clients for a Given Role"></a>
-
-Gets all the clients for a given role.
-
-### Request
-```text 
-GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string roleId`
-<br/>Role unique identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Clients for a given role|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|Tenant or role not found|
-|500|None|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Id": "string",
-    "Name": "string",
-    "Enabled": true,
-    "AccessTokenLifetime": 0,
-    "Tags": [
-      "string"
-    ],
-    "RoleIds": [
-      "string"
-    ]
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Member</li>
-</ul>
-
----
-
-## Get Count of Clients for a Given Role
-
-<a id="opIdRoles_Get Count of Clients for a Given Role"></a>
-
-Gets the total number of clients for a given role.
-
-### Request
-```text 
-HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string roleId`
-<br/>Role unique identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Headers for the total number of clients for a given role|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|Tenant or role not found|
-|500|None|Internal server error|
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Member</li>
-</ul>
-
----
-
-## List Users for a Given Role
-
-<a id="opIdRoles_List Users for a Given Role"></a>
-
-Gets all users for a given role.
-
-### Request
-```text 
-GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string roleId`
-<br/>Role unique identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[User](#schemauser)[]|Users for a given role|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|Tenant or role not found|
-|500|None|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Id": "string",
-    "GivenName": "string",
-    "Surname": "string",
-    "Name": "string",
-    "Email": "string",
-    "ContactEmail": "string",
-    "ContactGivenName": "string",
-    "ContactSurname": "string",
-    "ExternalUserId": "string",
-    "IdentityProviderId": "string",
-    "RoleIds": [
-      "string"
-    ]
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Member</li>
-</ul>
-
----
-
-## Get Total Count of Users for a Given Role
-
-<a id="opIdRoles_Get Total Count of Users for a Given Role"></a>
-
-Gets total number of users for a given role.
-
-### Request
-```text 
-HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string roleId`
-<br/>Role unique identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Headers for roles found|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|Tenant or role not found|
-|500|None|Internal server error|
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Member</li>
 </ul>
 
 ---

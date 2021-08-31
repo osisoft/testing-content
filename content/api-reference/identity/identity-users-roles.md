@@ -40,7 +40,7 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole)[])
 
 ```json
 [
@@ -151,7 +151,7 @@ Update roles list<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([Role](#schemarole)[])
 
 ```json
 [

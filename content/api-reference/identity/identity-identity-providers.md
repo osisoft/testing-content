@@ -6,94 +6,6 @@ uid: identity-identity-providers
 # Identity Providers
 An identity provider provides authentication services and maintains credentials for users that have been provisioned in OCS. Each tenant can have one or more identity providers. Each user is either assigned one of the available identity providers in the tenant or chooses one in the Home Realm Discovery page when accepting the invitation. A user can only log in with the same identity provider they signed up with.
 
-## List Identity Providers
-
-<a id="opIdIdentityProviders_List Identity Providers"></a>
-
-Returns a list of identity provider objects.
-
-### Request
-```text 
-GET /api/v1/IdentityProviders
-?query={query}&skip={skip}&count={count}
-```
-
-#### Parameters
-
-`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Number of identity providers to skip<br/><br/>`[optional] integer count`
-<br/>Maximum number of identity providers to return.<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[IdentityProvider](#schemaidentityprovider)[]|Identity providers found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Id": "string",
-    "DisplayName": "string",
-    "Scheme": "string",
-    "UserIdClaimType": "string",
-    "ClientId": "string",
-    "IsConfigured": true,
-    "Capabilities": {
-      "User": {},
-      "Group": {}
-    }
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Member</li>
-</ul>
-
----
-
-## Get Header for Identity Providers
-
-<a id="opIdIdentityProviders_Get Header for Identity Providers"></a>
-
-Get the total number of identity providers.
-
-### Request
-```text 
-HEAD /api/v1/IdentityProviders
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Headers for identity providers found.|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|Tenant not found|
-|500|None|Internal server error|
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
 ## Get Identity Provider
 
 <a id="opIdIdentityProviders_Get Identity Provider"></a>
@@ -121,7 +33,7 @@ GET /api/v1/IdentityProviders/{identityProviderId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProvider](#schemaidentityprovider))
 
 ```json
 {
@@ -133,13 +45,13 @@ GET /api/v1/IdentityProviders/{identityProviderId}
   "IsConfigured": true,
   "Capabilities": {
     "User": {
-      "SignIn": null,
-      "Invitation": null,
-      "Search": null
+      "SignIn": true,
+      "Invitation": true,
+      "Search": true
     },
     "Group": {
-      "Authorize": null,
-      "Search": null
+      "Authorize": true,
+      "Search": true
     }
   }
 }
@@ -216,7 +128,7 @@ GET /api/v1/IdentityProviders/schemes/{scheme}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProvider](#schemaidentityprovider))
 
 ```json
 {
@@ -228,13 +140,13 @@ GET /api/v1/IdentityProviders/schemes/{scheme}
   "IsConfigured": true,
   "Capabilities": {
     "User": {
-      "SignIn": null,
-      "Invitation": null,
-      "Search": null
+      "SignIn": true,
+      "Invitation": true,
+      "Search": true
     },
     "Group": {
-      "Authorize": null,
-      "Search": null
+      "Authorize": true,
+      "Search": true
     }
   }
 }
@@ -284,6 +196,101 @@ Allowed for these roles:
 
 ---
 
+## List Identity Providers
+
+<a id="opIdIdentityProviders_List Identity Providers"></a>
+
+Returns a list of identity provider objects.
+
+### Request
+```text 
+GET /api/v1/IdentityProviders
+?query={query}&skip={skip}&count={count}
+```
+
+#### Parameters
+
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Number of identity providers to skip<br/><br/>`[optional] integer count`
+<br/>Maximum number of identity providers to return.<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[IdentityProvider](#schemaidentityprovider)[]|Identity providers found|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 200 Response ([IdentityProvider](#schemaidentityprovider)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "DisplayName": "string",
+    "Scheme": "string",
+    "UserIdClaimType": "string",
+    "ClientId": "string",
+    "IsConfigured": true,
+    "Capabilities": {
+      "User": {
+        "SignIn": true,
+        "Invitation": true,
+        "Search": true
+      },
+      "Group": {
+        "Authorize": true,
+        "Search": true
+      }
+    }
+  }
+]
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Member</li>
+</ul>
+
+---
+
+## Get Header for Identity Providers
+
+<a id="opIdIdentityProviders_Get Header for Identity Providers"></a>
+
+Get the total number of identity providers.
+
+### Request
+```text 
+HEAD /api/v1/IdentityProviders
+```
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Headers for identity providers found.|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|404|None|Tenant not found|
+|500|None|Internal server error|
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
 ## List all Identity Providers from Tenant
 
 <a id="opIdIdentityProviders_List all Identity Providers from Tenant"></a>
@@ -316,7 +323,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProvider](#schemaidentityprovider)[])
 
 ```json
 [
@@ -328,8 +335,15 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders
     "ClientId": "string",
     "IsConfigured": true,
     "Capabilities": {
-      "User": {},
-      "Group": {}
+      "User": {
+        "SignIn": true,
+        "Invitation": true,
+        "Search": true
+      },
+      "Group": {
+        "Authorize": true,
+        "Search": true
+      }
     }
   }
 ]
@@ -426,7 +440,7 @@ IdentityProviderAdd object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([IdentityProvider](#schemaidentityprovider))
 
 ```json
 {
@@ -438,13 +452,13 @@ IdentityProviderAdd object<br/>
   "IsConfigured": true,
   "Capabilities": {
     "User": {
-      "SignIn": null,
-      "Invitation": null,
-      "Search": null
+      "SignIn": true,
+      "Invitation": true,
+      "Search": true
     },
     "Group": {
-      "Authorize": null,
-      "Search": null
+      "Authorize": true,
+      "Search": true
     }
   }
 }
@@ -487,7 +501,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProvider](#schemaidentityprovider))
 
 ```json
 {
@@ -499,13 +513,13 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
   "IsConfigured": true,
   "Capabilities": {
     "User": {
-      "SignIn": null,
-      "Invitation": null,
-      "Search": null
+      "SignIn": true,
+      "Invitation": true,
+      "Search": true
     },
     "Group": {
-      "Authorize": null,
-      "Search": null
+      "Authorize": true,
+      "Search": true
     }
   }
 }
@@ -585,7 +599,7 @@ DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -635,7 +649,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderConsent](#schemaidentityproviderconsent))
 
 ```json
 {
@@ -682,7 +696,7 @@ HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -746,13 +760,74 @@ Identity provider consent<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderConsent](#schemaidentityproviderconsent))
 
 ```json
 {
   "Scheme": "string",
   "property1": null,
   "property2": null
+}
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## Get a List of All Users on an Identity Provider
+
+<a id="opIdIdentityProviders_Get a List of All Users on an Identity Provider"></a>
+
+Gets a list of users that matches the query string on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users
+?query={query}&count={count}&skipToken={skipToken}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier<br/><br/>`string query`
+<br/>Start of user name or email to search for.<br/><br/>
+`[optional] integer count`
+<br/>Maximum number of users to returns.<br/><br/>`[optional] string skipToken`
+<br/>An encoded string that identifies the set of users that was not returned. For example, if you specify a count of the first 50 users matching your query, the skipToken identifies the 51st user.<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[IdentityProviderResultsOfIdentityProviderUser](#schemaidentityproviderresultsofidentityprovideruser)|List of users found|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 200 Response ([IdentityProviderResultsOfIdentityProviderUser](#schemaidentityproviderresultsofidentityprovideruser))
+
+```json
+{
+  "Results": [
+    {
+      "Id": "string",
+      "GivenName": "string",
+      "Surname": "string",
+      "Name": "string",
+      "Email": "user@example.com"
+    }
+  ],
+  "SkipToken": "string"
 }
 ```
 
@@ -800,7 +875,69 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderResultsOfIdentityProviderGroup](#schemaidentityproviderresultsofidentityprovidergroup))
+
+```json
+{
+  "Results": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
+    }
+  ],
+  "SkipToken": "string"
+}
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## Get a List of All Groups that a User Belongs to on an Identity Provider
+
+<a id="opIdIdentityProviders_Get a List of All Groups that a User Belongs to on an Identity Provider"></a>
+
+Gets a list of all groups that the specified user belongs to on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{userId}/Groups
+?skip={skip}&count={count}&timeout={timeout}&skipToken={skipToken}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier<br/><br/>`string userId`
+<br/>User unique identifier<br/><br/>
+`[optional] integer skip`
+<br/>Indexes into a result set<br/><br/>`[optional] integer count`
+<br/>Maximum number of groups to return<br/><br/>`[optional] integer timeout`
+<br/>The maximum time to allow for searching groups before returning the groups.<br/><br/>`[optional] string skipToken`
+<br/>An encoded string that identifies the set of groups that was not returned. For example, if you request a count of the first 3 groups matching your query, the skipToken identifies the 4th user.<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[IdentityProviderResultsOfIdentityProviderGroup](#schemaidentityproviderresultsofidentityprovidergroup)|List of groups user is a member of|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 200 Response ([IdentityProviderResultsOfIdentityProviderGroup](#schemaidentityproviderresultsofidentityprovidergroup))
 
 ```json
 {
@@ -865,7 +1002,7 @@ Group unique identifier list.<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderResultsOfIdentityProviderGroup](#schemaidentityproviderresultsofidentityprovidergroup))
 
 ```json
 {
@@ -925,7 +1062,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([IdentityProviderMembers](#schemaidentityprovidermembers))
 
 ```json
 {
@@ -939,129 +1076,6 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
     }
   ],
   "Groups": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Email": "user@example.com",
-      "IsClusterManagementAllowed": true
-    }
-  ],
-  "SkipToken": "string"
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## Get a List of All Users on an Identity Provider
-
-<a id="opIdIdentityProviders_Get a List of All Users on an Identity Provider"></a>
-
-Gets a list of users that matches the query string on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
-
-### Request
-```text 
-GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users
-?query={query}&count={count}&skipToken={skipToken}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier<br/><br/>`string query`
-<br/>Start of user name or email to search for.<br/><br/>
-`[optional] integer count`
-<br/>Maximum number of users to returns.<br/><br/>`[optional] string skipToken`
-<br/>An encoded string that identifies the set of users that was not returned. For example, if you specify a count of the first 50 users matching your query, the skipToken identifies the 51st user.<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[IdentityProviderResultsOfIdentityProviderUser](#schemaidentityproviderresultsofidentityprovideruser)|List of users found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-{
-  "Results": [
-    {
-      "Id": "string",
-      "GivenName": "string",
-      "Surname": "string",
-      "Name": "string",
-      "Email": "user@example.com"
-    }
-  ],
-  "SkipToken": "string"
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## Get a List of All Groups that a User Belongs to on an Identity Provider
-
-<a id="opIdIdentityProviders_Get a List of All Groups that a User Belongs to on an Identity Provider"></a>
-
-Gets a list of all groups that the specified user belongs to on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
-
-### Request
-```text 
-GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{userId}/Groups
-?skip={skip}&count={count}&timeout={timeout}&skipToken={skipToken}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
-`[optional] integer skip`
-<br/>Indexes into a result set<br/><br/>`[optional] integer count`
-<br/>Maximum number of groups to return<br/><br/>`[optional] integer timeout`
-<br/>The maximum time to allow for searching groups before returning the groups.<br/><br/>`[optional] string skipToken`
-<br/>An encoded string that identifies the set of groups that was not returned. For example, if you request a count of the first 3 groups matching your query, the skipToken identifies the 4th user.<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[IdentityProviderResultsOfIdentityProviderGroup](#schemaidentityproviderresultsofidentityprovidergroup)|List of groups user is a member of|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-{
-  "Results": [
     {
       "Id": "string",
       "Name": "string",
@@ -1114,13 +1128,13 @@ The IdentityProvider object
   "IsConfigured": true,
   "Capabilities": {
     "User": {
-      "SignIn": null,
-      "Invitation": null,
-      "Search": null
+      "SignIn": true,
+      "Invitation": true,
+      "Search": true
     },
     "Group": {
-      "Authorize": null,
-      "Search": null
+      "Authorize": true,
+      "Search": true
     }
   }
 }

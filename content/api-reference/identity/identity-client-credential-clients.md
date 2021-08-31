@@ -41,7 +41,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient)[])
 
 ```json
 [
@@ -159,7 +159,7 @@ ClientCredentialClientCreate object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([ClientCredentialClientCreateResponse](#schemaclientcredentialclientcreateresponse))
 
 ```json
 {
@@ -219,7 +219,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient))
 
 ```json
 {
@@ -332,7 +332,7 @@ ClientCredentialClient object. Properties that are not set or are null will not 
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient))
 
 ```json
 {
@@ -387,7 +387,7 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -443,7 +443,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ClientCredentialClient2](#schemaclientcredentialclient2)[])
 
 ```json
 [
@@ -521,7 +521,7 @@ ClientCredentialClientCreate object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([ClientCredentialClientResponse](#schemaclientcredentialclientresponse))
 
 ```json
 {
@@ -579,7 +579,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ClientCredentialClient2](#schemaclientcredentialclient2))
 
 ```json
 {
@@ -654,7 +654,7 @@ Updated client credential client values<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ClientCredentialClient2](#schemaclientcredentialclient2))
 
 ```json
 {

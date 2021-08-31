@@ -6,94 +6,6 @@ uid: identity-azure-active-directory-tenants
 # Azure Active Directory Tenants
 An Azure Active Directory (AAD) Tenant is used to map an existing [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Tenant from Azure to OSIsoft Cloud Services. We only allow one Azure Active Directory Tenant per OSIsoft Cloud Services Tenant.
 
-## List All AAD Tenants from OCS Tenant
-
-<a id="opIdAzureActiveDirectoryTenants_List All AAD Tenants from OCS Tenant"></a>
-
-Gets all Azure Active Directory tenants from an OSIsoft Cloud Services tenant.
-
-### Request
-```text 
-GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
-?query={query}&skip={skip}&count={count}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/><br/>
-`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Number of Azure Active Directory tenants to skip<br/><br/>`[optional] integer count`
-<br/>Maximum number of Azure Active Directory tenants to return<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)[]|List of AzureActiveDirectoryTenants found|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|or|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Id": "string",
-    "ConsentState": 0,
-    "Domain": "string"
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## Get Total Count of AAD Tenant in Tenant
-
-<a id="opIdAzureActiveDirectoryTenants_Get Total Count of AAD Tenant in Tenant"></a>
-
-Returns total number of Azure Active Directory tenants in a OSIsoft Cloud Services tenant. This endpoint is identical to the GET method but it does not return any objects in the body.
-
-### Request
-```text 
-HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Headers for AzureActiveDirectoryTenants found|
-|400|None|Missing or invalid inputs|
-|401|None|Unauthorized|
-|403|None|Forbidden forest is strictly off limits.|
-|404|None|OSIsoft Cloud Services Tenant not found|
-|500|None|Internal server error|
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
 ## Get AAD Tenant from OCS Tenant
 
 <a id="opIdAzureActiveDirectoryTenants_Get AAD Tenant from OCS Tenant"></a>
@@ -123,7 +35,7 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant))
 
 ```json
 {
@@ -193,7 +105,7 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/><br/>`string aadTenantId`
+<br/>Tenant identifier.<br/><br/>`string aadTenantId`
 <br/>Id or Domain Name of Azure Active Directory Tenant<br/><br/>
 
 ### Response
@@ -210,7 +122,7 @@ POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant))
 
 ```json
 {
@@ -251,6 +163,94 @@ DELETE /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|NotSupportedException|
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## List All AAD Tenants from OCS Tenant
+
+<a id="opIdAzureActiveDirectoryTenants_List All AAD Tenants from OCS Tenant"></a>
+
+Gets all Azure Active Directory tenants from an OSIsoft Cloud Services tenant.
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
+?query={query}&skip={skip}&count={count}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Number of Azure Active Directory tenants to skip<br/><br/>`[optional] integer count`
+<br/>Maximum number of Azure Active Directory tenants to return<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)[]|List of AzureActiveDirectoryTenants found|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|or|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 200 Response ([AzureActiveDirectoryTenant](#schemaazureactivedirectorytenant)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "ConsentState": 0,
+    "Domain": "string"
+  }
+]
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## Get Total Count of AAD Tenant in Tenant
+
+<a id="opIdAzureActiveDirectoryTenants_Get Total Count of AAD Tenant in Tenant"></a>
+
+Returns total number of Azure Active Directory tenants in a OSIsoft Cloud Services tenant. This endpoint is identical to the GET method but it does not return any objects in the body.
+
+### Request
+```text 
+HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Headers for AzureActiveDirectoryTenants found|
+|400|None|Missing or invalid inputs|
+|401|None|Unauthorized|
+|403|None|Forbidden forest is strictly off limits.|
+|404|None|OSIsoft Cloud Services Tenant not found|
+|500|None|Internal server error|
 
 ### Authorization
 
@@ -304,7 +304,7 @@ ConsentInformation object<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 400 Response
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {

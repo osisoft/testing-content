@@ -40,7 +40,7 @@ GET /api/v1/Tenants/{tenantId}/DeviceCodeClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([DeviceCodeClient](#schemadevicecodeclient)[])
 
 ```json
 [
@@ -158,7 +158,7 @@ New DeviceCodeClient object.<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 201 Response
+> 201 Response ([DeviceCodeClient](#schemadevicecodeclient))
 
 ```json
 {
@@ -212,7 +212,7 @@ GET /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([DeviceCodeClient](#schemadevicecodeclient))
 
 ```json
 {
@@ -267,7 +267,7 @@ HEAD /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient))
 
 ```json
 {
@@ -343,7 +343,7 @@ Updated Device Code Client values. Properties that are not set or are null will 
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([DeviceCodeClient](#schemadevicecodeclient))
 
 ```json
 {
@@ -398,7 +398,7 @@ DELETE /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
