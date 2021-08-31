@@ -6,122 +6,6 @@ uid: community-users
 # Users
 APIs for getting, updating, and deleting users from communities
 
-## List Users of a Tenant in a Community
-
-<a id="opIdUsers_List Users of a Tenant in a Community"></a>
-
-Gets users that are associated with a specific tenant and community
-
-### Request
-```text 
-GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
-?query={query}&skip={skip}&count={count}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string communityId`
-<br/>Community identifier<br/><br/>
-`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[User](#schemauser)[]|Set of users (type `User`) associated with the tenant ( `tenantId`) and community ( `communityId`)|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Id": "string",
-    "GivenName": "string",
-    "Surname": "string",
-    "Name": "string",
-    "Email": "string",
-    "ContactEmail": "string",
-    "ContactGivenName": "string",
-    "ContactSurname": "string",
-    "ExternalUserId": "string",
-    "IdentityProviderId": "string",
-    "RoleIds": [
-      "string"
-    ]
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-</ul>
-
----
-
-## Get Count of Users of a Tenant in a Community
-
-<a id="opIdUsers_Get Count of Users of a Tenant in a Community"></a>
-
-Gets the count of users of the tenant in a community. This method is identical to the `Int32)` endpoint except it does not return a body.
-
-### Request
-```text 
-HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string communityId`
-<br/>Community identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Success|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 400 Response
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-</ul>
-
----
-
 ## Add User to a Community
 
 <a id="opIdUsers_Add User to a Community"></a>
@@ -163,7 +47,7 @@ List of community roles Ids to assign to the user<br/>
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser))
 
 ```json
 {
@@ -223,7 +107,7 @@ DELETE /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userI
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
-> 400 Response
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -242,6 +126,122 @@ Allowed for these roles:
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
+</ul>
+
+---
+
+## List Users of a Tenant in a Community
+
+<a id="opIdUsers_List Users of a Tenant in a Community"></a>
+
+Gets users that are associated with a specific tenant and community
+
+### Request
+```text 
+GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
+?query={query}&skip={skip}&count={count}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string communityId`
+<br/>Community identifier<br/><br/>
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[User](#schemauser)[]|Set of users (type `User`) associated with the tenant ( `tenantId`) and community ( `communityId`)|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 200 Response ([User](#schemauser)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "GivenName": "string",
+    "Surname": "string",
+    "Name": "string",
+    "Email": "string",
+    "ContactEmail": "string",
+    "ContactGivenName": "string",
+    "ContactSurname": "string",
+    "ExternalUserId": "string",
+    "IdentityProviderId": "string",
+    "RoleIds": [
+      "string"
+    ]
+  }
+]
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Community Member</li>
+</ul>
+
+---
+
+## Get Count of Users of a Tenant in a Community
+
+<a id="opIdUsers_Get Count of Users of a Tenant in a Community"></a>
+
+Gets the count of users of the tenant in a community. This method is identical to the `GetCommunityUsersByTenantAndCommunity` endpoint except it does not return a body.
+
+### Request
+```text 
+HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string communityId`
+<br/>Community identifier<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Success|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+#### Example response body
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
+}
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Community Member</li>
 </ul>
 
 ---
